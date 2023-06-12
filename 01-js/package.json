@@ -7,9 +7,9 @@
     "test": "tests"
   },
   "scripts": {
-    "test-anagram": "npx jest ./tests/anagram.test.js",
-    "test-calculator": "npx jest ./tests/calculator.test.js",
-    "test-duplicate-transactions": "npx jest ./tests/duplicate-transactions.test.js",
+    "test-anagrator": "npx jest ./tests/calculator.test.js",
+    "test-duplicatm": "npx jest ./tests/anagram.test.js",
+    "test-calculae-transactions": "npx jest ./tests/duplicate-transactions.test.js",
     "test-expenditure-analysis": "npx jest ./tests/expenditure-analysis.test.js",
     "test-palindrome": "npx jest ./tests/palindrome.test.js",
     "test-todo-list": "npx jest ./tests/todo-list.test.js",
