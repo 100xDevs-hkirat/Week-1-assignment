@@ -12,7 +12,48 @@
 */
 
 class Todo {
+  constructor() {
+    this.todos = [];
+  }
 
+  #length_check(index) {
+    if (index > this.todos.length) {
+      console.log("Index is Out of Bound");
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  add(todo) {
+    this.todos.push(todo);
+  }
+
+  remove(indexOfTodo) {
+    if (this.#length_check(indexOfTodo)) {
+      this.todos.pop(indexOfTodo);
+    }
+  }
+
+  update(index, updatedTodo) {
+    if (this.#length_check(index)) {
+      this.todos[index] = updatedTodo;
+    }
+  }
+
+  getAll() {
+    return this.todos;
+  }
+
+  get(indexOfTodo) {
+    if (this.#length_check(indexOfTodo)) {
+      return this.todos[indexOfTodo];
+    }
+  }
+
+  clear() {
+    this.todos = [];
+  }
 }
 
 module.exports = Todo;
