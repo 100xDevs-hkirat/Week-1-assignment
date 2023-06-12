@@ -9,7 +9,28 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const result = new Map()
+  transactions.forEach(purchase => {
+    if (!result.has(purchase.category)) {
+      result.set(purchase.category, purchase.price)
+    } else {
+      const currentValue = result.get(purchase.category)
+      result.set(purchase.category, purchase.price + currentValue)
+    }
+  })
+  return [...result].map(([key, value]) => ({
+    category: key,
+    spent: value,
+  }))
 }
 
-module.exports = calculateTotalSpentByCategory;
+// Sample Function call
+
+calculateTotalSpentByCategory([
+  { itemName: 'Mango', category: 'fruit', price: 100 },
+  { itemName: 'Apple', category: 'fruit', price: 200 },
+  { itemName: 'Potato', category: 'veggies', price: 50 },
+  { itemName: 'Onion', category: 'veggies', price: 30 },
+])
+
+module.exports = calculateTotalSpentByCategory
