@@ -19,6 +19,4 @@ function isPalindrome(str) {
   return true
 }
 
-console.log(isPalindrome('Nan'))
-
 module.exports = isPalindrome
