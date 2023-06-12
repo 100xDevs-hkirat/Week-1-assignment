@@ -9,7 +9,23 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let categoryAndPrice = {};
+  for (let content of transactions) {
+    let category = content.category;
+    let value = content.price;
+
+    if (categoryAndPrice.hasOwnProperty(category)) {
+      categoryAndPrice[category] += value;
+    } else {
+      categoryAndPrice[category] = value;
+    }
+  }
+
+  return Object.keys(categoryAndPrice).map((key) => ({
+    [key]: categoryAndPrice[key],
+  }));
 }
+
+// This solution expects that in transactions is an array of objects & we have a key called category and a key called price
 
 module.exports = calculateTotalSpentByCategory;
