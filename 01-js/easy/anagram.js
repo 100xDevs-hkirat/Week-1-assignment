@@ -8,15 +8,14 @@
 */
 
 function isAnagram(s,t) {
-  let n=s.length;
-  let m=t.length; 
-  const sorted1 = s.split('').sort().join('')
-  const sorted2 = t.split('').sort().join('')
-  // console.log(sorted1,sorted2)
-   if(sorted1 === sorted2) return true;
-   else return false
-}
-console.log(isAnagram("race", "ecar"))
-console.log(isAnagram("rat", "cat"))
 
+  s = s.replace(/\s/g, "").toLowerCase();
+  t = t.replace(/\s/g, "").toLowerCase();
+
+  const sortedS = s.split("").sort().join("");
+  const sortedT = t.split("").sort().join("");
+
+  return sortedS === sortedT;
+}
+console.log(isAnagram("race","ecar"))
 module.exports = isAnagram;
