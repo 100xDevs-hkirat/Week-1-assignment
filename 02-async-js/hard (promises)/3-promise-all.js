@@ -38,13 +38,13 @@ function waitThreeSecond() {
 
 // waitThreeSecond()
 
-Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()])
-.then(result=>{
-  console.log(result)
-})
-.catch(error=>{
-    console.error("Error occured:",error)
-})
+// Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()])
+// .then(result=>{
+//   console.log(result)
+// })
+// .catch(error=>{
+//     console.error("Error occured:",error)
+// })
 
 //Time taken for all 3 promises to resolve
 
@@ -53,7 +53,7 @@ function calculateTime() {
     Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()])
     .then((result)=>{
         const endTime =new Date().getTime()
-        const elapsedTime = endTime - startTime
+        const elapsedTime = (endTime - startTime)/1000
         console.log(`Elapsed time is ${elapsedTime}`)
         console.log(result)
     })
@@ -61,5 +61,7 @@ function calculateTime() {
         console.error(error)
     })
 }
+module.exports = {
+    calculateTime,
+  };
   
-calculateTime()
