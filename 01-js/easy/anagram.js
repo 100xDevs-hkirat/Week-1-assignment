@@ -8,7 +8,17 @@
 */
 
 function isAnagram(str1, str2) {
+  let hash = {};
+  
+  str1.split('').forEach(element => {
+      hash[element]?hash[element]++:hash[element]=1;
+  });
 
+  for (let element of str2) {
+      if (!hash[element] || hash[element]-- < 1) return false;
+  };
+
+  return true;
 }
 
 module.exports = isAnagram;

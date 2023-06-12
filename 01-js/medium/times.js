@@ -7,6 +7,46 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
+// using Date calss //less precise
 function calculateTime(n) {
-    return 0.01;
+  const start = Date.now();
+
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+
+  const totalTime = Date.now() - start;
+  return totalTime;
 }
+
+// using console.time
+function calculateTime(n) {
+    console.time("timeForSum");
+
+    let sum = 0;
+    for(let i = 1; i<=n; i++) {
+        sum += i;
+    }
+
+    return console.timeEnd("timeForSum");
+}
+
+// using performance.now -- more precise
+function calculateTime(n) {
+  const startTime = performance.now();
+
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  const totalTime = performance.now() - startTime;
+
+  console.log(totalTime);
+  return totalTime;
+}
+
+
+calculateTime(100);
+calculateTime(100000);
+calculateTime(1000000000);
