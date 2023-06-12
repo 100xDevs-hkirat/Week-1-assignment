@@ -9,7 +9,7 @@
 
 function isAnagram(s,t) {
   let n=s.length;
-  let m=t.length;
+  let m=t.length; 
   const sorted1 = s.split('').sort().join('')
   const sorted2 = t.split('').sort().join('')
   // console.log(sorted1,sorted2)
