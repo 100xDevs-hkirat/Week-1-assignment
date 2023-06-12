@@ -8,8 +8,21 @@
   - `npm run test-expenditure-analysis`
 */
 
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let arr = [];
+  let map = new Map();
+  for(let i=0; i<transactions.length; i++) {
+    map.set(transactions[i].category, 0);
+  }
+  for(let i=0; i<transactions.length; i++) {
+    map.set(transactions[i].category, map.get(transactions[i].category)+transactions[i].price)
+  }
+  map.forEach((value, key) => {
+    arr.push({[key] : value})
+  });
+  return arr;
 }
+
 
 module.exports = calculateTotalSpentByCategory;
