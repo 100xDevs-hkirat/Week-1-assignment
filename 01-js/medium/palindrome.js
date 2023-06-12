@@ -7,7 +7,21 @@
 */
 
 function isPalindrome(str) {
-  return true;
+	str = str.trim();
+	const avoid = [',', '?', '!', '.'];
+	for (let i of avoid) {
+		str = str.replaceAll(i, '');
+	}
+	str = str.split(' ').join('');
+	str = str.toLowerCase();
+	let s = 0,
+		e = str.length - 1;
+	while (s < e) {
+		if (str[s] !== str[e]) return false;
+		s += 1;
+		e -= 1;
+	}
+	return true;
 }
 
 module.exports = isPalindrome;
