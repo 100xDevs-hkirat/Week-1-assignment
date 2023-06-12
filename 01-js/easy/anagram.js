@@ -8,9 +8,11 @@
 */
 
 function isAnagram(str1, str2) {
+  //remove blank spaces, extra spaces
   str1 = str1.replace(/\s/g, "");
   str2 = str2.replace(/\s/g, "");
 
+  //convert to lower cases
   str1 = str1.toLowerCase();
   str2 = str2.toLowerCase();
 
@@ -24,7 +26,6 @@ function isAnagram(str1, str2) {
       map1.set(str1[i], 1)
     }
   }
-  console.log(map1)
   for (let i = 0; i < str2.length; i++) {
     if (map1.has(str2[i])) {
       map1.set(str2[i], map1.get(str2[i]) - 1)
