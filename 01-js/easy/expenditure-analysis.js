@@ -23,9 +23,9 @@ function calculateTotalSpentByCategory(transactions) {
   // converting object to array of objects
   const result = [];
   for(const category in spentByCategory) {
-      result.push({ [category]: spentByCategory[category] });
+      result.push({ category:category, totalSpent:spentByCategory[category] });
   }
-
+  
   return result;
 }
 

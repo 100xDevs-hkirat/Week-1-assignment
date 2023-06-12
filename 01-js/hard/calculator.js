@@ -17,43 +17,58 @@
   - `npm run test-calculator`
 */
 class Calculator {
-  constructor(val) {
-    let result = val;
+  constructor() {
+    this.result = 0;
   }
 
   add(num) {
-    result += num;
+    this.result += num;
   }
 
-  substract(num) {
-    result -= num;
+  subtract(num) {
+    this.result -= num;
   }
 
   multiply(num) {
-    result *= num;
+    this.result *= num;
   }
 
   divide(num) {
-    result /= num;
+    if (num == 0) {
+      throw new Error("Error");
+    }
+    this.result /= num;
   }
 
   clear() {
-    result = 0;
+    this.result = 0;
   }
 
   getResult() {
-    return result;
+    return this.result;
   }
 
   calculate(string) {
     // can be done using eval() function
 
-    // storing operand and operators separately
-    const regex = /[^0-9+\-*/()\s]/g;
+    // check if it is invalid
+    const regex = /[^0-9+\-*/().\s]/g;
     if (regex.test(string)) {
-      console.log("Expression contains invalid characters");
-      throw erorr("Invalid characters");
+      // console.log("Expression contains invalid characters");
+      throw new Error("Error");
     }
+    // check for valid parantheses
+    let stack = [];
+    for (const c of string) {
+      if(c != '(' && c != ')') continue;
+      if (stack.length==0 && c===')') throw new Error("Error");
+      else if(c === '(') stack.push(c);
+      else if (stack.length>0 && stack[stack.length - 1]==='(' && c===')') stack.pop();
+      else throw new Error("Error")
+    }
+    if (stack.length > 0) throw new Error("Error");
+
+    // storing operand and operators separately then evaluating expression
     let expression = [];
     let tmp = "";
     let operators = {
@@ -87,7 +102,10 @@ class Calculator {
       "+": (a, b) => a + b,
       "-": (a, b) => a - b,
       "*": (a, b) => a * b,
-      "/": (a, b) => a / b,
+      "/": function (a, b) {
+        if(!a || !b || b==0) throw new Error("Error")
+        return a / b;
+      }
     };
     let valueStack = [];
     let opStack = [];
@@ -126,18 +144,9 @@ class Calculator {
       }
     }
 
-    return valueStack[0];
+    this.result = valueStack[0];
   }
 }
 
-const obj = new Calculator();
-
-let exp = "10 +   2 *   (   6 - (4 + 1) / 2) + 7";
-let exp2 = "10+5*(4/ 3)";
-let exp3 = "(((2+3)*4)-1)/((5+6)-7)";
-let exp4 = "3+(4*(5-2))/7";
-
-let z = obj.calculate(exp);
-console.log(z);
 
 module.exports = Calculator;
