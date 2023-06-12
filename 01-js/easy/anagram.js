@@ -7,8 +7,16 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
-
+function isAnagram(s,t) {
+  let n=s.length;
+  let m=t.length;
+  const sorted1 = s.split('').sort().join('')
+  const sorted2 = t.split('').sort().join('')
+  // console.log(sorted1,sorted2)
+   if(sorted1 === sorted2) return true;
+   else return false
 }
+console.log(isAnagram("race", "ecar"))
+console.log(isAnagram("rat", "cat"))
 
 module.exports = isAnagram;
