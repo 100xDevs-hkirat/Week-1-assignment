@@ -7,6 +7,36 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function sum100(n){
+    let sum=0;
+    for(let i=0;i<n;i++){
+        sum+=i
+    }
 }
+
+function sum100000(n){
+    let sum=0;
+    for(let i=0;i<n;i++){
+        sum+=i
+    }
+}
+function sum1000000000(n){
+    let sum=0;
+    for(let i=0;i<n;i++){
+        sum+=i
+    }
+}
+
+function calculateTime() {
+   const measureTime = function(func,params){
+       const startTime = new Date().getTime();
+       func(params)
+       const endTime = new Date().getTime();
+       const totalTime = (endTime - startTime)/1000
+       console.log(`Function execution time is ${totalTime} seconds`)
+   }
+   measureTime(sum100,100)
+   measureTime(sum100000,100000)
+   measureTime(sum1000000000,1000000000)
+}
+calculateTime()
