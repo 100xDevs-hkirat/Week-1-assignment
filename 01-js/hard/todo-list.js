@@ -12,7 +12,38 @@
 */
 
 class Todo {
-
+  constructor() {
+    this.items = [];
+  }
+  add(text) {
+    this.items.push(text);
+  }
+  remove(index) {
+    this.items.splice(index, 1);
+  }
+  update(index, text) {
+    this.items[index] = text;
+  }
+  getAll() {
+    return this.items;
+  }
+  get(index) {
+    return this.items[index];
+  }
+  clear() {
+    this.items = [];
+  }
 }
 
-module.exports = Todo;
+const myTodo = new Todo();
+console.log(myTodo.getAll());
+myTodo.add('first task');
+myTodo.clear();
+myTodo.add('second task');
+myTodo.add('third task');
+myTodo.update(1, 'updated third');
+console.log(myTodo.getAll());
+myTodo.add('forth');
+myTodo.remove(1);
+console.log(myTodo.getAll());
+console.log(myTodo.get(0));
