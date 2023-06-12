@@ -9,7 +9,19 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const categoryPriceMap = new Map()
+
+  for (const transaction of transactions) {
+      const {category, price} = transaction
+      categoryPriceMap.set(category, categoryPriceMap.get(category) ? categoryPriceMap.get(category) + price : price)
+  }
+
+  const result = [];
+    for (let category in categoryPriceMap) {
+      result.push({ [category]: categoryPriceMap.get(category) });
+  }
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
