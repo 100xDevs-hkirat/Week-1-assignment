@@ -9,7 +9,24 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const map = new Map();
+  for (let i = 0; i < transactions.length; i++) {
+    if (map.has(transactions[i].category)) {
+      map.set(transactions[i].category, map.get(transactions[i].category) + transactions[i].price);
+    } else {
+      map.set(transactions[i].category, transactions[i].price);
+    }
+  }
+  // console.log(Array.from(map).map(([key, val]) => ({ [key]: val })));
+  return Array.from(map).map(([key, val]) => ({ [key]: val }));
 }
+
+calculateTotalSpentByCategory([
+  { itemName: 'item1', category: 'category1', price: 100, timestamp: 1 },
+  { itemName: 'item2', category: 'category2', price: 200, timestamp: 2 },
+  { itemName: 'item3', category: 'category1', price: 300, timestamp: 3 },
+  { itemName: 'item4', category: 'category2', price: 400, timestamp: 4 },
+  { itemName: 'item5', category: 'category1', price: 500, timestamp: 5 },
+]);
 
 module.exports = calculateTotalSpentByCategory;
