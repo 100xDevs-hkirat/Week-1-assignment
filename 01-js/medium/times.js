@@ -7,6 +7,21 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function sum1toN(n) {
+    let sum = 0;
+    for (let i = 0; i < n; i++) {
+        sum += i;
+    }
+    console.log(sum);
 }
+
+function calculateTime(n) {
+    const beforeTime = new Date();
+    sum1toN(n)
+    const afterTime = new Date();
+    const timeDiff = afterTime - beforeTime;
+    console.log("Time taken in milliseconds: " + timeDiff + ", in seconds: " + (timeDiff / 1000));
+}
+
+calculateTime(1000000000);
+// Time taken in milliseconds: 949, in seconds: 0.949
