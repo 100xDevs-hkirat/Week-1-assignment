@@ -1,6 +1,25 @@
 const calculateTotalSpentByCategory = require('../easy/expenditure-analysis');
 
 describe('calculateTotalSpentByCategory', () => {
+	test('returns the correct total spent for a single transaction', () => {
+		const transactions = [
+			{
+				id: 1,
+				timestamp: 1656076800000,
+				price: 10,
+				category: 'Food',
+				itemName: 'Pizza',
+			},
+		];
+
+		const result =
+			calculateTotalSpentByCategory(transactions);
+
+		expect(result).toEqual([
+			{ category: 'Food', totalSpent: 10 },
+		]);
+	});
+
 	test('returns the correct total spent for each category', () => {
 		const transactions = [
 			{
@@ -55,25 +74,6 @@ describe('calculateTotalSpentByCategory', () => {
 		const result =
 			calculateTotalSpentByCategory(transactions);
 		expect(result).toEqual([]);
-	});
-
-	test('returns the correct total spent for a single transaction', () => {
-		const transactions = [
-			{
-				id: 1,
-				timestamp: 1656076800000,
-				price: 10,
-				category: 'Food',
-				itemName: 'Pizza',
-			},
-		];
-
-		const result =
-			calculateTotalSpentByCategory(transactions);
-
-		expect(result).toEqual([
-			{ category: 'Food', totalSpent: 10 },
-		]);
 	});
 
 	test('returns the correct total spent when multiple transactions have the same category', () => {
