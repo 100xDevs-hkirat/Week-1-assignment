@@ -16,4 +16,23 @@ describe('isAnagram', () => {
 		expect(isAnagram('hello', 'lhel')).toBe(false);
 		expect(isAnagram('working', 'non')).toBe(false);
 	});
+
+	test('returns true for anagrams with different casing', () => {
+		expect(isAnagram('Debit Card', 'Bad Credit')).toBe(
+			true
+		);
+		expect(
+			isAnagram('School MASTER', 'The ClassROOMs')
+		).toBe(true);
+	});
+
+	test('returns true for anagrams with special characters', () => {
+		expect(isAnagram('abc!', '!bac')).toBe(true);
+		expect(isAnagram('cinema', 'iceman!')).toBe(true);
+	});
+
+	test('returns false for non-anagrams with special characters', () => {
+		expect(isAnagram('hello', 'hello!')).toBe(false);
+		expect(isAnagram('openai!', 'open')).toBe(false);
+	});
 });
