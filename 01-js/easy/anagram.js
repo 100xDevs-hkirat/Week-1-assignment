@@ -33,8 +33,4 @@ function isAnagram(str1, str2) {
   return true;
 }
 
-console.log(isAnagram('spar', 'rasp'));
-console.log(isAnagram('abc', 'cba'));
-console.log(isAnagram('abc', 'def'));
-
 module.exports = isAnagram;
