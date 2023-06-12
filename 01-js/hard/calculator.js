@@ -17,6 +17,36 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+  add(n) {
+    this.result += n;
+  }
+  subtract(n) {
+    this.result -= n;
+  }
+  multiply(n) {
+    this.result *= n;
+  }
+  divide(n) {
+    if (n === 0) {
+      return null;
+    }
+    this.result /= n;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(str) {
+    return eval(str);
+  }
+}
+
+// eval shouldn't be used. But I didn't considered using mathjs for this assignment.
 
 module.exports = Calculator;
