@@ -8,7 +8,10 @@
 */
 
 function isAnagram(str1, str2) {
-
+  const str1Sorted = str1.split('').sort().join('');
+  const str2Sorted = str2.split('').sort().join('');
+  return str1Sorted === str2Sorted;
 }
 
-module.exports = isAnagram;
+const ans = isAnagram("abc","cab");
+console.log(ans);
