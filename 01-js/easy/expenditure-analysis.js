@@ -9,6 +9,20 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  let totals = [];
+
+  let hm = {};
+  for (let tr of transactions) {
+    if (tr["category"] in hm) {
+      hm[tr["category"]] += tr["price"];
+    } else {
+      hm[tr["category"]] = tr["price"];
+    }
+  }
+
+  console.log(hm);
+  console.log(Object.entries(hm));
+
   return [];
 }
 
