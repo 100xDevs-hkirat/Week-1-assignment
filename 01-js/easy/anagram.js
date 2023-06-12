@@ -15,3 +15,4 @@ function isAnagram(str1, str2) {
 
 const ans = isAnagram("abc","cab");
 console.log(ans);
+// true
