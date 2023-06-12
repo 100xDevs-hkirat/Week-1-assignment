@@ -9,7 +9,6 @@
 
 function isAnagram(str1, str2) {
   if (str1.length !== str2.length) return false;
-  if (str1.length === 0 || str2.length === 0) return false;
   var count = [];
   s1 = str1.toLowerCase();
   s2 = str2.toLowerCase();
@@ -30,4 +29,5 @@ function isAnagram(str1, str2) {
   return true;
 }
 
+console.log(isAnagram("openai", "aiopen"));
 module.exports = isAnagram;
