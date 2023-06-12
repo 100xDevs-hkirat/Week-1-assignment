@@ -7,6 +7,20 @@
 */
 
 function isPalindrome(str) {
+
+  str.toLowerCase();
+  var reverserstr = '';
+
+  for (var i = str.length-1; i >= 0; i--) {
+    // console.log(str[i]);
+    reverserstr= reverserstr.concat(str[i]);
+  }
+
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] !== reverserstr[i]) {
+      return false;
+    }
+  }
   return true;
 }
 

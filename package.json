@@ -1,0 +1,19 @@
+{
+  "name": "week-1-assignment",
+  "version": "1.0.0",
+  "description": "Week1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akycdi/Week-1-assignment.git"
+  },
+  "author": "Arun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akycdi/Week-1-assignment/issues"
+  },
+  "homepage": "https://github.com/akycdi/Week-1-assignment#readme"
+}
