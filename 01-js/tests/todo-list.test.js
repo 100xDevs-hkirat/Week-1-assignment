@@ -68,4 +68,29 @@ describe('Todo', () => {
 		todoList.clear();
 		expect(todoList.getAll()).toEqual([]);
 	});
+
+	test('remove and update with invalid indexes', () => {
+		todoList.add('Task 1');
+		todoList.add('Task 2');
+
+		todoList.remove(5);
+		expect(todoList.getAll()).toEqual(['Task 1', 'Task 2']);
+
+		todoList.update(3, 'Updated Task');
+		expect(todoList.getAll()).toEqual(['Task 1', 'Task 2']);
+	});
+
+	test('add duplicate tasks', () => {
+		todoList.add('Task 1');
+		todoList.add('Task 2');
+		todoList.add('Task 1');
+		todoList.add('Task 3');
+
+		expect(todoList.getAll()).toEqual([
+			'Task 1',
+			'Task 2',
+			'Task 1',
+			'Task 3',
+		]);
+	});
 });
