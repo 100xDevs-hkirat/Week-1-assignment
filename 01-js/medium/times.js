@@ -18,3 +18,7 @@ function calculateTime(n) {
     Math.abs(endTime.getTime() - startTime.getTime()) / 1000;
   return timeDifference;
 }
+
+console.log(calculateTime(100));
+console.log(calculateTime(100000));
+console.log(calculateTime(1000000000));

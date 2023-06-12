@@ -15,16 +15,16 @@ function isAnagram(str1, str2) {
   let str1_dict = {};
   let str2_dict = {};
   for (let i = 0; i < string_length; i++) {
-    if (str1[i] in str1_dict) {
-      str1_dict[str1[i]] += 1;
+    if (str1[i].toLowerCase() in str1_dict) {
+      str1_dict[str1[i].toLowerCase()] += 1;
     } else {
-      str1_dict[str1[i]] = 1;
+      str1_dict[str1[i].toLowerCase()] = 1;
     }
 
-    if (str2[i] in str2_dict) {
-      str2_dict[str2[i]] += 1;
+    if (str2[i].toLowerCase() in str2_dict) {
+      str2_dict[str2[i].toLowerCase()] += 1;
     } else {
-      str2_dict[str2[i]] = 1;
+      str2_dict[str2[i].toLowerCase()] = 1;
     }
   }
 

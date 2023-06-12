@@ -17,7 +17,7 @@ class Todo {
   }
 
   #length_check(index) {
-    if (index > this.todos.length) {
+    if (index > this.todos.length - 1) {
       console.log("Index is Out of Bound");
       return false;
     } else {
@@ -31,13 +31,15 @@ class Todo {
 
   remove(indexOfTodo) {
     if (this.#length_check(indexOfTodo)) {
-      this.todos.pop(indexOfTodo);
+      this.todos.splice(indexOfTodo, 1);
     }
   }
 
   update(index, updatedTodo) {
     if (this.#length_check(index)) {
       this.todos[index] = updatedTodo;
+    } else {
+      return;
     }
   }
 
@@ -48,6 +50,8 @@ class Todo {
   get(indexOfTodo) {
     if (this.#length_check(indexOfTodo)) {
       return this.todos[indexOfTodo];
+    } else {
+      return null;
     }
   }
 
