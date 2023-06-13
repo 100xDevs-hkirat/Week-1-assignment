@@ -1,0 +1,11 @@
+trying to write to a filewriting to file without overriding the previous data
+For example, if the file input was
+```
+hello     world    my    name   is       raman
+```
+
+After the program runs, the output should be
+
+```
+hello world my name is raman
+```
