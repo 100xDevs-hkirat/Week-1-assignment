@@ -7,7 +7,7 @@
 */
 
 function isPalindrome(str) {
-  str = str.toLowerCase().replace(/[^a-z0]/g, "");
+  str = str.toLowerCase().replace(/[^a-z0-9]/g, "");
   let revStr = str.split("").reverse().join("");
   return str === revStr;
 }
