@@ -33,8 +33,8 @@
 
 The project contains easy, medium and hard assigments for week 1.
 - 01-js contains assignments related to JavaScript, things that were covered in the first class.
-    - [Java Script 101](./Week1-Assignments/01-js/README.md).
+    - [Java Script 101]('./Week_01_-_JS_Basics_and_Async/01-js/README.md').
 
 - 02-async-js contains assignments related to asynchronous JavaScript, things that were covered in the second class.
-    - [Asynchronous Java Script](./Week1-Assignments/02-async-js/README.md).
+    - [Asynchronous Java Script]('./Week_01_-_JS_Basics_and_Async/02-async-js/README.md').
 
