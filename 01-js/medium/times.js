@@ -7,6 +7,24 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function getCurrentTime(){
+    return Math.floor(Date.now() / 1000);
+
 }
+
+function calculateTime(n) {
+
+    const startingTime = getCurrentTime()
+
+    let sum = 0;
+    for(let i=0; i<=n;i++){
+        sum += i
+    }
+
+    const endingTime = getCurrentTime()
+
+    return (endingTime - startingTime);
+}
+
+const timeDiff = calculateTime(10000);
+console.log(timeDiff);

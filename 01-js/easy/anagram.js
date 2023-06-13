@@ -8,7 +8,16 @@
 */
 
 function isAnagram(str1, str2) {
-
+  const string1 = str1.split("").sort().join("");
+  const string2 = str2.split("").sort().join("");
+  if (string1 === string2) {
+    console.log("the strings are equal");
+  } else {
+    console.log("the strings are not equal");
+  }
 }
+
+const result = isAnagram("apple", "elppa");
+console.log(result);
 
 module.exports = isAnagram;
