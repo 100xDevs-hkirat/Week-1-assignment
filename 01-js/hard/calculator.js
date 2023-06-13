@@ -17,6 +17,59 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+    constructor(){
+      this.result = 0
+    }
+
+    add(n){
+      this.result+=n
+    }
+    substract(n){
+      this.result-=n
+    }
+    mult(n){
+      this.result*=n
+    }
+    divide(n){
+     if(n === 0){
+       throw new Error("Cannot divide by zero")
+     }
+     this.result/=n
+    }
+    clear(){
+      this.result = 0
+    }
+    getResult(){
+      return this.result
+    }
+    calculate(expression){
+       // Validate the expression
+  const validExpressionRegex = /^[\d\s+\-*/().]+$/;
+  if (!validExpressionRegex.test(expression)) {
+    throw new Error("Invalid expression.");
+  }
+
+  // Check for invalid non-numerical characters
+  const nonNumericalRegex = /[^\d\s+\-*/().]/;
+  if (nonNumericalRegex.test(expression)) {
+    throw new Error("Invalid expression. Contains invalid non-numerical characters.");
+  }
+
+  try {
+    this.result = eval(expression);
+  } catch (error) {
+    throw new Error("Invalid expression.");
+  }
+    }
+}
+
+//Now calling the function
+const calc = new Calculator()
+calc.add(5)
+calc.mult(2)
+calc.calculate("10 + 2 * (6 - (4 + 1) / 2) + 7");
+console.log(calc.getResult())
+
 
 module.exports = Calculator;
