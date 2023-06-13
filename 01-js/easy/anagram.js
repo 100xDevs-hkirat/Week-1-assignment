@@ -22,6 +22,6 @@ function trimAndSplitAndSort(str) {
 	return str.trim().toLowerCase().split("").sort();
 }
 
-console.log(isAnagram(" School MASTER ", "The ClassROOMs"));
+console.log(isAnagram("listen", "silent"));
 
 // module.exports = isAnagram;

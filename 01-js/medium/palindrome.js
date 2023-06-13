@@ -8,14 +8,17 @@
 
 function isPalindrome(str) {
 	if (str.length === 0 || typeof str !== "string") return;
-	const originalStrArr = splitString(str);
+	const newStr = str.replace(/[@!#$%^&*(),<>:;_+?/\/.0-9]|'s/g, "");
 
-	const reverseStringArr = reverseString(str);
-	return originalStrArr.some((str, i) => {
-		return reverseStringArr[i] === str;
-	})
-		? true
-		: false;
+	const originalStrArr = splitString(newStr).join("").split(" ").join("");
+
+	const reverseStringArr = reverseString(newStr).join("").split(" ").join("");
+	return reverseStringArr === originalStrArr;
+	// return originalStrArr.every((str, i) => {
+	// 	return reverseStringArr[i] === str;
+	// })
+	// 	? true
+	// 	: false;
 }
 function splitString(str) {
 	return str.trim().toLowerCase().split("");
@@ -31,5 +34,11 @@ function reverseString(str) {
 
 	return revArr;
 }
-isPalindrome("Nan");
+console.log(isPalindrome("Mr. Owl ate my metal worm."));
+// console.log(isPalindrome("Nan's"));
 // module.exports = isPalindrome;
+// function newString(str) {
+// 	const newStr = str.replace(/[@!#$%^&*(),<>:;_+?/\/.0-9]|'s/g, "");
+// 	console.log(newStr);
+// }
+// newString("heloo dfaf afffajf 3434f%%% faffaklfjf)/?");
