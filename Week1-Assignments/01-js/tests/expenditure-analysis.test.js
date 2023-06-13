@@ -11,7 +11,6 @@ describe('calculateTotalSpentByCategory', () => {
 				itemName: 'Pizza',
 			},
 		];
-
 		const result =
 			calculateTotalSpentByCategory(transactions);
 

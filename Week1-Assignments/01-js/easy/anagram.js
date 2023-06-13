@@ -8,7 +8,23 @@
 */
 
 function isAnagram(str1, str2) {
-
+let sortedString1 = sortedString(str1);
+let sortedString2 =  sortedString(str2);
+if (sortedString1 === sortedString2)
+  return true;
+else return false;
 }
 
+function sortedString(str){
+  let sortedString ="";
+  var chars = str.toUpperCase().split('')
+  sortedString = chars.sort().toString()
+//  for(var i=0;i<str.length,i++){
+  console.log(sortedString)
+  return sortedString;
+  }
+
+//console.log(isAnagram("Rishi","RishiS"))
+console.log(isAnagram('School MASTER', 'The ClassROOM'))
 module.exports = isAnagram;
+
