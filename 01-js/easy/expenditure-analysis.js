@@ -9,7 +9,21 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let bill = []
+  for (let item of transactions) {
+    const found = bill.find(b => b.category === item.category);
+
+    if (found != undefined) {
+
+      found.totalSpent += item.price;
+    } else {
+
+      bill.push({ category: item.category, totalSpent: item.price })
+    }
+  }
+  return bill;
 }
+
+
 
 module.exports = calculateTotalSpentByCategory;
