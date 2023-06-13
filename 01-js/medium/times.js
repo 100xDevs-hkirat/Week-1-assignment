@@ -10,7 +10,7 @@ Hint - use Date class exposed in JS
 function calculateTime(n) {
     let sum = 0;
     const startTime = performance.now();
-    for (let i=1; i<=100; i++) {
+    for (let i=1; i<=n; i++) {
         sum += i;
     }
     const endTime = performance.now();
