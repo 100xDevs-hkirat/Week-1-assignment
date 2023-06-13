@@ -3,4 +3,16 @@
 */
 
 function wait(n) {
+
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(), n*1000);
+    })
 }
+
+wait(3)   // describing what to log based on promise fulfilled or rejected
+.then(()=> {
+    console.log('promise resolved');
+})
+.catch((error) => {
+    console.log('promise rejected')
+});
