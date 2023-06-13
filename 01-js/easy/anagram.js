@@ -8,6 +8,17 @@
 */
 
 function isAnagram(str1, str2) {
+    let mp1 = {} , mp2 = {} ;
+    for(let char in str1){
+      if(mp1[char]) mp1[char] += 1 ;
+      else  mp1[char] = 1 ;
+    }
+    for(let char in str2){
+      if(mp2[char]) mp2[char] += 1 ;
+      else  mp2[char] = 1 ;
+    }
+    const isEqual = JSON.stringify(mp1) === JSON.stringify(mp2);
+    return isEqual ;
 
 }
 
