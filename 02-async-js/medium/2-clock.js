@@ -14,5 +14,3 @@ const displayTime = () => {
 };
 
 setInterval(displayTime, 1000);
-
-// adding test3
