@@ -6,7 +6,7 @@ const getTime = () => {
     const hours = format2digit(dateTime.getHours());
     const minutes = format2digit(dateTime.getMinutes());
     const seconds = format2digit(dateTime.getSeconds());
-    
+
     return `${hours}:${minutes}:${seconds} ${hours < 12 ? 'AM' : 'PM'}`;
 };
 
@@ -17,4 +17,4 @@ const clock = () => {
     }, 1000);
 };
 
-clock();
+module.exports = { clock: clock, getTime: getTime };
