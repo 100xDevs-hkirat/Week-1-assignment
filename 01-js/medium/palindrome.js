@@ -6,8 +6,19 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
 
+function removeSpecialChars(str) {
+  for (let i of str) {
+    if (!(i.charCodeAt(0) >= 97 && i.charCodeAt(0) <= 122)) {
+      str = str.replace(i,"");
+    }
+  }
+  return str;
+}
+
+
+
+function isPalindrome(str) {
   // str = str.toLowerCase();
   // var reverserstr = '';
 
@@ -25,15 +36,15 @@ function isPalindrome(str) {
   // }
   // return true;
 
-  str = str.toLowerCase().trim();
+  str = str.toLocaleLowerCase();
+  str = removeSpecialChars(str);
+  console.log(str);
+
   var len = str.length;
   if (len === 1) {
     return true;
   }
-  const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-  if (specialChars.test(str)) {
-    return false;
-  }
+
   for (var i = 0; i < Math.floor(len / 2); i++) {
     if (str[i] != str[len - i - 1]) {
       return false
@@ -42,4 +53,6 @@ function isPalindrome(str) {
   return true;
 }
 
+
+isPalindrome("Able, was I ere I saw Elba!");
 module.exports = isPalindrome;
