@@ -9,4 +9,11 @@ Hint - use Date class exposed in JS
 
 function calculateTime(n) {
     return 0.01;
+    const now1=new Date();
+    let sum=0;
+    for(let i=1;i<=n;i++){
+        sum+=i;
+    }
+    const now2=new Date();
+    return now2-now1;
 }
