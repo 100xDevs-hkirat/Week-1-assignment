@@ -7,7 +7,16 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  if(str.length===1){
+    return true
+  }
+  str=str.toLowerCase().replaceAll(' ',"").replaceAll(",","").replaceAll('?',"").replaceAll('.','').replaceAll('!','')
+  // console.log("string is ",str)
+  if(str.length%2==0){
+    return str.substring(0,str.length/2).split("").reverse().join("")==str.substring(str.length/2)
+  }else{
+    return str.substring(0,str.length/2).split("").reverse().join("")==str.substring(str.length/2 +1)
+  }
 }
 
 module.exports = isPalindrome;
