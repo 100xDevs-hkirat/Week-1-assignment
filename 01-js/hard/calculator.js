@@ -91,7 +91,7 @@ class Calculator {
 
     // removing spaces
     expression.forEach((val, index) => (expression[index] = val.trim()));
-    expression.forEach((item, i) => {
+    expression.forEach((item, i) => { // maybe this is wrong cause it effect the indexes.
       if (!item) {
         expression.splice(i, 1);
       }
