@@ -7,6 +7,26 @@
 */
 
 function isPalindrome(str) {
+  var word = str.toLowerCase();
+
+  let j = word.length - 1;
+  for (let i = 0; i < word.length/2;) {
+    let fromLeft = word[i];
+    if(!fromLeft.match(/[a-z]/gi)) {
+      i++; continue;
+    }
+
+    let fromRight = word[j];
+    if(!fromRight.match(/[a-z]/gi)) {
+      j--; continue;
+    }
+
+    if(fromLeft != fromRight) {
+      return false;
+    }
+    
+    i++; j--;
+  }
   return true;
 }
 
