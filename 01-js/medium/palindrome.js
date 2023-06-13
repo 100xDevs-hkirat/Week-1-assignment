@@ -7,6 +7,7 @@
 */
 
 function isPalindrome(str) {
+	if (str.length === 0 || typeof str !== "string") return;
 	const originalStrArr = splitString(str);
 
 	const reverseStringArr = reverseString(str);

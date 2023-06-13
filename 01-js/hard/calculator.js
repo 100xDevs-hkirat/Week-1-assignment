@@ -24,15 +24,20 @@ class Calculator {
 		this.result = 0;
 	}
 	add(n) {
+		if (typeof +n !== "number") return;
+
 		this.result += n;
 	}
 	substract(n) {
+		if (typeof +n !== "number") return;
 		this.result -= n;
 	}
 	multiply(n) {
+		if (typeof +n !== "number") return;
 		this.result *= n;
 	}
 	divide(n) {
+		if (typeof +n !== "number" || n === 0) return NaN;
 		this.result /= n;
 	}
 	calculate(expression) {
@@ -53,8 +58,12 @@ class Calculator {
 }
 
 const calculator = new Calculator();
-
-const expression = "10 + 2 * (6 - (4 + 1) / 2) + 7";
-const calculatedValue = calculator.calculate(expression);
-console.log(calculatedValue);
+// console.log();
+// calculator.add(1000);
+// calculator.substract(100);
+// calculator.divide(0);
+// console.log(calculator.getResult());
+// const expression = "10 + 2 * (6 - (4 + 1) / 2) + 7";
+// const calculatedValue = calculator.calculate(expression);
+// console.log(calculatedValue);
 // module.exports = Calculator;

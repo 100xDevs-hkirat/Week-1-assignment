@@ -18,16 +18,18 @@ class Todo {
 		this.toDo.push(toDo);
 	}
 	removeToDO(toDoNo) {
+		if (this.toDo.length < toDoNo) return;
 		const indexOfTODo = toDoNo - 1;
 		this.toDo.splice(indexOfTODo, 1);
 	}
 	update(updateTodoNo, updatedTodo) {
-		if (this.toDo.length === 0 || updateTOd>this.toDO.length ) return;
+		if (this.toDo.length === 0 || updatedTodo > this.toDO.length) return;
 		// as I am expecting todo no. instead of index no.
 		const index = updateTodoNo - 1;
 		return this.toDo.splice(index, 1, updatedTodo);
 	}
 	getAllTODos() {
+		if (this.toDo.length === 0) return null;
 		this.toDo.forEach((toDO) => console.log(toDO));
 	}
 	getToDoList(toDOnumber) {

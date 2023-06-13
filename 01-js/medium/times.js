@@ -8,6 +8,7 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
+	if (typeof +n !== "number") return;
 	let sum = 0;
 	const t1 = new Date();
 	for (let i = 1; i <= n; i++) {
