@@ -18,6 +18,6 @@ function isAnagram(str1, str2) {
 
 }
 
-console.log("nih", "hin")
+console.log(isAnagram("nih", "hin"))
 
 module.exports = isAnagram;
