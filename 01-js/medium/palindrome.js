@@ -6,8 +6,16 @@
   - `npm run test-palindrome`
 */
 
+function removeExtra(str) {
+  const newStr = str.replace(/\s+/g, '').replace(/[^\w]/g, '');
+  const output = newStr.toLowerCase();
+  return output;
+}
+
 function isPalindrome(str) {
-  return true;
+  const newStr = removeExtra(str);
+  const revString = newStr.split('').reverse().join('');
+  return newStr === revString;
 }
 
 module.exports = isPalindrome;

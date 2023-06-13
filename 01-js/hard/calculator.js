@@ -17,6 +17,35 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
 
+  add(n) {
+    this.result += n;
+  }
+  subtract(n) {
+    this.result -= n;
+  }
+  multiply(n) {
+    this.result *= n;
+  }
+  divide(n) {
+    this.result /= n;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(expr) {
+    // let total = 0;
+    // expr = expr.replaceAll(' ', ''); 
+  }
+}
+
+const inst = new Calculator();
+console.log(inst.calculate("10 +   2 *    (   6 - (4 + 1) / 2) + 7"));
 module.exports = Calculator;
