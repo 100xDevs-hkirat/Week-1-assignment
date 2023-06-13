@@ -7,7 +7,28 @@
 */
 
 function isPalindrome(str) {
-  return true;
-}
+	const originalStrArr = splitString(str);
 
-module.exports = isPalindrome;
+	const reverseStringArr = reverseString(str);
+	return originalStrArr.some((str, i) => {
+		return reverseStringArr[i] === str;
+	})
+		? true
+		: false;
+}
+function splitString(str) {
+	return str.trim().toLowerCase().split("");
+}
+function reverseString(str) {
+	const strArr = splitString(str);
+	const originalArr = strArr;
+
+	let revArr = [];
+	originalArr.map((str, i) => {
+		revArr[strArr.length - 1 - i] = str;
+	});
+
+	return revArr;
+}
+isPalindrome("Nan");
+// module.exports = isPalindrome;

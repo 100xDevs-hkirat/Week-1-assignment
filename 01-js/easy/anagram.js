@@ -8,7 +8,20 @@
 */
 
 function isAnagram(str1, str2) {
-
+	if (typeof str1 !== "string" || typeof str2 !== "string") return;
+	const firstStrArr = trimAndSplitAndSort(str1);
+	const secondStrArr = trimAndSplitAndSort(str2);
+	if (firstStrArr.length !== secondStrArr.length) return false;
+	return firstStrArr.some((el, i) => {
+		secondStrArr[i] !== el;
+	})
+		? false
+		: true;
+}
+function trimAndSplitAndSort(str) {
+	return str.trim().toLowerCase().split("").sort();
 }
 
-module.exports = isAnagram;
+console.log(isAnagram(" School MASTER ", "The ClassROOMs"));
+
+// module.exports = isAnagram;

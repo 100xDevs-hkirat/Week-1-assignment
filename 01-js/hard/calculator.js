@@ -17,6 +17,44 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+	// we can initialize here also...
+	result;
+	constructor() {
+		this.result = 0;
+	}
+	add(n) {
+		this.result += n;
+	}
+	substract(n) {
+		this.result -= n;
+	}
+	multiply(n) {
+		this.result *= n;
+	}
+	divide(n) {
+		this.result /= n;
+	}
+	calculate(expression) {
+		try {
+			const calculatedValue = eval(expression);
+			if (!calculatedValue) return;
+			return calculatedValue;
+		} catch (err) {
+			console.log(err.message);
+		}
+	}
+	getResult() {
+		return this.result;
+	}
+	clear() {
+		this.result = 0;
+	}
+}
 
-module.exports = Calculator;
+const calculator = new Calculator();
+
+const expression = "10 + 2 * (6 - (4 + 1) / 2) + 7";
+const calculatedValue = calculator.calculate(expression);
+console.log(calculatedValue);
+// module.exports = Calculator;
