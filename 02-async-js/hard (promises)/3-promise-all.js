@@ -6,17 +6,31 @@
 
 
 function waitOneSecond() {
-
+    return new Promise(resolve => {
+        setTimeout(resolve, 1000);
+    });
 }
 
 function waitTwoSecond() {
-
+    return new Promise(resolve => {
+        setTimeout(resolve, 2000);
+    });
 }
 
 function waitThreeSecond() {
-
+    return new Promise(resolve => {
+        setTimeout(resolve, 3000);
+    });
 }
 
 function calculateTime() {
+    ( async () => {
+        console.time("timeTaken");
+        // It'll only take 3 seconds, not 6 seconds
+        await Promise.all([ waitOneSecond(), waitTwoSecond(), waitThreeSecond() ]); 
 
+        console.timeEnd("timeTaken");
+    })();
 }
+
+calculateTime();
