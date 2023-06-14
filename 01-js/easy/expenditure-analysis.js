@@ -9,6 +9,7 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  return [];
   let Map = {}
 
   for(i = 0;i<transactions.length;i++){
