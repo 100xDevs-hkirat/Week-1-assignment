@@ -28,7 +28,7 @@ class Calculator {
 
 		this.result += n;
 	}
-	substract(n) {
+	subtract(n) {
 		if (typeof +n !== "number") return;
 		this.result -= n;
 	}
@@ -37,17 +37,15 @@ class Calculator {
 		this.result *= n;
 	}
 	divide(n) {
-		if (typeof +n !== "number" || n === 0) return NaN;
+		if (n === 0) {
+			throw new Error("invalid input");
+		}
 		this.result /= n;
 	}
 	calculate(expression) {
-		try {
-			const calculatedValue = eval(expression);
-			if (!calculatedValue) return;
-			return calculatedValue;
-		} catch (err) {
-			console.log(err.message);
-		}
+		if (isNaN(eval(expression)) || !isFinite(eval(expression)))
+			throw new Error("You entered wrong expression");
+		this.result = eval(expression);
 	}
 	getResult() {
 		return this.result;
@@ -58,12 +56,16 @@ class Calculator {
 }
 
 const calculator = new Calculator();
+
 // console.log();
-// calculator.add(1000);
-// calculator.substract(100);
+// calculator.add(5);
+// calculator.subtract(100);
+// calculator.calculate("10/0");
+// calculator.subtract(100);
+// calculator.clear();
 // calculator.divide(0);
 // console.log(calculator.getResult());
 // const expression = "10 + 2 * (6 - (4 + 1) / 2) + 7";
 // const calculatedValue = calculator.calculate(expression);
 // console.log(calculatedValue);
-// module.exports = Calculator;
+module.exports = Calculator;

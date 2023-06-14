@@ -17,42 +17,31 @@ class Todo {
 	add(toDo) {
 		this.toDo.push(toDo);
 	}
-	removeToDO(toDoNo) {
+	remove(toDoNo) {
 		if (this.toDo.length < toDoNo) return;
-		const indexOfTODo = toDoNo - 1;
-		this.toDo.splice(indexOfTODo, 1);
+
+		this.toDo.splice(toDoNo, 1);
 	}
 	update(updateTodoNo, updatedTodo) {
-		if (this.toDo.length === 0 || updatedTodo > this.toDO.length) return;
+		console.log(this.toDo.length, updateTodoNo);
+		if (this.toDo.length === 0 || this.toDo.length <= updateTodoNo) return;
 		// as I am expecting todo no. instead of index no.
-		const index = updateTodoNo - 1;
-		return this.toDo.splice(index, 1, updatedTodo);
+		return this.toDo.splice(updateTodoNo, 1, updatedTodo);
 	}
-	getAllTODos() {
-		if (this.toDo.length === 0) return null;
-		this.toDo.forEach((toDO) => console.log(toDO));
+	getAll() {
+		if (this.toDo.length === 0) return [];
+		return this.toDo;
 	}
-	getToDoList(toDOnumber) {
-		if (toDOnumber > this.toDo.length) {
-			console.log(`You have ${this.toDo.length} toDos in the list `);
-		} else {
-			const index = toDOnumber - 1;
-			return this.toDo[index];
+	get(toDOnumber) {
+		if (this.toDo.length <= toDOnumber) {
+			return null;
 		}
+		return this.toDo[toDOnumber];
 	}
 	clear() {
 		this.toDo.length = 0;
-		console.log(this.toDo);
 	}
 }
 const myToDo = new Todo();
-// myToDo.add("complete the file");
-// myToDo.add("solve all assingments");
-// myToDo.add("learn basic of react");
-// myToDo.clear();
-// myToDo.update(2, "already solved the assingment");
-// myToDo.getAllTODos();
-// myToDo.removeToDO(2);
-// myToDo.getToDoList(3);
 
-// // module.exports = Todo;
+module.exports = Todo;

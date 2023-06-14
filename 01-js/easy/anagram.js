@@ -9,19 +9,16 @@
 
 function isAnagram(str1, str2) {
 	if (typeof str1 !== "string" || typeof str2 !== "string") return;
-	const firstStrArr = trimAndSplitAndSort(str1);
-	const secondStrArr = trimAndSplitAndSort(str2);
-	if (firstStrArr.length !== secondStrArr.length) return false;
-	return firstStrArr.some((el, i) => {
-		secondStrArr[i] !== el;
-	})
-		? false
-		: true;
+	const firstStrArr = trimAndSplitAndSort(str1).join("");
+	const secondStrArr = trimAndSplitAndSort(str2).join("");
+
+	console.log(firstStrArr, secondStrArr);
+	return firstStrArr === secondStrArr;
 }
 function trimAndSplitAndSort(str) {
 	return str.trim().toLowerCase().split("").sort();
 }
 
-console.log(isAnagram("listen", "silent"));
+console.log(isAnagram("hello", "world"));
 
-// module.exports = isAnagram;
+module.exports = isAnagram;

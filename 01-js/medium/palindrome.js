@@ -7,7 +7,9 @@
 */
 // @!#$%^&*(),<>:;_+?/\/.0-9
 function isPalindrome(str) {
-	if (str.length === 0 || typeof str !== "string") return;
+	if (str === "") return true;
+
+	if (typeof str !== "string") return;
 	const newStr = str.replace(/[^a-zA-Z0-9]/g, "");
 
 	const originalStrArr = splitString(newStr).join("");
@@ -31,3 +33,4 @@ function reverseString(str) {
 	return revArr;
 }
 console.log(isPalindrome("Mr. Owl ate my metal worm."));
+module.exports = isPalindrome;
