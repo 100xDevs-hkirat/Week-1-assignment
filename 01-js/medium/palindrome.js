@@ -7,7 +7,11 @@
 */
 
 function isPalindrome(str) {
-  return true;
+	const newStr = str.toLowerCase().replace(/[!$.,? ]/g, "");
+	for (let i = 1; i <= newStr.length; i++) {
+		if (newStr[i - 1] !== newStr[newStr.length - i]) return false;
+	}
+	return true;
 }
 
 module.exports = isPalindrome;
