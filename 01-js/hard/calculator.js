@@ -16,7 +16,57 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
+import { evaluate } from "mathjs";
 
-class Calculator {}
+
+class Calculator {
+  constructor(result = 0) {
+    this.result = result;
+  }
+
+  add(a) {
+    const sum = this.result + a;
+    this.result = sum;
+    return sum;
+  }
+
+  subtract(s) {
+    const sub = this.result - s;
+    this.result = sub;
+    return sub;
+  }
+
+  multiply(m) {
+    const multi = this.result * m;
+    this.result = multi;
+    return multi;
+  }
+
+  divide(d) {
+    if (d == 0) throw new Error();
+    const div = this.result / d;
+    this.result = div;
+    return div;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(str) {
+    str = str.replace(/\s/g, "");
+    const regex = /[a-z]/gi;
+    const hasLetter = regex.test(str);
+    if (hasLetter) {
+      throw new Error();
+    }
+    const value = eval(str);
+    return value;
+  }
+}
 
 module.exports = Calculator;
