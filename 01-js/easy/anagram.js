@@ -8,7 +8,16 @@
 */
 
 function isAnagram(str1, str2) {
+    // Length of anagrams should be same.
+    if (str1.length !== str2.length) {
+        return false;
+    }
 
+    // Split the string chars into array and sort alphabetically and join back to string
+    // "sai" -> ['a','i','s'] -> 'ais'
+    const charArr1 = str1.toLowerCase().split('').sort().join('');
+    const charArr2 = str2.toLowerCase().split('').sort().join('');
+    return charArr1 === charArr2;
 }
 
 module.exports = isAnagram;

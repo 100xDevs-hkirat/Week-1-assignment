@@ -12,7 +12,38 @@
 */
 
 class Todo {
+    constructor(todoList = []) {
+        this.todoList = todoList;
+    }
 
+    add(todo) {
+        this.todoList.push(todo);
+    }
+
+    remove(index) {
+        if (index > -1) {
+            this.todoList.splice(index, 1);
+        }
+    }
+
+    update(index, updatedTodo) {
+        if (index < this.todoList.length) {
+            this.todoList[index] = updatedTodo;
+        }
+    }
+
+    getAll() {
+        return this.todoList;
+    }
+
+    get(indexOfTodo) {
+        if (indexOfTodo > this.todoList.length - 1) return null;
+        return this.todoList[indexOfTodo];
+    }
+
+    clear() {
+        this.todoList = [];
+    }
 }
 
 module.exports = Todo;
