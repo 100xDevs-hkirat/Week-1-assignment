@@ -16,8 +16,7 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
-import { evaluate } from "mathjs";
-
+// import { evaluate } from "mathjs";
 
 class Calculator {
   constructor(result = 0) {
@@ -58,13 +57,17 @@ class Calculator {
   }
 
   calculate(str) {
-    str = str.replace(/\s/g, "");
-    const regex = /[a-z]/gi;
-    const hasLetter = regex.test(str);
-    if (hasLetter) {
-      throw new Error();
+    try {
+      str = str.replace(/\s/g, "");
+      const regex = /[a-z]/gi;
+      const hasLetter = regex.test(str);
+      if (hasLetter) {
+        throw new Error;
+      }
+      let value = evaluate(str);
+    } catch (error) {
+      return error;
     }
-    const value = eval(str);
     return value;
   }
 }
