@@ -7,7 +7,16 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const arr = str.split("");
+  console.log(arr);
+  const arrLength = arr.length;
+  for (let i = 0; i < arrLength; i++) {
+    if (arr[i] == arr[arrLength-1-i]) {
+      console.log("it is a palindrome");
+      return true;
+    }
+  }
 }
 
+isPalindrome("nitin");
 module.exports = isPalindrome;
