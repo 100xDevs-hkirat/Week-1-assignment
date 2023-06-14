@@ -5,18 +5,36 @@
  * Compare it with the results from 3-promise-all.js
  */
 
-function waitOneSecond() {
+function delay(seconds) {
+  return new Promise(resolve => {
+    setTimeout(resolve, seconds * 1000);
+  });
+}
 
+function waitOneSecond() {
+  return delay(1)
 }
 
 function waitTwoSecond() {
-
+  return delay(2)
 }
 
 function waitThreeSecond() {
-
+  return delay(3)
 }
 
-function calculateTime() {
 
+function calculateTime() {
+  const start = new Date();
+  waitOneSecond()
+    .then(() => waitTwoSecond()
+    .then(() => waitThreeSecond()
+    .then(() => {
+      const end = new Date();
+      const elapsedTime = (end - start) / 1000;
+      console.log(`Sequentially called promises completed in ${elapsedTime} seconds.`);
+    })
+    .catch(error => {
+      console.error('An error occurred:', error);
+    });
 }
