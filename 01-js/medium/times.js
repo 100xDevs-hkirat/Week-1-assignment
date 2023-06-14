@@ -8,5 +8,16 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let startTime = Date.now();
+    let sum = 0;
+
+    for (i = 1; i <= n; i++){
+        sum+=i;
+    }
+    let stopTime = Date.now();
+    return (stopTime-startTime)*1000;
 }
+
+console.log(`Running time for sum 1-100 is ${calculateTime(100)}`);
+console.log(`Running time for sum 1-100000 is ${calculateTime(100000)}`);
+console.log(`Running time for sum 1-1000000000 is ${calculateTime(1000000000)}`);
