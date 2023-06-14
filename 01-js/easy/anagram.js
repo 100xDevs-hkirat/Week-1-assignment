@@ -7,8 +7,15 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
+function isAnagram(s,t) {
 
+  s = s.replace(/\s/g, "").toLowerCase();
+  t = t.replace(/\s/g, "").toLowerCase();
+
+  const sortedS = s.split("").sort().join("");
+  const sortedT = t.split("").sort().join("");
+
+  return sortedS === sortedT;
 }
-
+console.log(isAnagram("race","ecar"))
 module.exports = isAnagram;

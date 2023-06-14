@@ -3,6 +3,12 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+//Creating a busy-wait sleep function
+function sleep (milliseconds) {
+  const start = performance.now()
+  while(performance.now() - start < milliseconds ){
+      //Busy Wait
+  }
 }
+
+sleep(10000000000000)
