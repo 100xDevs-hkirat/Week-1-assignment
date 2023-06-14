@@ -17,6 +17,19 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+    result;
+    constructor(){
+        this.result=0;
+    }
+    evaluator(str){
+      this.result = eval(str);
+      console.log(this.result);
+    }
+    
+}
+
+let calc = new Calculator();
+calc.evaluator("10 +   2 *    (   6 - (4 + 1) / 2) + 7");
 
 module.exports = Calculator;
