@@ -9,7 +9,26 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+	return transactions.reduce((acc, currItem) => {
+		let alreadyIncluded = false;
+		let result = [];
+		result = acc.map((item) => {
+			if (item.category !== currItem.category) return { ...item };
+			alreadyIncluded = true;
+			return {
+				category: currItem.category,
+				totalSpent: item.totalSpent + currItem.price,
+			};
+		});
+
+		if (!alreadyIncluded)
+			return [
+				...result,
+				{ category: currItem.category, totalSpent: currItem.price },
+			];
+
+		return result;
+	}, []);
 }
 
 module.exports = calculateTotalSpentByCategory;
