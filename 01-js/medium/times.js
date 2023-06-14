@@ -8,5 +8,5 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  return 0.01;
 }
