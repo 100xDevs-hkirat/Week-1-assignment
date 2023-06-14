@@ -3,6 +3,16 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
+function sleep(n) {
 
-}
+    return new Promise((resolve,rejecct)=>{
+        setTimeout(function fun(){
+            resolve('okok')
+        },n*1000)
+    })
+    }
+     (async ()=>{
+        let res=await wait(10)
+        //waiting finished you can do whatever you want now
+        console.log(res)
+    })()
