@@ -7,6 +7,8 @@
 */
 
 function isPalindrome(str) {
+  let rvrsStr = str1.split('').reverse().join('');
+   return (rvrsStr===str1);
   return true;
 }
 
