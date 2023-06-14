@@ -7,7 +7,24 @@
 */
 
 function isPalindrome(str) {
-  return true;
+ isPalindrome = function(s) {
+    let array=[];
+    for(let a=0;a<s.length;a++){
+        if((s.charAt(a)>='a' && s.charAt(a)<='z') || (s.charAt(a)>='A' && s.charAt(a)<='Z') ||(s.charAt(a)>='0' && s.charAt(a)<='9')){
+            array.push(s.charAt(a));
+        }
+    }
+     let s_original=array.join('');
+    let reverse_array=array.reverse();
+    let s_reversed=reverse_array.join('');
+ let a=s_reversed.toLowerCase();
+    let b=s_original.toLowerCase();
+if(a==b){
+    return true;
+}
+else{
+    return false;
+}
 }
 
 module.exports = isPalindrome;
