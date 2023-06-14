@@ -7,6 +7,23 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+const findTime = (n) => {
+    let start = new Date().getTime()
+    let sum = 0
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return `${new Date().getTime() - start}`;
 }
+
+function calculateTime(n) {
+    let start = performance.now()
+    let sum = 0
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return `${performance.now() - start} ms`;
+}
+console.log(calculateTime(1000000))
+// 
+// console.log(performance.now())
