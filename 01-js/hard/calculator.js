@@ -17,6 +17,8 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  
+}
 
 module.exports = Calculator;
