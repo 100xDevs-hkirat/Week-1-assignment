@@ -8,7 +8,27 @@
 */
 
 function isAnagram(str1, str2) {
-
+    let map = {}
+    if(str1.length !== str2.length) return false
+    str1=str1.toLowerCase() 
+    str2=str2.toLowerCase() 
+    for(let char of str1){
+      if(map[char]){
+        map[char] ++
+      } else {
+        map[char] = 1
+      }
+    }
+    console.log(map)
+    for(let char of str2){
+      if(!map[char]){
+        return false
+      } else {
+        map[char]--
+      }
+    }
+    return true
+    
 }
-
+console.log(isAnagram('Debit Card','Bad Credit'))
 module.exports = isAnagram;
