@@ -7,7 +7,13 @@
 */
 
 function isPalindrome(str) {
+
+  let str1 = str.toUpperCase().split("").reverse().join("");
+  if(str1== str.toUpperCase())
   return true;
+  else return false;
 }
 
-module.exports = isPalindrome;
+
+console.log(isPalindrome("Nan"));
+//module.exports = isPalindrome;
