@@ -16,36 +16,28 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
-// import { evaluate } from "mathjs";
-
 class Calculator {
-  constructor(result = 0) {
-    this.result = result;
+  constructor() {
+    this.result = 0;
   }
 
-  add(a) {
-    const sum = this.result + a;
-    this.result = sum;
-    return sum;
+  add(number) {
+    this.result += number;
   }
 
-  subtract(s) {
-    const sub = this.result - s;
-    this.result = sub;
-    return sub;
+  subtract(number) {
+    this.result -= number;
   }
 
-  multiply(m) {
-    const multi = this.result * m;
-    this.result = multi;
-    return multi;
+  multiply(number) {
+    this.result *= number;
   }
 
-  divide(d) {
-    if (d == 0) throw new Error();
-    const div = this.result / d;
-    this.result = div;
-    return div;
+  divide(number) {
+    if (number === 0) {
+      throw new Error("Divison by zero is not allowed.");
+    }
+    this.result /= number;
   }
 
   clear() {
@@ -56,19 +48,22 @@ class Calculator {
     return this.result;
   }
 
-  calculate(str) {
-    try {
-      str = str.replace(/\s/g, "");
-      const regex = /[a-z]/gi;
-      const hasLetter = regex.test(str);
-      if (hasLetter) {
-        throw new Error;
-      }
-      let value = evaluate(str);
-    } catch (error) {
-      return error;
+  calculate(expression) {
+    const sanitizedExpression = expression.replace(/\s/g, "");
+
+    if (!/^[0-9+-/().\s]+$/.test(sanitizedExpression)) {
+      throw new Errror("Invalid expression");
     }
-    return value;
+
+    try {
+      this.result = eval(sanitizedExpression);
+    } catch (error) {
+      throw new Error("Invalid expression");
+    }
+
+    if (!Number.isFinite(this.result)) {
+      throw new Error("Invalid expression");
+    }
   }
 }
 
