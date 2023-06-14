@@ -5,40 +5,29 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
-
+// @!#$%^&*(),<>:;_+?/\/.0-9
 function isPalindrome(str) {
 	if (str.length === 0 || typeof str !== "string") return;
-	const newStr = str.replace(/[@!#$%^&*(),<>:;_+?/\/.0-9]|'s/g, "");
+	const newStr = str.replace(/[^a-zA-Z0-9]/g, "");
 
-	const originalStrArr = splitString(newStr).join("").split(" ").join("");
-
-	const reverseStringArr = reverseString(newStr).join("").split(" ").join("");
+	const originalStrArr = splitString(newStr).join("");
+	const reverseStringArr = reverseString(newStr).join("");
+	console.log(originalStrArr, reverseStringArr);
 	return reverseStringArr === originalStrArr;
-	// return originalStrArr.every((str, i) => {
-	// 	return reverseStringArr[i] === str;
-	// })
-	// 	? true
-	// 	: false;
 }
 function splitString(str) {
-	return str.trim().toLowerCase().split("");
+	return str.toLowerCase().split("");
 }
 function reverseString(str) {
 	const strArr = splitString(str);
+
 	const originalArr = strArr;
 
 	let revArr = [];
 	originalArr.map((str, i) => {
 		revArr[strArr.length - 1 - i] = str;
 	});
-
+	console.log(revArr);
 	return revArr;
 }
 console.log(isPalindrome("Mr. Owl ate my metal worm."));
-// console.log(isPalindrome("Nan's"));
-// module.exports = isPalindrome;
-// function newString(str) {
-// 	const newStr = str.replace(/[@!#$%^&*(),<>:;_+?/\/.0-9]|'s/g, "");
-// 	console.log(newStr);
-// }
-// newString("heloo dfaf afffajf 3434f%%% faffaklfjf)/?");
