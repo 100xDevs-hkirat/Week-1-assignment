@@ -9,7 +9,40 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let result = [];
+  for (let i = 0; i < transactions.length; i++) {
+    if (result.length == 0) {
+      result.push({
+        category: transactions[i].category,
+        totalSpent: transactions[i].price,
+      });
+    } else {
+      let categoryPresent = result.find(
+        (result) => result.category == transactions[i].category
+      );
+      if (categoryPresent == null) {
+        result.push({
+          category: transactions[i].category,
+          totalSpent: transactions[i].price,
+        });
+      } else {
+        categoryPresent.totalSpent =
+          categoryPresent.totalSpent + transactions[i].price;
+      }
+    }
+  }
+  return result;
 }
-
+// let simple = [
+//   {
+//     name: "asbar",
+//     age: 19,
+//   },
+//   {
+//     name: "ridaa",
+//     age: 17,
+//   },
+// ];
+// let print = simple.find((sim) => sim.name == "asbar");
+// console.log(print);
 module.exports = calculateTotalSpentByCategory;
