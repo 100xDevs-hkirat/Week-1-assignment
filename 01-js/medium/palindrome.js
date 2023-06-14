@@ -7,7 +7,19 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const lowCaseStr = str.toLowerCase();
+  const arrStr = lowCaseStr.split("");
+  const reverseArr = arrStr.slice().reverse();
+  const reverseStr = reverseArr.join(""); // Convert the reversed array back to a string
+
+  if (lowCaseStr === reverseStr) {
+    return true;
+  } else {
+    return false;
+  }
 }
+
+const output = isPalindrome('okay');
+console.log(output);
 
 module.exports = isPalindrome;
