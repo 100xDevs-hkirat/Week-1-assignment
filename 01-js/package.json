@@ -17,8 +17,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "mathjs": "^11.8.1"
-  }
+  "license": "ISC"
 }
