@@ -15,4 +15,8 @@ function calculateTime(n) {
     }
     const now2=new Date();
     return now2-now1/1000;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/week-one
