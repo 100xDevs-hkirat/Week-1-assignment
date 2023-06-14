@@ -7,7 +7,10 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase().replace(/[\s,.?!]/g,"")
+  let str1 = str.split('').reverse().join("")
+  return str===str1
+  // console.log(str1);
 }
-
+isPalindrome('Eva, can I see bees in a cave?')
 module.exports = isPalindrome;
