@@ -17,6 +17,48 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiple(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    this.result /= num;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(str) {
+  const invalidExpression = /[^\d+\-*/().\s]/;
+    if (str.match(invalidExpression)) {
+      console.log("Invalid expression");
+      return;
+    }
+    let ans = eval(str);
+    console.log(ans);
+  }
+}
+
+const calculator = new Calculator();
+
+calculator.calculate('10 +   2534682897');
 
 module.exports = Calculator;

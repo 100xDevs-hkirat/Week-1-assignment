@@ -13,6 +13,45 @@
 
 class Todo {
 
+  todolist = [];
+
+  add(todo) {
+    this.todolist.push(todo);
+  }
+
+  remove(indexOfTodo) {
+    this.todolist.splice(indexOfTodo, 1);
+  }
+
+  update(index, updatedTodo) {
+    this.todolist[index] = updatedTodo;
+  }
+
+  getAll() {
+    return this.todolist;
+  }
+
+  get(indexOfTodo) {
+    return this.todolist[indexOfTodo];
+  }
+
+  clear() {
+    this.todolist = [];
+  }
+
 }
+
+const todo = new Todo();
+
+todo.add('Practice yoga');
+todo.add('Play guitar');
+todo.add('Chew some glass');
+todo.add('Be consistent');
+
+todo.remove(2);
+
+todo.update(1, 'Regular practice');
+
+console.log(todo.todolist);
 
 module.exports = Todo;
