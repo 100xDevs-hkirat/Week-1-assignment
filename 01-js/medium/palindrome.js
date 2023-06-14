@@ -6,7 +6,20 @@
   - `npm run test-palindrome`
 */
 
+
+
 function isPalindrome(str) {
+  let _str = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+
+  let i = 0, j = _str.length-1;
+  while(i<=j){
+    if(_str[i]!=_str[j])
+      return false;
+
+    i++;
+    j--;
+  }
+
   return true;
 }
 
