@@ -7,7 +7,27 @@
 */
 
 function isPalindrome(str) {
-  return true;
-}
+  if (str.length == 0) {
+    return true;
+  }
 
-module.exports = isPalindrome;
+  if (str.length == 1) {
+    return true;
+  }
+
+
+const str1 = str.replace(/[^a-z0-9]/gi, '').toLowerCase('');
+const n = str1.length;
+const halfLength = Math.ceil(str1.length / 2);
+
+for (let i = 0; i < halfLength; i++) {
+  if (str1[i] !== str1[n - 1 - i]) {
+    return false;
+  } else { 
+    return true;
+  }
+}
+}
+module.exports = isPalindrome ;
+
+
