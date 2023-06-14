@@ -4,5 +4,9 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise(function(resolve,reject){
+        setTimeout(()=>resolve(`resolving after ${seconds} seconds`),seconds*1000)
+    })
 }
+
+sleep(2).then(res=>{console.log(res);console.log(`printef after resolving`)})
