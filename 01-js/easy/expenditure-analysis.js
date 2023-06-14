@@ -9,7 +9,30 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const categoryToTotal = {};
+  for (const transaction of transactions) {
+    const category = transaction.category;
+    const price = transaction.price;
+    if (categoryToTotal.hasOwnProperty(category)) {
+      categoryToTotal[category] += price;
+    } else {
+      categoryToTotal[category] = price;
+    }
+  }
+
+  const ans = [];
+  for (const key of Object.keys(categoryToTotal)) {
+    ans.push({ [key]: categoryToTotal[key] });
+  }
+  return ans;
 }
 
-module.exports = calculateTotalSpentByCategory;
+const ans = calculateTotalSpentByCategory([
+  { itemName: 'Item 1', category: 'Food', price: 10, timestamp: '2023-06-10' },
+  { itemName: 'Item 2', category: 'Food', price: 15, timestamp: '2023-06-11' },
+  { itemName: 'Item 3', category: 'Clothing', price: 30, timestamp: '2023-06-11' },
+  { itemName: 'Item 4', category: 'Electronics', price: 50, timestamp: '2023-06-12' },
+  { itemName: 'Item 5', category: 'Food', price: 20, timestamp: '2023-06-12' }
+]);
+console.log(ans);
+// [ { Food: 45 }, { Clothing: 30 }, { Electronics: 50 } ]
