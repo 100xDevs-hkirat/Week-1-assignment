@@ -8,7 +8,10 @@
 */
 
 function isAnagram(str1, str2) {
-
+  
+   let k = str1.toLowerCase().split('').sort();
+   let k1 = str2.toLowerCase().split('').sort();
+   return (k.toString()===k1.toString());
 }
 
 module.exports = isAnagram;
