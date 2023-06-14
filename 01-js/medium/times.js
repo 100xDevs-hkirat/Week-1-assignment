@@ -8,5 +8,13 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+	if (typeof +n !== "number") return;
+	let sum = 0;
+	const t1 = new Date();
+	for (let i = 1; i <= n; i++) {
+		sum += i;
+	}
+	const t2 = new Date();
+	return { [sum]: `${(t2 - t1) / 1000}s` };
 }
+console.log(calculateTime(1000000000));

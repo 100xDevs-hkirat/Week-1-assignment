@@ -12,7 +12,36 @@
 */
 
 class Todo {
+	toDo = [];
 
+	add(toDo) {
+		this.toDo.push(toDo);
+	}
+	remove(toDoNo) {
+		if (this.toDo.length < toDoNo) return;
+
+		this.toDo.splice(toDoNo, 1);
+	}
+	update(updateTodoNo, updatedTodo) {
+		console.log(this.toDo.length, updateTodoNo);
+		if (this.toDo.length === 0 || this.toDo.length <= updateTodoNo) return;
+		// as I am expecting todo no. instead of index no.
+		return this.toDo.splice(updateTodoNo, 1, updatedTodo);
+	}
+	getAll() {
+		if (this.toDo.length === 0) return [];
+		return this.toDo;
+	}
+	get(toDOnumber) {
+		if (this.toDo.length <= toDOnumber) {
+			return null;
+		}
+		return this.toDo[toDOnumber];
+	}
+	clear() {
+		this.toDo.length = 0;
+	}
 }
+const myToDo = new Todo();
 
 module.exports = Todo;

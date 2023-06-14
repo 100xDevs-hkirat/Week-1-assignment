@@ -17,6 +17,55 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+	// we can initialize here also...
+	result;
+	constructor() {
+		this.result = 0;
+	}
+	add(n) {
+		if (typeof +n !== "number") return;
 
+		this.result += n;
+	}
+	subtract(n) {
+		if (typeof +n !== "number") return;
+		this.result -= n;
+	}
+	multiply(n) {
+		if (typeof +n !== "number") return;
+		this.result *= n;
+	}
+	divide(n) {
+		if (n === 0) {
+			throw new Error("invalid input");
+		}
+		this.result /= n;
+	}
+	calculate(expression) {
+		if (isNaN(eval(expression)) || !isFinite(eval(expression)))
+			throw new Error("You entered wrong expression");
+		this.result = eval(expression);
+	}
+	getResult() {
+		return this.result;
+	}
+	clear() {
+		this.result = 0;
+	}
+}
+
+const calculator = new Calculator();
+
+// console.log();
+// calculator.add(5);
+// calculator.subtract(100);
+// calculator.calculate("10/0");
+// calculator.subtract(100);
+// calculator.clear();
+// calculator.divide(0);
+// console.log(calculator.getResult());
+// const expression = "10 + 2 * (6 - (4 + 1) / 2) + 7";
+// const calculatedValue = calculator.calculate(expression);
+// console.log(calculatedValue);
 module.exports = Calculator;
