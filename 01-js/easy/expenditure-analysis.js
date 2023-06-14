@@ -9,7 +9,70 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let categories = []
+
+  // for all transaction in transactions array we do the following
+  for (let i = 0; i < transactions.length; i++) {
+    let transaction = transactions[i]
+
+    // if category already exists in Array, we add the price to the existing amount and update the amount
+
+    // console.log(transaction.category)
+    let existingCategory = categories.find((item) => {
+      return item.category === transaction.category
+    })
+
+    if (existingCategory) {
+      existingCategory.totalSpent += transaction.price
+    }
+    // else if add a new category to the array with initial value of the price
+    else {
+      let newCategory = {
+        category: transaction.category,
+        totalSpent: transaction.price,
+      }
+      categories.push(newCategory)
+    }
+  }
+
+  //  return the categories array
+  return categories
 }
 
-module.exports = calculateTotalSpentByCategory;
+// testing
+const transactions = [
+  {
+    itemName: 'Item 1',
+    category: 'Category 1',
+    price: 10,
+    timestamp: '2023-01-01',
+  },
+  {
+    itemName: 'Item 2',
+    category: 'Category 2',
+    price: 15,
+    timestamp: '2023-01-02',
+  },
+  {
+    itemName: 'Item 3',
+    category: 'Category 1',
+    price: 20,
+    timestamp: '2023-01-03',
+  },
+  {
+    itemName: 'Item 4',
+    category: 'Category 2',
+    price: 25,
+    timestamp: '2023-01-04',
+  },
+  {
+    itemName: 'Item 5',
+    category: 'Category 1',
+    price: 30,
+    timestamp: '2023-01-05',
+  },
+]
+
+console.log(calculateTotalSpentByCategory(transactions))
+
+module.exports = calculateTotalSpentByCategory
