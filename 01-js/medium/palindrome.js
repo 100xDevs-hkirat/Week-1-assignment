@@ -15,5 +15,5 @@ function isPalindrome(str) {
 }
 
 
-console.log(isPalindrome("Nan"));
-//module.exports = isPalindrome;
+//console.log(isPalindrome("Nan"));
+module.exports = isPalindrome;
