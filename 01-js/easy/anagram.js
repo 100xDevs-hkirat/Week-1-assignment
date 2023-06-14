@@ -8,6 +8,27 @@
 */
 
 function isAnagram(str1, str2) {
+  
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+  let object_For_Char= {};
+
+  if (str1.length!=str2.length)
+    return (false);
+
+  for (char of str1)
+    object_For_Char[char]=(object_For_Char[char]||0)+1;
+
+  
+  for (char of str2)
+  
+    if(!object_For_Char[char])
+
+      return (false);
+
+    object_For_Char[char]--;
+
+  return true;
 
 }
 
