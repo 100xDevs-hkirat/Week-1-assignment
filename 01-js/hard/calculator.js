@@ -17,6 +17,129 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (number === 0) {
+      throw new Error('Division by zero is not allowed');
+    }
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    const sanitizedExpression = expression.replace(/\s+/g, ''); // Remove all whitespace
+    const regex = /(\d+(\.\d+)?|\+|-|\*|\/|\(|\))/g;
+    const tokens = sanitizedExpression.match(regex);
+
+    if (!tokens || tokens.length === 0) {
+      throw new Error('Invalid expression');
+    }
+
+    const postfix = [];
+    const stack = [];
+
+    const precedence = {
+      '+': 1,
+      '-': 1,
+      '*': 2,
+      '/': 2,
+    };
+
+    for (const token of tokens) {
+      if (token === '(') {
+        stack.push(token);
+      } else if (token === ')') {
+        while (stack.length > 0 && stack[stack.length - 1] !== '(') {
+          postfix.push(stack.pop());
+        }
+        if (stack.length === 0 || stack[stack.length - 1] !== '(') {
+          throw new Error('Invalid expression');
+        }
+        stack.pop(); // Discard '('
+      } else if (['+', '-', '*', '/'].includes(token)) {
+        while (
+          stack.length > 0 &&
+          ['+', '-', '*', '/'].includes(stack[stack.length - 1]) &&
+          precedence[token] <= precedence[stack[stack.length - 1]]
+        ) {
+          postfix.push(stack.pop());
+        }
+        stack.push(token);
+      } else {
+        const number = parseFloat(token);
+        if (isNaN(number)) {
+          throw new Error('Invalid expression');
+        }
+        postfix.push(number);
+      }
+    }
+
+    while (stack.length > 0) {
+      if (['(', ')'].includes(stack[stack.length - 1])) {
+        throw new Error('Invalid expression');
+      }
+      postfix.push(stack.pop());
+    }
+
+    const evalStack = [];
+    for (const token of postfix) {
+      if (typeof token === 'number') {
+        evalStack.push(token);
+      } else {
+        if (evalStack.length < 2) {
+          throw new Error('Invalid expression');
+        }
+        const b = evalStack.pop();
+        const a = evalStack.pop();
+        switch (token) {
+          case '+':
+            evalStack.push(a + b);
+            break;
+          case '-':
+            evalStack.push(a - b);
+            break;
+          case '*':
+            evalStack.push(a * b);
+            break;
+          case '/':
+            if (b === 0) {
+              throw new Error('Division by zero is not allowed');
+            }
+            evalStack.push(a / b);
+            break;
+        }
+      }
+    }
+
+    if (evalStack.length !== 1) {
+      throw new Error('Invalid expression');
+    }
+
+    this.result = evalStack[0];
+  }
+}
 
 module.exports = Calculator;
