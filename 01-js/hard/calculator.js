@@ -16,7 +16,61 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
+var result = 0, num = 0;
+class Calculator {
+  constructor() {
+    result = 0;
+  }
 
-class Calculator {}
+  add(num) {
+    result += num;
+  }
+
+  subtract(num) {
+    result -= num;
+  }
+
+  multiply(num) {
+    result *= num;
+  }
+
+  divide(num) {
+    
+    if (num == 0) {
+      throw new Error("This is an error message.");
+    } else {
+      result /= num;
+    }
+  }
+
+  clear() {
+    result = 0;
+  }
+
+  getResult() {
+    return result;
+  }
+
+  calculate(s) {
+    s = s.split(" ").join("");
+        for(let i=0;i<s.length;i++){
+          if(s[i]>='a' && s[i]<='z'){
+            throw new Error("This is an error message.");
+            return ;
+          }
+        }
+        
+        result = eval(s);
+        console.log(result);
+        if(isNaN(result) || result===Infinity || result===-Infinity){
+          throw new Error("This is an error message.");
+          return ;
+      }
+        result;
+      
+    
+  }
+}
+
 
 module.exports = Calculator;
