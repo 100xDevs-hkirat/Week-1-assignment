@@ -3,6 +3,14 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
+async function sleep(seconds) {
+  let startTime = new Date().getTime();
 
+  while (new Date().getTime() - startTime <= seconds * 1000);
+}
+
+sleep(10);
+
+for (let i = 0; i < 1000; i++) {
+  console.log(i);
 }

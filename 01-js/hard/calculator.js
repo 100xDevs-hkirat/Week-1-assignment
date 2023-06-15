@@ -17,6 +17,56 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add = (n) => {
+    this.result += n;
+  };
+
+  subtract = (n) => {
+    this.result -= n;
+  };
+
+  multiply = (n) => {
+    this.result *= n;
+  };
+
+  divide = (n) => {
+    if (n == 0) throw new Error("NaN");
+    this.result /= n;
+  };
+
+  clear = () => {
+    this.result = 0;
+  };
+
+  getResult = (n) => {
+    return this.result;
+  };
+
+  isOperator = (op) => {
+    if (op === "+" || op === "*" || op === "-" || op === "/") return true;
+  };
+
+  isParanthesis = (p) => {
+    if (p === "(" && p === ")") return true;
+  };
+
+  isOpPar = (p) => {
+    if (p === "(") return true;
+    return false;
+  };
+
+  calculate = (exp) => {
+    exp.replace(/[ ]/g, "");
+    this.clear();
+    this.result = eval(exp);
+    console.log(this.result);
+    if (this.result === Infinity) throw new Erro();
+  };
+}
 
 module.exports = Calculator;
