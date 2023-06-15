@@ -8,5 +8,24 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    const startTime = new Date(); // Get the current time before the calculation
+  
+    // Calculate the sum from 1 to n
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+      sum += i;
+    }
+  
+    const endTime = new Date(); // Get the current time after the calculation
+    const timeDiff = endTime - startTime; // Calculate the time difference in milliseconds
+    const timeInSeconds = timeDiff / 1000; // Convert milliseconds to seconds
+  
+    return timeInSeconds;
 }
+
+console.log(calculateTime(100)); // Time taken for sum from 1-100
+console.log(calculateTime(100000)); // Time taken for sum from 1-100000
+console.log(calculateTime(1000000000)); // Time taken for sum from 1-1000000000
+
+
+  
