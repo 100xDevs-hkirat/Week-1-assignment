@@ -1,0 +1,19 @@
+{
+  "name": "week-1-assignment",
+  "version": "1.0.0",
+  "description": "- The project contains easy, medium and hard assigments for week 1. - 01-js contains assignments related to JavaScript, things that were covered in the first class. - 02-async-js contains assignments related to asynchronous JavaScript, things that were covered in the second class. - If you have any query then ping us on the Discord server.",
+  "main": "index.js",
+  "scripts": {
+    "test-anagram":"jest --testPathPattern=/anagram.test.js",
+    "test-palindrome": "jest --testPathPattern=/palindrome.test.js",
+    "test-todo-list": "jest --testPathPattern=/todo-list.test.js",
+    "test-calculator": "jest --testPathPattern=/calculator.test.js",
+    "test-expenditure-analysis": "jest --testPathPattern=/expenditure-analysis.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
