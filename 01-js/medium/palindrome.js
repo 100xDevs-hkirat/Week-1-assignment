@@ -6,7 +6,24 @@
   - `npm run test-palindrome`
 */
 
+const isAlpha = (ch) => {
+  let val = ch.charCodeAt();
+  return (val > 64 && val < 91) || (val > 96 && val < 123);
+};
+
 function isPalindrome(str) {
+  str = str.split("").filter(isAlpha).join("");
+
+  let st = 0;
+  let end = str.length - 1;
+
+  while (st < end) {
+    if (str[st].toLowerCase() != str[end].toLowerCase()) {
+      return false;
+    }
+    st += 1;
+    end -= 1;
+  }
   return true;
 }
 

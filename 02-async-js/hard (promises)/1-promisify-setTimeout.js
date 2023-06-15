@@ -3,4 +3,11 @@
 */
 
 function wait(n) {
+  let current = Date.now();
+
+  while (Date.now() - current < n * 1000) {}
 }
+
+wait(1);
+
+console.log("wait");
