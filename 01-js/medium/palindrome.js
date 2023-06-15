@@ -6,7 +6,31 @@
   - `npm run test-palindrome`
 */
 
+function isLetter(c) {
+  return (/[a-zA-Z]/).test(c);
+}
+
 function isPalindrome(str) {
+  str = str.toLowerCase();
+
+  for(let i = 0, j = str.length - 1; i < j; ) {
+    if(!isLetter(str[i])) {
+      i++;
+      continue;
+    }
+
+    if(!isLetter(str[j])) {
+      j--;
+      continue;
+    }
+
+    if(str[i] !== str[j]) {
+      return false;
+    }
+    i++;
+    j--;
+  }
+
   return true;
 }
 
