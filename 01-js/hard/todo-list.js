@@ -72,4 +72,4 @@ obj.gettoDo(2);
 //function to empty the to do List
 obj.clear();
 
-// module.exports = Todo;
+module.exports = Todo;
