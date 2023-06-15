@@ -14,7 +14,8 @@ function calculateTime(n) {
   while (i != n) {
     i++;
   }
-  var endSecond = currentDate.getTime();
+  var endDate = new Date();
+  var endSecond = endDate.getTime();
   return (endSecond - startSecond) / 1000;
 }
 
