@@ -4,5 +4,15 @@
  */
 
 function sleep (seconds) {
+    const startTime = new Date()
 
+    while (new Date() - startTime < seconds) {
+        console.log("Thread blocked")
+    }
 }
+
+console.log("Before Halt");
+
+sleep(2000);
+
+console.log("After Halt")
