@@ -19,17 +19,14 @@ class Todo {
   //function to add Todo in todos list
   add = (toDo) => {
     this.tasks.push(toDo);
-    console.log(JSON.stringify(this.tasks));
   };
   //function to remove the toDo via index value
   remove = (index) => {
     this.tasks.splice(index, 1);
-    console.log(JSON.stringify(this.tasks));
   };
   //function to update particular todo via index value
   updateToDo = (index, toDo) => {
     this.tasks[index] = toDo;
-    console.log(JSON.stringify(this.tasks));
   };
   //function to get all toDo from the list
   getAll = () => {
@@ -42,7 +39,6 @@ class Todo {
   ///function to empty the to do List.
   clear = () => {
     this.tasks = [];
-    console.log(JSON.stringify(this.tasks));
   };
 }
 
