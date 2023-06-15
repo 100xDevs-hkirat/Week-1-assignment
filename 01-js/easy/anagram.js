@@ -8,6 +8,22 @@
 */
 
 function isAnagram(str1, str2) {
+  
+  let l1 = str1.length;
+  let l2 = str2.length;
+  if(l1!=l2){
+    console.log("invalid input");
+    return;
+  }
+let str_1 = str1.split('').sort().join('');
+let str_2 = str1.split('').sort().join('');
+     if(str_1===str_2){
+        return true;
+            }
+     else
+      {
+    return false;
+       }
 
 }
 
