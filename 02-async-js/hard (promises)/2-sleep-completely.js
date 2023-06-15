@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
-
+    var startTime = new Date().getTime();
+    startTime.getMilliseconds
+    return (new Promise((resolve)=>{
+        setTimeout(resolve, seconds*1000);
+    }));
 }
+
+sleep(5).then(()=>{
+// Add any code that needs to wait here.
+});

@@ -7,6 +7,18 @@
 */
 
 function isPalindrome(str) {
+
+// change the input to lowercase and remove all spaces and punctuations
+var processedString = (str.toLowerCase()).replace(/[^\w]/g, "");
+
+var strLen = processedString.length;
+
+for (var x = 0; x < Math.floor(strLen/2); x++){
+  if(processedString[x] != processedString[strLen-1-x]){
+    return false;
+  }
+}
+
   return true;
 }
 

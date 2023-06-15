@@ -17,6 +17,55 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  
+  constructor(){
+    this.result = 0;
+  }
+
+  add(num){
+    this.result += num;
+  }
+
+  subtract(num){
+    this.result -= num;
+  }
+
+  multiply(num){
+    this.result *= num;
+  }
+
+  divide(num){
+    if (num == 0){
+      throw new Error("asq","xxssa","cc");
+    }
+    else{
+      this.result /= num;
+    }
+  }
+
+  clear(){
+    this.result =0;
+  }
+
+  getResult(){
+    return this.result;
+  }
+
+  calculate(exp){
+    try{
+      this.result = eval(exp);
+    }
+    catch(err){
+      throw new Error("","","");
+    }
+
+    // Special case to handle divide by 0
+    if (this.result == Infinity || this.result == -Infinity){
+      throw new Error("","","");
+    }
+  }
+}
 
 module.exports = Calculator;
+

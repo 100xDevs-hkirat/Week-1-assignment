@@ -6,17 +6,31 @@
 
 
 function waitOneSecond() {
-
+  return (new Promise((resolve)=>{
+    setTimeout(resolve,1000);
+  }));
 }
 
 function waitTwoSecond() {
-
+  return (new Promise((resolve)=>{
+    setTimeout(resolve,2000);
+  }));
 }
 
 function waitThreeSecond() {
-
+  return (new Promise((resolve)=>{
+    setTimeout(resolve,3000);
+  }));
 }
 
 function calculateTime() {
-
+  var startTime = new Date().getTime();
+  Promise.all([waitOneSecond(), waitTwoSecond(), waitThreeSecond()])
+  .then(()=>{
+  // logic for displaying total time
+  endTime = new Date().getTime();
+  var totalTime = (endTime - startTime);
+  console.log("Total time taken to resolve all three promises are: " + totalTime + " ms")});
 }
+
+calculateTime();
