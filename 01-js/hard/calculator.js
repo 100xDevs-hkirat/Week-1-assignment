@@ -17,6 +17,34 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(result) {
+    this.result = 0;
+  }
 
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result *= num;
+  }
+  divide(num) {
+    if (num === 0) throw new Error("NaN");
+    this.result /= num;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(str) {
+    this.result = eval(str);
+  }
+}
+
+// console.log(new Calculator().calculate("2 + 3 * 4"));
 module.exports = Calculator;
