@@ -32,9 +32,9 @@ function calculateTime() {
     () => {
       const end = Date.now();
       const timeTaken = (end - start) / 1000;
-      console.log(`Time taken is ${timeTaken} seconds`);
+      console.log(`Time taken is ${timeTaken} seconds using promise.all`);
     }
   );
 }
 
-calculateTime();
+module.exports = calculateTime;
