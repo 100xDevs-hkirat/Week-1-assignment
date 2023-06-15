@@ -5,10 +5,30 @@
 
 function sleep(seconds) {
     const start = Date.now();
+    console.log(`Thread is blocked for next ${seconds} seconds`);
     while(Date.now() - start < seconds * 1000) {
 
     }
-    console.log(`Blocked the thread for ${seconds}`);
+    console.log("Continue execution after sleep");
 }
 
 sleep(5);
+
+
+// Below code is by Prashant Varma
+// function sleep(seconds) {
+//   return new Promise((resolve) => {
+//     console.log(`Thread is blocked for next ${seconds} seconds`);
+//     setTimeout(() => {
+//       resolve();
+//     }, seconds * 1000);
+//   });
+// }
+
+// async function runSleep() {
+//   await sleep(5);
+//   console.log("Continuing execution after sleep");
+// }
+
+// runSleep();
+
