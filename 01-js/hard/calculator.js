@@ -17,6 +17,78 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    if (this.isValidNumber(number)) {
+      this.result += number;
+    } else {
+      throw new Error('Invalid number');
+    }
+  }
+
+  subtract(number) {
+    if (this.isValidNumber(number)) {
+      this.result -= number;
+    } else {
+      throw new Error('Invalid number');
+    }
+  }
+
+  multiply(number) {
+    if (this.isValidNumber(number)) {
+      this.result *= number;
+    } else {
+      throw new Error('Invalid number');
+    }
+  }
+
+  divide(number) {
+    if (this.isValidNumber(number)) {
+      if (number !== 0) {
+        this.result /= number;
+      } else {
+        throw new Error('Division by zero is not allowed');
+      }
+    } else {
+      throw new Error('Invalid number');
+    }
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    const sanitizedExpression = expression.replace(/\s+/g, '');
+    if (!/^[0-9+\-*/().\s]+$/.test(sanitizedExpression)) {
+      throw new Error('Invalid expression');
+    }
+    
+    try {
+      const result = eval(sanitizedExpression);
+      
+      if (result === Infinity || result === -Infinity) {
+        throw new Error('Division by zero is not allowed');
+      }
+      
+      this.result = result;
+    } catch (error) {
+      throw new Error('Invalid expression');
+    }
+  }
+  
+
+  isValidNumber(number) {
+    return typeof number === 'number' && !isNaN(number);
+  }
+}
 
 module.exports = Calculator;
