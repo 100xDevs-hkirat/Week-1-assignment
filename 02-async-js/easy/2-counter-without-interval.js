@@ -9,6 +9,5 @@ function updateCounter() {
   // Initialize counter variable
   let counter = 0;
   
-  // Start the counter
   updateCounter();
   

@@ -6,14 +6,14 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-anagram`
 */
-function sortarray(str){
+function sortarr(str){
   var array = str.split("")
   array = array.sort();
   var sortedarray = array.join("")
   return sortedarray
 }
 function isAnagram(str1, str2) {
-  if (sortarray(str1) == sortedarray(str2)){
+  if (sortarr(str1) == sortedarr(str2)){
     return true;
   }else{
     return false;

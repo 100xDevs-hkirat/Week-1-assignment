@@ -7,5 +7,4 @@ function updateCounter() {
   console.log(counter);
 }
 
-// Start the counter
 setInterval(updateCounter, 1000);

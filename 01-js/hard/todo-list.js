@@ -52,5 +52,4 @@ class Todo {
     this.todos = [];
   }
 }
-
 module.exports = Todo;

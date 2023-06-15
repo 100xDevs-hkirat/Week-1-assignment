@@ -19,7 +19,7 @@ function calculateTime(n) {
     var endTime = new Date().getTime();
     var elapsedTime = endTime - startTime;
     
-    return elapsedTime / 1000; // Convert milliseconds to seconds
+    return elapsedTime / 1000; // used to Convert milliseconds to seconds
 }
 
 
