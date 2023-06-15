@@ -9,7 +9,21 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  var n= transactions.length;
+  var omp= {};
+  for(var i=0;i<n;i++){
+      if(transactions[i].category in omp){
+          omp[transactions[i].category]+=transactions[i].price;
+      }
+      else{
+          omp[transactions[i].category]=transactions[i].price;
+      }
+  }
+  var r=[];
+  for(let a in omp){
+      r.push({[a]:omp[a]});
+  }
+return r;
 }
 
 module.exports = calculateTotalSpentByCategory;
