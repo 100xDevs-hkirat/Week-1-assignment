@@ -22,16 +22,35 @@ class Calculator {
     this.result = 0;
   }
 
+  checkNumber(n) {
+    if (typeof n === "number" || (typeof n === 'string' && (/^[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/).test(n))) {
+      return true;
+    }
+    return false;
+  }
+
   add(n) {
+    if (!this.checkNumber) {
+      throw new Error("not a number");
+    }
     this.result += n;
   }
   subtract(n) {
+    if (!this.checkNumber) {
+      throw new Error("not a number");
+    }
     this.result -= n;
   }
   multiply(n) {
+    if (!this.checkNumber) {
+      throw new Error("not a number");
+    }
     this.result *= n;
   }
   divide(n) {
+    if (!this.checkNumber || n == 0) {
+      throw new Error("not a number");
+    }
     this.result /= n;
   }
   clear() {
@@ -40,12 +59,26 @@ class Calculator {
   getResult() {
     return this.result;
   }
-  calculate(expr) {
-    // let total = 0;
-    // expr = expr.replaceAll(' ', ''); 
+  calculate(expression) {
+    expression = expression.replace(/\s+/g, "");
+
+    if (!/^[\d+\-*/().\s.]+$/.test(expression)) {
+      throw new Error("Invalid expression.");
+    }
+    try {
+      const output = eval(expression);
+
+      if (output === -Infinity || output === Infinity || output === NaN) {
+        throw new Error("Invalid expression.");
+        return;
+      }
+
+      this.result = output;
+    } catch (error) {
+      throw new Error("Invalid expression.");
+    }
   }
 }
 
-const inst = new Calculator();
-console.log(inst.calculate("10 +   2 *    (   6 - (4 + 1) / 2) + 7"));
+
 module.exports = Calculator;
