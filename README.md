@@ -29,6 +29,7 @@
 ### Extras 
 * http://latentflip.com/loupe to view js stack
 
+
 ## Week 1 Assignment
 
 The project contains easy, medium and hard assigments for week 1.
@@ -38,3 +39,41 @@ The project contains easy, medium and hard assigments for week 1.
 - 02-async-js contains assignments related to asynchronous JavaScript, things that were covered in the second class.
     - [Asynchronous Java Script](./Week_01_-_JS_Basics_and_Async/02-async-js/README.md).
 
+#### Run Script & Tests
+
+```
+\Week_01_-_JS_Basics_and_Async\01-js> node  .\easy\anagram.js
+\Week_01_-_JS_Basics_and_Async\01-js> node  .\easy\expenditure-analysis.test.js
+true
+
+\Week_01_-_JS_Basics_and_Async\01-js> npx jest ./tests/anagram.test.js
+\Week_01_-_JS_Basics_and_Async\01-js> npx jest ./tests/expenditure-analysis.test.js
+
+
+```
+
+
+
+### Date Time Function Java Script
+```
+function timeDifference(date1,date2) {
+    var difference = date1.getTime() - date2.getTime();
+
+    var daysDifference = Math.floor(difference/1000/60/60/24);
+    difference -= daysDifference*1000*60*60*24
+
+    var hoursDifference = Math.floor(difference/1000/60/60);
+    difference -= hoursDifference*1000*60*60
+
+    var minutesDifference = Math.floor(difference/1000/60);
+    difference -= minutesDifference*1000*60
+
+    var secondsDifference = Math.floor(difference/1000);
+
+    console.log('difference = ' + 
+      daysDifference + ' day/s ' + 
+      hoursDifference + ' hour/s ' + 
+      minutesDifference + ' minute/s ' + 
+      secondsDifference + ' second/s ');
+}
+```

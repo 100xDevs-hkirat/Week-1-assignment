@@ -8,13 +8,12 @@
   - `npm run test-expenditure-analysis`
 */
 
+
 function calculateTotalSpentByCategory(transactions) {
   const Expenditure = new Map();
-  //console.log(transactions)
- // console.log(transactions.length)
 
   for(var i =0;i<transactions.length;i++){
-    //console.log(transactions[i].category)
+
     let currExpenditure = Expenditure.get(transactions[i].category)
     if (typeof currExpenditure == "undefined"){
       Expenditure.set(transactions[i].category,transactions[i].price)
@@ -26,20 +25,26 @@ function calculateTotalSpentByCategory(transactions) {
 
   let myExpenditure =[]
   let myKeys = [...Expenditure.keys()]
-//  console.log(myKeys.length)
-//  console.log(myKeys)
+
   for (i=0;i<myKeys.length;i++){
     tmparr = [myKeys[i],Expenditure.get(myKeys[i])]
     myExpenditure.push(tmparr)
   }
+  EmpObjArray =[]
+  for (i=0;i<myKeys.length;i++){
+    groupObj = {  
+      category: myKeys[i],
+      totalSpent: Expenditure.get(myKeys[i])
+    
+  }
+  EmpObjArray.push(groupObj)
 
-//    console.log(transactions[i].category)
-//    console.log(transactions[i].price)
-
-  return (myExpenditure);
 }
 
-console.log(calculateTotalSpentByCategory([
+  return (EmpObjArray);
+}
+
+transaction = [
   {
     id: 1,
     timestamp: 1656076800000,
@@ -75,6 +80,8 @@ console.log(calculateTotalSpentByCategory([
     category: 'Clothing',
     itemName: 'Jeans',
   },
-])
-)
+]
+
+console.log(calculateTotalSpentByCategory(transaction))
+
 module.exports = calculateTotalSpentByCategory;

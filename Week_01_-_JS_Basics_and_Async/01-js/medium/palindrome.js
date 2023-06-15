@@ -7,7 +7,19 @@
 */
 
 function isPalindrome(str) {
+  str = str.replace(/[^a-zA-Z0-9]/g, "")
+  var charArr = str.toUpperCase().split('')
+  for(var i=0;i<str.length/2+1;i++){
+    if(charArr[i] != charArr[str.length-1-i])
+    return false
+  }
+
   return true;
 }
 
+
+// My call to isPalindrome()
+console.log(isPalindrome("arora"))
 module.exports = isPalindrome;
+
+
