@@ -3,4 +3,17 @@
 */
 
 function wait(n) {
+    function promiseBody(resolve) {
+    setTimeout(resolve,5000);
+}
+function callPromise() {
+    return new Promise(promiseBody);
+
+} 
+function greetMe() {
+    console.log("heybabe");
+}
+let a=callPromise();
+console.log(a);
+a.then(greetMe);
 }
