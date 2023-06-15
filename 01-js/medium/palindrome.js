@@ -7,6 +7,20 @@
 */
 
 function isPalindrome(str) {
+
+  const formattedStr = str.trim().toLowerCase();
+  
+  let left = 0;
+  let right = formattedStr.length - 1;
+  
+  while (left < right) {
+    if (formattedStr[left] !== formattedStr[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+  
   return true;
 }
 
