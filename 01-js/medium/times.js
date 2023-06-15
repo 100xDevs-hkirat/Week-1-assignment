@@ -7,6 +7,19 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function sumALL(start, end) {
+  var sum = 0;
+  for (var i = start; i <= end; i++) {
+    sum += i;
+  }
+  return sum;
 }
+const startTime = new Date();
+
+console.log(sumALL(1, 100));
+
+const endTime = new Date();
+
+const timeElapsed = (endTime - startTime) / 1000;
+
+console.log("Time in seconds :" + timeElapsed);

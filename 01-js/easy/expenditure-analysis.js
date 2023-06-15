@@ -9,6 +9,25 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  var totalsByCategory = {};
+
+  for (var i = 0; i < transactions.length; i++) {
+    var transaction = transactions[i];
+    var category = transaction.category;
+    var price = transaction.price;
+
+    if (totalsByCategory.hasOwnProperty(category)) {
+      totalsByCategory[category] += price;
+    } else {
+      totalsByCategory[category] = price;
+    }
+  }
+  var result = [];
+
+  for (var category in totalsByCategory) {
+    result.push({ [category]: totalsByCategory[category] });
+  }
+
   return [];
 }
 
