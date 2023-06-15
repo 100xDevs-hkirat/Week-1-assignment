@@ -36,12 +36,7 @@ async function calculateTime() {
       console.error(error.message);
     });
   const end = performance.now();
-  return end - start;
+  return (end - start)/1000;
 }
 
-calculateTime().then((time) => console.log(time));
-
-// (async () => {
-//   const time = await calculateTime();
-//   console.log(time);
-// })();
+calculateTime().then((time) => console.log(`Time taken ${time} seconds.`));
