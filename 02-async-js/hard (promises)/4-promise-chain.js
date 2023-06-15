@@ -6,17 +6,38 @@
  */
 
 function waitOneSecond() {
-
+	return new Promise((resolve, reject) => {
+		setTimeout(() => resolve(), 1000);
+	});
 }
 
 function waitTwoSecond() {
-
+	return new Promise((resolve, reject) => {
+		setTimeout(() => resolve(), 2000);
+	});
 }
 
 function waitThreeSecond() {
-
+	return new Promise((resolve, reject) => {
+		setTimeout(() => resolve(), 3000);
+	});
 }
 
 function calculateTime() {
+	const promiseStartTime = new Date();
 
+	waitOneSecond()
+		.then(() => waitTwoSecond())
+		.then(() => waitThreeSecond())
+		.then(() => {
+			const promiseSettledTime = new Date();
+
+			console.log(
+				"All promises are settled, it took " +
+					(promiseSettledTime.getTime() - promiseStartTime.getTime()) / 1000 +
+					"seconds"
+			);
+		});
 }
+
+calculateTime();
