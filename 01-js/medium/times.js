@@ -7,6 +7,17 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+function timeCal(n){
+  const startDate = new Date();
+  let ans = 0;
+
+  for(let i=0;i<=n;i++){
+    ans += i;
+  }
+
+  const endDate = new Date();
+  return (endDate - startDate) / 1000;
 }
+
+
+console.log(timeCal(50000));
