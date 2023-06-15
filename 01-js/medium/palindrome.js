@@ -6,19 +6,27 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
-  const str1=str.toLowerCase().split('')
-    for(let i=0;i<str1.length;i++){
-       for(let j=str1.length-1;j>=0;j--){
-         if(str1[i]===str1[j]){
-            return true;
-         }else{
-            return false;
-         }
-       }
-    }
-return str1
-  
-}
 
-module.exports = isPalindrome;
+  
+function isPalindrome(str) {
+  if (str.length === 0) {
+    return true;
+  }
+
+  const alphanumericRegex = /[a-zA-Z0-9]/g;
+  const str1 = str.toLowerCase().match(alphanumericRegex);
+
+  if (!str1) {
+    return false;
+  }
+
+  const len = str1.length;
+
+  for (let i = 0; i < len / 2; i++) {
+    if (str1[i] !== str1[len - 1 - i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
