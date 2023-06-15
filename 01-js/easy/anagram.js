@@ -8,7 +8,26 @@
 */
 
 function isAnagram(str1, str2) {
+  if (str1.length != str2.length) return false;
 
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+
+  const strMap1 = {};
+  const strMap2 = {};
+
+  for (let i = 0; i < str1.length; i++) {
+    if (strMap1[str1[i]]) strMap1[str1[i]] += 1;
+    else strMap1[str1[i]] = 1;
+    if (strMap2[str2[i]]) strMap2[str2[i]] += 1;
+    else strMap2[str2[i]] = 1;
+  }
+
+  for (let key in strMap1) {
+    if (strMap1[key] != strMap2[key]) return false;
+  }
+
+  return true;
 }
 
 module.exports = isAnagram;
