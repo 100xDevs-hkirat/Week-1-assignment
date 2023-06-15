@@ -8,7 +8,14 @@
 */
 
 function isAnagram(str1, str2) {
-
+  str1 = str1.toUpperCase();
+    str2 = str2.toUpperCase();
+    var sortStr1 = str1.split("").sort().join();
+    var sortStr2 = str2.split("").sort().join();
+    if(sortStr1 === sortStr2){
+        console.log("Anagram");
+    }
+    else console.log("Not an anagram");
 }
 
 module.exports = isAnagram;
