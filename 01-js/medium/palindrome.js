@@ -7,7 +7,11 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  // reverse the given string (case-insensitive)
+  const reverseStr = str.split('').reverse('').join('');
+
+  //check if the reverse str is the same as str and return it 
+  return reverseStr === str;
 }
 
 module.exports = isPalindrome;

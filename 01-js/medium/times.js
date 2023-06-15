@@ -8,5 +8,18 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    //take a timestamp before we start the code
+    const startTime = new Date();
+
+    let sum =0;
+    for (let i =0 ; i<n;i++){
+        sum += i;
+    }
+
+    //take the timestamp after the execution of the code
+    const endTime = new Date();
+
+    const timeForExecution = endTime - startTime;
+    console.log(timeForExecution);
 }
+calculateTime(99999999);

@@ -9,7 +9,25 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  //creating a object rearrange the data
+  const myRecord = {};
+
+  //looping throught the entire transactions object
+  for (const transaction in transactions){
+  const {category , price} = transaction;
+
+  //checking if the category is present in the record 
+    if(myRecord.hasOwnProperty(category)){
+      myRecord[category] = myRecord[category] + price;
+    }
+
+  //add the key value pair to the record  
+    else{
+      myRecord[category] = price;
+    }
+  }
+  // returning the rearranged record
+  return myRecord;
 }
 
 module.exports = calculateTotalSpentByCategory;
