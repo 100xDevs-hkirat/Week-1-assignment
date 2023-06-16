@@ -14,5 +14,4 @@ function takeMedicine() {
     console.log("Take Medicine")
 }
 c = wait(2)
-console.log(c)
 c.then(() => console.log(c))
