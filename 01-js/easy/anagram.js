@@ -14,12 +14,13 @@ function isAnagram(str1, str2) {
   }
 
   else {
-    const str1Sorted = str1.split('').sort().join('');
-    const str2Sorted = str2.split('').sort().join('');
+    const str1Sorted = str1.toLowerCase().split('').sort().join('');
+    const str2Sorted = str2.toLowerCase().split('').sort().join('');
     return str1Sorted === str2Sorted;
-  }
 
 
+
+}
 }
 
 
