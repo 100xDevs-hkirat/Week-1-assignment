@@ -7,6 +7,13 @@
 */
 
 function isPalindrome(str) {
+  const arr = str.split("");
+  const reversedArr = arr.slice().reverse();
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== reversedArr[i]) {
+      return false;
+    }
+  }
   return true;
 }
 
