@@ -3,6 +3,10 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep(seconds) {
+  var e = new Date().getTime() + seconds * 1000;
+  while (new Date().getTime() <= e) {}
+  console.log("This will print after halt bcoz thread is blocked");
 }
+
+sleep(5);
