@@ -7,6 +7,21 @@
 */
 
 function isPalindrome(str) {
+  //remove white spaces
+  str = str.replace(/\s/g, "");
+  //remove non word 
+  str = str.replace(/[^\w\s]|_/g, "");
+
+  str = str.toLowerCase()
+  left = 0
+  right = str.length - 1
+  while (left < right) {
+    if (str[left] != str[right]) {
+      return false
+    }
+    left = left + 1
+    right = right - 1
+  }
   return true;
 }
 

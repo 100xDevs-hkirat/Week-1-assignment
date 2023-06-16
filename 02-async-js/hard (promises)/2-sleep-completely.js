@@ -3,6 +3,15 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
+function sleep(seconds) {
+    return new Promise(function (resolve, reject) {
+        let d = Date.now()
+        while (Date.now() - d < seconds * 1000) {
 
+        }
+        resolve()
+    })
 }
+
+sleep(2)
+console.log("Wake")
