@@ -4,5 +4,10 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise((resolve, _reject) => {
+        console.log('thread blocked');
+        setTimeout(()=>{console.log('thread free'); resolve()}, seconds*1000);
+    }) 
 }
+
+sleep(5).then();
