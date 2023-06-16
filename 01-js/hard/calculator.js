@@ -17,6 +17,51 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  };
+  add(x) {
+    this.result = this.result + x;
+  }
+  subtract(x) {
+    this.result = this.result - x;
+  }
+  multiply(x) {
+    this.result = this.result * x;
+  }
+  divide(x) {
+    this.result = this.result / x;
+  }
+  clear(x) {
+    this.result = 0;
+  }
+  getResult(x) {
+    return this.result;
+  }
+
+  // example input: `10 +   2 *    (   6 - (4 + 1) / 2) + 7`
+
+  calculate(expression) {
+    if (typeof expression !== "string") {
+      throw new Error("Invalid input");
+    }
+
+    const formulatedExpression = expression.replace(/\s/g, "");
+
+    if (formulatedExpression.includes("/0")) {
+      throw new Error("Division by zero");
+    }
+
+    const result = eval(formulatedExpression);
+
+    if (isNaN(result)) {
+      throw new Error("Invalid expression");
+    }
+
+    this.result = result;
+  }
+
+}
 
 module.exports = Calculator;
