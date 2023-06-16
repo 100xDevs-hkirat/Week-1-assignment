@@ -5,13 +5,17 @@
 function wait(n) {
     return new Promise(function (resolve, reject) {
         setTimeout(function () {
-            resolve()
+            resolve("After " + n + "seconds :")
         }, n * 1000)
     })
 }
 
-function takeMedicine() {
-    console.log("Take Medicine")
+function takenMedicine() {
+    console.log("Medicine has been taken")
 }
-c = wait(2)
-c.then(() => console.log(c))
+console.log("Take Medicine after 2 Seconds")
+wait(2).then(function (result) {
+    console.log(result)
+    takenMedicine()
+})
+
