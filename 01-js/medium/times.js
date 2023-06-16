@@ -8,5 +8,9 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let start_time = new Date().getTime();
+    let sum = 0;
+    for (let i = 1; i <= n; i++) sum += i;
+    const time_taken = (new Date().getTime() - start_time) / 1000;
+    return time_taken;
 }

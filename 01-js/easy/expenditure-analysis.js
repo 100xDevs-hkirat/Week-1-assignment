@@ -9,7 +9,17 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let temp_dict = {}, temp_list = [];
+  for(let item of transactions){
+      if(temp_dict.hasOwnProperty(item.category)){
+          temp_dict[item.category] += item.price;
+      }
+      else{
+          temp_dict[item.category] = item.price;
+      } 
+  }
+  for(const [category, totalSpent] of Object.entries(temp_dict)) temp_list.push({category,totalSpent});
+  return temp_list;
 }
 
 module.exports = calculateTotalSpentByCategory;

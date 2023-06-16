@@ -17,6 +17,47 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add = (n) => this.result += n;
+
+  subtract = (n) => this.result -= n;
+
+  multiply = (n) => this.result *= n;
+
+  divide = (n) => {
+    if (!n) throw Error("You are dividing a number by 0");
+    if (n < 1) throw Error("You cannot divide a number by any value less than 1");
+    this.result = this.result / n;
+  }
+
+  clear = () => this.result = 0;
+
+  getResult = () => {
+    return this.result;
+  }
+
+  calculate = (expression) => {
+   // Check for non-numerical characters in the expression before proceeding further
+   if (/^[A-Za-z]+$/.test(expression)) throw Error("Expression contains invalid non-numerical characters");
+    
+   // 1. Remove all spaces from the expression
+   const expressionWithoutSpaces = expression.replace(/\s+/g, '');
+   // 2. check for bracket combinations
+   let temp_dict = {};
+   for(let counter = 0; counter < expressionWithoutSpaces.length; counter++){
+    if(expressionWithoutSpaces[counter] in ['(', ')', '{', '}', '[', ']'])
+      temp_dict[expressionWithoutSpaces[counter]] = (temp_dict[expressionWithoutSpaces[counter]] || 0) + 1;  
+   }
+   // 3. Check bracket combinations should not be a odd number
+    if(temp_dict.length){
+        const brackets = Object.values(temp_dict);
+        console.log('brackets: ', brackets);
+    }
+   }
+}
 
 module.exports = Calculator;
