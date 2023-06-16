@@ -7,7 +7,7 @@
   - `npm run test-anagram`
 */
 function sortString(str) {
-  array = str.split("").sort().join("");
+  let array = str.split("").sort().join("");
   return array;
 }
 function isAnagram(str1, str2) {
