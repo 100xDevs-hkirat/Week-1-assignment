@@ -9,7 +9,26 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  
+  let final_op = {};
+  for (let i = 0; i < transactions.length; i++) {
+    let item = transactions[i]
+    if (final_op[item.category]) {
+      final_op[item.category] += item.price;
+    } else {
+      final_op[item.category] = item.price;
+    }
+  }
+  console.log(final_op)
 }
+
+let transactions = [
+  { itemName: "fanta", category: "drink", price: 25, timestamp: 121 },
+  { itemName: "sprite", category: "drink", price: 25, timestamp: 121 },
+  { itemName: "samosa", category: "food", price: 20, timestamp: 121 },
+  { itemName: "kachori", category: "food", price: 20, timestamp: 121 },
+];
+let op = calculateTotalSpentByCategory(transactions);
+console.log(op);
 
 module.exports = calculateTotalSpentByCategory;
