@@ -9,7 +9,16 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const red = transactions.reduce( (categorySpends, transaction) => {
+    const category = transaction.category
+    const expenditure = transaction.price
+    categorySpends.set(category, (categorySpends.get(category) || 0) + expenditure)
+    return categorySpends
+  }, new Map())
+  const ret =  Array.from(red).map(([key, value]) => {
+    return {category: key, totalSpent: value}
+  })
+  return ret
 }
 
 module.exports = calculateTotalSpentByCategory;

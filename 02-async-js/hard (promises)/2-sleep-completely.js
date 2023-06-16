@@ -3,6 +3,14 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+async function sleep (seconds) {
+    const now = new Date().getTime()
+    const later = now + (seconds*1000)
+    while(new Date().getTime() < later){
+        //
+    }
 }
+
+sleep(3)
+
+console.log("Did something else")
