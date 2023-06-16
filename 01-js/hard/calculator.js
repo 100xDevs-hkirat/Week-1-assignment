@@ -92,8 +92,9 @@ const isOperator = (c) => {
 const tokensFromInput = (input) => {
   const tokens = [];
   let tokenChars = [];
-  for (let index = 0; index < input.length; index++) {
-    const c = input[index];
+  const exp = input.replace(/\s/g, "");
+  for (let index = 0; index < exp.length; index++) {
+    const c = exp[index];
 
     if (c >= "0" && c <= "9") tokenChars.push(c);
     else if (isOperator(c)) {
@@ -102,11 +103,6 @@ const tokensFromInput = (input) => {
         tokenChars.length = 0;
       }
       tokens.push(c);
-    } else if (c === " ") {
-      if (tokenChars.length !== 0) {
-        tokens.push(tokenChars.join(""));
-        tokenChars.length = 0;
-      }
     } else if (c === ".") tokenChars.push(c);
     else {
       throw Error("Invalid Input");
@@ -150,8 +146,5 @@ const convertToPostfix = (tokens) => {
 
   return postFix;
 };
-
-const calculator = new Calculator();
-calculator.calculate("10 - (4 + 2)");
 
 module.exports = Calculator;
