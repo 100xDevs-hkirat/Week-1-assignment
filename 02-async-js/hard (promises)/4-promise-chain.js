@@ -28,4 +28,4 @@ async function calculateTime() {
 
 calculateTime();
 
-// Check how to do this without using async
+// Check how to do this without using async -> watch video again!
