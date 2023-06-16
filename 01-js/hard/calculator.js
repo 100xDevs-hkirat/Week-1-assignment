@@ -17,6 +17,58 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+  subtract(number) {
+    this.result -= number;
+  }
+  multiply(number) {
+    this.result *= number;
+  }
+  divide(number) {
+    if (number === 0) {
+      throw new Error("Division by zero not possible");
+    }
+    this.result /= number;
+  }
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+  calculate(expression) {
+    try {
+      this.result = eval(expression);
+
+      if (typeof this.result === "number" && isFinite(this.result)) {
+        return this.result;
+      } else {
+        throw new Error("Invalid expression");
+      }
+    } catch (error) {
+      throw new Error("Invalid input");
+    }
+  }
+}
+const calculator = new Calculator();
+calculator.add(5);
+calculator.subtract(3);
+
+calculator.multiply(4);
+calculator.divide(2);
+
+calculator.clear();
+
+var expression = "10 + 2 * (6 - (4 + 1) / 2) + 7";
+
+calculator.calculate(expression);
 
 module.exports = Calculator;

@@ -8,8 +8,37 @@
   - `npm run test-expenditure-analysis`
 */
 
+function groupByCategory(transactions) {
+  const result = transactions.reduce((accumulator, currentValue) => {
+    const existingItem = accumulator.find(
+      (item) => item.category === currentValue.category
+    );
+    if (existingItem) {
+      existingItem.totalSpent.push(currentValue.price);
+    } else {
+      accumulator.push({
+        category: currentValue.category,
+        totalSpent: [currentValue.price],
+      });
+    }
+    return accumulator;
+  }, []);
+
+  return result;
+}
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const result = groupByCategory(transactions);
+
+  const result_two = result.map((item) => {
+    const totalPrice = item.totalSpent.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
+    return { category: item.category, totalSpent: totalPrice };
+  });
+
+  return result_two;
 }
 
 module.exports = calculateTotalSpentByCategory;
