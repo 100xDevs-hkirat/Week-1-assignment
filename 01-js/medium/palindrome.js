@@ -7,7 +7,22 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  var len=str.length
+  var str2="";
+  for(var i=len-1;i>=0;i--){
+    str2=str2+str.charAt(i); 
+    
+  }
+  
+  if(str==str2){
+    return true;
+
+  }
+  else{
+    return false;
+  }
+  
 }
+console.log(isPalindrome("mom"));
 
 module.exports = isPalindrome;
