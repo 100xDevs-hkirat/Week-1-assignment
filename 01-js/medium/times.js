@@ -7,6 +7,19 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
+var n = 1000000000;
+
 function calculateTime(n) {
-    return 0.01;
+
+    const startTime = new Date().getTime();
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    const endTime = new Date().getTime();
+    const timeTaken = endTime - startTime;
+    return timeTaken;
 }
+
+console.log(calculateTime(n)/1000);
+
