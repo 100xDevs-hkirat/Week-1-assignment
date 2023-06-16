@@ -3,6 +3,16 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep (milliseconds) {
+	
+	const start = Date.now();
+	while (Date.now() - start < milliseconds) {
+		// Empty loop to keep the thread busy
+	}
 }
+	
+// Example usage
+console.log('Start');
+sleep(3000); // Halts the thread for 3 seconds
+console.log('End');
+	      
