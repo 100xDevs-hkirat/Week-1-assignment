@@ -8,8 +8,31 @@
   - `npm run test-expenditure-analysis`
 */
 
+// let tr = [
+//   { itemName: "a", category: "a", price: 10, timestamp: 1 },
+//   { itemName: "a", category: "a", price: 10, timestamp: 1 },
+//   { itemName: "a", category: "b", price: 20, timestamp: 1 },
+//   { itemName: "a", category: "b", price: 20, timestamp: 1 },
+// ];
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let totals = [];
+
+  let hm = {};
+  for (let tr of transactions) {
+    if (tr["category"] in hm) {
+      hm[tr["category"]] += tr["price"];
+    } else {
+      hm[tr["category"]] = tr["price"];
+    }
+  }
+
+  console.log(hm);
+  Object.entries(hm).forEach((entry) => {
+    totals.push({ category: entry[0], price: entry[1] });
+  });
+
+  return totals;
 }
 
 module.exports = calculateTotalSpentByCategory;
