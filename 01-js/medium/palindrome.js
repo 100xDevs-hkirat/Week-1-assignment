@@ -7,7 +7,16 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  var lowercase_Str = str.toLowerCase();
+  var text = '';
+  for (var index = 0; index < lowercase_Str.length; index++) {
+    text += lowercase_Str[lowercase_Str.length - index - 1];
+  }
+  if (text === lowercase_Str) {
+    return true
+  } else {
+    return false;
+  }
 }
 
 module.exports = isPalindrome;
