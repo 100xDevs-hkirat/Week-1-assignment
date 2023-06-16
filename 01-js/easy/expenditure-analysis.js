@@ -8,8 +8,30 @@
   - `npm run test-expenditure-analysis`
 */
 
+
+const Transactions = [
+  { "itemName": "horlicks", "category":"Food", "price": 20, "timestamp": new Date(2020, 7, 14)},
+  { "itemName": "mangoshake", "category":"Food", "price": 20, "timestamp": new Date(2020, 7, 14)},
+  { "itemName": "addidas", "category":"Clothing", "price": 1000, "timestamp": new Date(2020, 7, 14)},
+  { "itemName": "nike", "category":"Clothing", "price": 2000, "timestamp": new Date(2020, 7, 14)}
+];
+
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+   let food = 0;
+
+  if(transactions.category === "Food"){
+    transactions.price += transactions.price;
+    
+    console.log(transactions.price)
+   
+    food = transactions.price;
+
+  }
+
+  return [{"food": food}];
 }
+
+console.log(calculateTotalSpentByCategory(Transactions))
 
 module.exports = calculateTotalSpentByCategory;
