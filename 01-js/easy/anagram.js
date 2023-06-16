@@ -7,7 +7,21 @@
   - `npm run test-anagram`
 */
 
+// Assuming only "non-empty string" as an input
 function isAnagram(str1, str2) {
+
+  // The standard rule is to use all the letters from the original word only once
+  if(str1.length !== str2.length) return false;
+
+  // To avoid ambiguity between lower and capital letters.
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+
+  let a = str1.split('').sort().join('');
+  let b = str2.split('').sort().join('');
+   if(a === b)
+      return true;
+   else return false;
 
 }
 
