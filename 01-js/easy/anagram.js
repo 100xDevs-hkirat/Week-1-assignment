@@ -9,7 +9,7 @@
 
 function isAnagram(str1, str2) {
 
-  const separate1 = str1.toLowerCase().split('');
+ const separate1 = str1.toLowerCase().split('');
   const separate2 = str2.toLowerCase().split('');
 
   if (str1.length === str2.length && separate1.sort().join('') === separate2.sort().join('')) {
@@ -17,6 +17,7 @@ function isAnagram(str1, str2) {
   } else {
     return false;
   }
+}
 }
 
 module.exports = isAnagram;
