@@ -10,3 +10,16 @@ Hint - use Date class exposed in JS
 function calculateTime(n) {
     return 0.01;
 }
+
+
+const start= Date.now();
+let sum =0;
+let millis = Date.now()-start;
+for(let i=1;i<=100000000000; i++){
+    sum += i;
+   
+}
+millis = Date.now()-start
+    
+
+console.log(`Secods elapsed = ${Math.floor(millis/1000)} ${sum}`);
