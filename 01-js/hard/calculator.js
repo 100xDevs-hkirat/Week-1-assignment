@@ -17,6 +17,68 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (num === 0) {
+      throw new Error('Division by zero is not allowed!');
+    }
+    this.result /= num;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    const expWithoutSpaces = expression.replace(/\s/g, '');
+
+    if (!/^[-+*/.()\d]+$/.test(expWithoutSpaces)) {
+      throw new Error('Invalid expression!');
+    }
+
+    const divisions = expWithoutSpaces.split('/');
+
+    if (divisions.length > 1) {
+      let result = parseFloat(divisions[0]);
+      for (let i = 1; i < divisions.length; i++) {
+        const num = parseFloat(divisions[i]);
+        if (num === 0) {
+          throw new Error('Division by zero is not allowed!');
+        }
+        result /= num;
+      }
+      this.result = result;
+    } else {
+      this.result = eval(expWithoutSpaces);
+    }
+
+    try {
+      this.result = eval(expWithoutSpaces);
+    } catch (error) {
+      throw new Error('Evaluation error');
+    }
+  }
+}
+
 
 module.exports = Calculator;
