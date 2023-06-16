@@ -7,6 +7,17 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
+const sumTill = (n) => {
+    let sum = 0
+    for(i=1;i<=n;i++) {
+        sum += i
+    }
+    return sum
+}
+
 function calculateTime(n) {
-    return 0.01;
+    const start = new Date().getTime()
+    sumTill(n)
+    const end = new Date().getTime()
+    return (end-start)/1000
 }

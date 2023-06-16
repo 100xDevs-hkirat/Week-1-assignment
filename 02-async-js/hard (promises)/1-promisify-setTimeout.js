@@ -3,4 +3,15 @@
 */
 
 function wait(n) {
+    return new Promise(((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Resolved")
+        }, n*1000)
+    }))
 }
+
+wait(4).then((result) => {
+    console.log("Resolved to : ", result)
+}).catch((err) => {
+    console.log(err)
+})
