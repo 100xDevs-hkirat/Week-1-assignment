@@ -10,3 +10,7 @@ function sleep(seconds) {
 }
 
 sleep(5);
+
+/* Credites to Stack Overflow
+ * https://stackoverflow.com/a/16077558
+ */
