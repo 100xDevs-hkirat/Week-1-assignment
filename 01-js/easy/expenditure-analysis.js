@@ -19,9 +19,9 @@ function calculateTotalSpentByCategory(transactions) {
 			spent.set(transaction.category, transaction.price);
 		}
 	});
-  const ans = Array.from(spent, ([key, val])=>{
-    return {'category':key, 'totalSpent':val};
-  })
+	const ans = Array.from(spent, ([key, val]) => {
+		return { category: key, totalSpent: val };
+	});
 	return ans;
 }
 
