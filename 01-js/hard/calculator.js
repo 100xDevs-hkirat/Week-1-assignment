@@ -17,6 +17,77 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (number === 0) {
+      throw new Error("Division by zero is not allowed.");
+    }
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    const sanitizedExpression = expression.replace(/\s+/g, "").trim();
+    // const operands = sanitizedExpression.split(/[-+*/]/);
+    // const operators = sanitizedExpression.match(/[-+*/]/g);
+
+    // if (!operands.every(isFinite)) {
+    //   throw new Error("Invalid expression. Non-numerical characters detected.");
+    // }
+
+    // this.result = parseFloat(operands[0]);
+
+    // for (let i = 0; i < operators.length; i++) {
+    //   const operator = operators[i];
+    //   const operand = parseFloat(operands[i + 1]);
+
+    //   if (operator === "+") {
+    //     this.add(operand);
+    //   } else if (operator === "-") {
+    //     this.subtract(operand);
+    //   } else if (operator === "*") {
+    //     this.multiply(operand);
+    //   } else if (operator === "/") {
+    //     if (operand === 0) {
+    //       throw new Error("Invalid expression. Division by zero detected.");
+    //     }
+    //     this.divide(operand);
+    //   }
+    // }
+
+    const answer = eval(expression);
+    if (answer === Infinity) {
+      throw new Error("division by zero");
+    }
+    this.result = answer;
+    return this.result;
+  }
+}
+
+sample = new Calculator();
+sample.calculate("1 + 0");
 
 module.exports = Calculator;

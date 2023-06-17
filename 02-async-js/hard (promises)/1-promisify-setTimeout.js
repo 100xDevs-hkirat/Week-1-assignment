@@ -3,4 +3,17 @@
 */
 
 function wait(n) {
+  const getResolved = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, n * 1000);
+  });
+  return getResolved;
 }
+console.log("Before wait");
+
+wait(3).then(() => {
+  console.log("After 3 seconds");
+});
+
+console.log("After wait");

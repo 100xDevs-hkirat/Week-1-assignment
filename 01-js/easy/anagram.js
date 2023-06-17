@@ -8,7 +8,27 @@
 */
 
 function isAnagram(str1, str2) {
+  if (str1.length != str2.length) return false;
 
+  function createFrequencyMap(str) {
+    map = {};
+    for (const i of str) {
+      if (map[i]) {
+        map[i]++;
+      } else {
+        map[i] = 1;
+      }
+    }
+    return map;
+  }
+
+  const strMap1 = createFrequencyMap(str1.toLowerCase());
+  const strMap2 = createFrequencyMap(str2.toLowerCase());
+
+  for (const i in strMap1) {
+    if (strMap1[i] !== strMap2[i]) return false;
+  }
+  return true;
 }
 
 module.exports = isAnagram;
