@@ -5,4 +5,11 @@
 
 function sleep (seconds) {
 
+let startTime=Date.now();
+console.log(startTime);
+while(Date.now()-startTime<seconds){
+    //do nothing
 }
+console.log(Date.now()-startTime);
+}
+sleep(3000);
