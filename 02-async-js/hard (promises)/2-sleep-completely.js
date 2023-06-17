@@ -4,5 +4,9 @@
  */
 
 function sleep (seconds) {
-
+    start = new Date().getTime()
+    do{
+        end=new Date().getTime()
+    }while(end-start<=(seconds*1000))
 }
+sleep(5)
