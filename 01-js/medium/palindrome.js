@@ -7,6 +7,22 @@
 */
 
 function isPalindrome(str) {
+  var left = 0,
+    right = str.length - 1;
+  punctuations = "!@#$%^&*()_+|}{\\][';\":/.?>,<]} ";
+  while (left <= right) {
+    if (punctuations.includes(str[left])) {
+      left++;
+      continue;
+    }
+    if (punctuations.includes(str[right])) {
+      right--;
+      continue;
+    }
+    if (str[left].toLowerCase() != str[right].toLowerCase()) return false;
+    left++;
+    right--;
+  }
   return true;
 }
 
