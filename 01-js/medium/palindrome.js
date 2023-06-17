@@ -7,6 +7,16 @@
 */
 
 function isPalindrome(str) {
+  const stringWithoutPunctuation = str?.replace(/[\s\W_]/g, "").toLowerCase();
+
+  for (let i = 0; i < stringWithoutPunctuation.length / 2; i++) {
+    if (
+      stringWithoutPunctuation[i] !==
+      stringWithoutPunctuation[stringWithoutPunctuation.length - 1 - i]
+    ) {
+      return false;
+    }
+  }
   return true;
 }
 
