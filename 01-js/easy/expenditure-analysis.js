@@ -10,7 +10,7 @@
 
 function calculateTotalSpentByCategory(transactions) {
 
-  // return [];
+
   var spent = {};
 
   for (let i = 0; i < transactions.length; i++) {
@@ -23,6 +23,7 @@ function calculateTotalSpentByCategory(transactions) {
     }
   }
   console.log(spent);
+  return [spent];
 
 }
 
