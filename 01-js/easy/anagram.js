@@ -13,10 +13,13 @@ function isAnagram(str1, str2) {
   if(len1 !== len2){
     return false;
   }
-  let a = str1.split('').sort().join('').toUpperCase();
-  let b = str2.split('').sort().join('').toUpperCase();
-  let c = a.split('').sort().join('');
-  let d = b.split('').sort().join('');
+  // let a = str1.split('').sort().join('').toUpperCase();
+  // let b = str2.split('').sort().join('').toUpperCase();
+  // let c = a.split('').sort().join('');
+  // let d = b.split('').sort().join('');
+
+  let c =  str1.toUpperCase().split('').sort().join('');
+  let d = str2.toUpperCase().split('').sort().join('');
   console.log(c);
   console.log(d);
   if(c === d){
