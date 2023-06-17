@@ -27,7 +27,7 @@ class Todo{
   }
 
   update(index, updatedTodo){
-    if ( indexOfTodo >= 0 && indexOfTodo < this.arr.length){
+    if ( index >= 0 && index < this.arr.length){
       this.arr[index] = updatedTodo;
     }
   }
@@ -37,7 +37,10 @@ class Todo{
   }
 
   get(indexOfTodo){
-    return this.arr[indexOfTodo];
+    if ( indexOfTodo >= 0 && indexOfTodo < this.arr.length){
+      return this.arr[indexOfTodo];
+    }
+    return null;
   }
 
   clear(){
