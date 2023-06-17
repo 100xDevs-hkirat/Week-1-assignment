@@ -47,26 +47,19 @@ class Calculator {
   }
 
   calculate(str){
-    var str_arr = str.split(/\s+/);
-    // `10 +   2 *    (   6 - (4 + 1) / 2) + 7`
-    str_arr = ['10', '+', '2', '*', '(', '6', '-', '(', '4', '+', '1', ')', '/', '2', ')', '+', '7'];
-    // str_arr.forEach((num) => {
-    //   if()
-    // })
-
-
+    var res = eval(str_arr)
+    try{
+      if(isNaN(res)){
+        throw new Error("Invalid Expression");
+      }
+      console.log(res)
+    }catch(error){
+      throw new Error('Invalid expression');
+    }
+    
 
   }
 
 }
-
-var cal = new Calculator();
-var get_result = cal.getResult();
-console.log(get_result);
-
-cal.add(12);
-
-var get_result = cal.getResult();
-console.log(get_result);
 
 module.exports = Calculator;
