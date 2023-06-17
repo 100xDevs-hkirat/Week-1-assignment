@@ -3,4 +3,12 @@
 */
 
 function wait(n) {
+    return new Promise(resolve => {
+        setTimeout(resolve, n * 1000);
+      });
+}
+console.log('start');
+wait(10).then(afterWork);
+function afterWork(){
+    console.log("work is Done");
 }
