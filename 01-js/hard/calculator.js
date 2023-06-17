@@ -16,7 +16,48 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
+class Calculator {
+  constructor(){
+    this.result=0;
+  }
+  add(n){
+    this.result+=n;
+  }
+  subtracts(n){
+    this.result-=n;
+  }
+  multiple(n){
+    this.result*=n;
+  }
+  divide(n){
+    if(n===0){
+      throw new Error("can not divide by zero");
+    }
+    this.result/=n;
+  }
+  clear(){
+    this.result=0;
+  }
+  getResult(){
+    return this.result;
+  }
+  Calculate(expression){
+    expression=expression.replace(/\s+/g,'').trim(); // it remove all white spaces;
 
-class Calculator {}
+  let validExpressionRegex = /^[0-9+\-*/().\s]+$/;
+  if(!validExpressionRegex.test(expression)){
+    throw new Error("Invalid Expression:");
+  }
+  try{
+this.result=eval(expression);
+  }
+  catch(error){
+throw new Error("Error while calculatng the expression");
+  }
+  }
+}
+let calculator=new Calculator();
+calculator.Calculate('10 +   2 *    (   6 - (4 + 1) / 2) + 7');
+console.log(calculator.getResult());
 
-module.exports = Calculator;
+// module.exports = Calculator;
