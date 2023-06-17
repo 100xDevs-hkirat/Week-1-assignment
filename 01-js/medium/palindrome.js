@@ -15,12 +15,13 @@ function isPalindrome(str) {
     }
     else{
       isPal=false;
+      break;
     }
   }
   console.log("Is it palindrome " , isPal);
   return isPal;
 }
 
-//isPalindrome("abcedcba");
+isPalindrome("abcedcba");
 
 module.exports = isPalindrome;
