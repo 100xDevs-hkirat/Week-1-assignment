@@ -8,15 +8,18 @@
 */
 
 function isAnagram(str1, str2) {
-  if(str1.length()!=str2.length()){
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+  if(str1.length!=str2.length){
     return false;
   }
   var arr1 = str1.split("");
+  var firstMap = new Map()
   arr1.forEach((character)=>{
     firstMap.set(character, 1);
   })
 
-  for(var i=0; i<str2.length(); i++){
+  for(var i=0; i<str2.length; i++){
     if(firstMap.has(str2[i]) == false){
       return false;
     }

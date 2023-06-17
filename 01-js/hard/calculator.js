@@ -17,6 +17,56 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+  }
+
+  add(num){
+    this.result += num;
+  }
+
+  subtract(num){
+    this.result-=num;
+  }
+
+  multiply(num){
+    this.result*=num;
+  }
+  
+  divide(num){
+    this.result/=num;
+  }
+
+  clear(){
+    this.result = 0;
+  }
+
+  getResult(){
+    return this.result;
+  }
+
+  calculate(str){
+    var str_arr = str.split(/\s+/);
+    // `10 +   2 *    (   6 - (4 + 1) / 2) + 7`
+    str_arr = ['10', '+', '2', '*', '(', '6', '-', '(', '4', '+', '1', ')', '/', '2', ')', '+', '7'];
+    // str_arr.forEach((num) => {
+    //   if()
+    // })
+
+
+
+  }
+
+}
+
+var cal = new Calculator();
+var get_result = cal.getResult();
+console.log(get_result);
+
+cal.add(12);
+
+var get_result = cal.getResult();
+console.log(get_result);
 
 module.exports = Calculator;
