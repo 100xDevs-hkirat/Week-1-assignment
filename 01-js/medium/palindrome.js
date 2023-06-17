@@ -5,9 +5,20 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
-
+//Akash
 function isPalindrome(str) {
+  //let match = true;
+  let left = 0;
+  let right = str.length - 1;
+  while (left <= right) {
+    if (str.charAt(left).toLowerCase() == str.charAt(right).toLowerCase()) {
+      left++;
+      right--;
+    } else {
+      return false;
+    }
+  }
   return true;
 }
-
+console.log("Is pallindrome:" + isPalindrome("Mam"));
 module.exports = isPalindrome;
