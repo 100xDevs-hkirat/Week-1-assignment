@@ -7,7 +7,21 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let t = str.toLowerCase();
+  let isPal = false;
+  for(var i=0; i<t.length/2; i++){
+    if(t[i] === t[t.length-1-i]){
+      isPal=true;
+    }
+    else{
+      isPal=false;
+      break;
+    }
+  }
+  console.log("Is it palindrome " , isPal);
+  return isPal;
 }
+
+isPalindrome("abcedcba");
 
 module.exports = isPalindrome;
