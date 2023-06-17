@@ -23,36 +23,50 @@ function calculateTotalSpentByCategory(transactions) {
     }
   }
   console.log(spent);
-  return [spent];
+  var key = Object.keys(spent);
+  console.log(key);
 
-}
-
-var a = [{
-  item: "pepsi",
-  category: "Drink",
-  price: 10,
-  time: "17-june-2023"
-},
-{
-  item: "marinda",
-  category: "Drink",
-  price: 25,
-  time: "17-june-2023"
-}, {
-  item: "cake",
-  category: "food",
-  price: 10,
-  time: "17-june-2023"
-}, {
-  item: "samosa",
-  category: "food",
-  price: 5,
-  time: "17-june-2023"
-}]
-
-calculateTotalSpentByCategory(a);
+  let answer = [];
+  for (var i = 0; i < key.length; i++) {
+    var category = key[i];
+    var obj = {
+      category: category,
+      amountspend: spent[category]
+    }
+    answer.push(obj);
+  }
+  return answer
 
 
+// }
+
+// var a = [{
+//   item: "pepsi",
+//   category: "Drink",
+//   price: 10,
+//   time: "17-june-2023"
+// },
+// {
+//   item: "marinda",
+//   category: "Drink",
+//   price: 25,
+//   time: "17-june-2023"
+// }, {
+//   item: "cake",
+//   category: "food",
+//   price: 10,
+//   time: "17-june-2023"
+// }, {
+//   item: "samosa",
+//   category: "food",
+//   price: 5,
+//   time: "17-june-2023"
+// }]
+
+// let b = calculateTotalSpentByCategory(a);
+// console.log(b);
 
 
-module.exports = calculateTotalSpentByCategory;
+
+
+// module.exports = calculateTotalSpentByCategory;
