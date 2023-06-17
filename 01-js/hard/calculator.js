@@ -36,12 +36,34 @@ class Calculator {
 		if (inputOne === 0) throw new Error("Invalid expression");
 		this.result = inputTwo / inputOne;
 	}
+	
+	checkSyntax(string) {
+		let score = 0;
+		for (let i = 0; i < string.length; i++) {
+			if (string[i] === "(") {
+				score += 1;
+			}
+			if (string[i] === ")") {
+				if (score === 0) return false;
+				score -= 1;
+			}
+		}
+		return score === 0;
+	}
 
 	calculate(expression) {
-		this.newExpression = expression.replace(/[ ]/g, "");
-		if (!this.newExpression.replace(/[0123456789+-*/()]/g, "").length) throw new Error("Invalid expression");
+		const newExpression = expression.replace(/[ ]/g, "");
+		if (
+			newExpression.replace(/[0-9+\-*/().]/g, "").length ||
+			!this.checkSyntax(newExpression)
+		)
+			throw new Error("Invalid expression found");
 
+		const answer = eval(newExpression);
 
+		if (answer === Infinity) throw new Error("Infinity");
+
+		this.result = answer;
 	}
 
 	clear() {
