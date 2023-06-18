@@ -6,17 +6,29 @@
 
 
 function waitOneSecond() {
-
+    return new Promise((resolve)=>{
+        setTimeout(resolve, 1000);
+    })
 }
 
 function waitTwoSecond() {
-
+   
+    return new Promise((resolve) => {
+        setTimeout(resolve, 2 * 1000);
+    });
 }
 
 function waitThreeSecond() {
-
+    return new Promise((resolve) => {
+        setTimeout(resolve, 2 * 1000);
+    });
 }
 
-function calculateTime() {
-
+async function calculateTime() {
+    return Promise.all(waitOneSecond,waitTwoSecond,waitThreeSecond).then((results) => {
+        console.log(results); // This line won't be executed
+      })
+      .catch((error) => {
+        console.error(error); // Output: Error: Oops, something went wrong
+      });
 }

@@ -9,6 +9,27 @@
 
 function isAnagram(str1, str2) {
 
+  str1 = str1.toLowerCase().replace(/ /g, '');
+  str2 = str2.toLowerCase().replace(/ /g, '');
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  const freq1 = {};
+  const freq2 = {};
+  for (let char of str1) {
+    freq1[char] = (freq1[char] || 0) + 1;
+  }
+  for (let char of str2) {
+    freq2[char] = (freq2[char] || 0) + 1;
+  }
+  for (let key in freq1) {
+    if (freq1[key] !== freq2[key]) {
+      return false;
+    }
+  }
+
+  return true; 
 }
 
 module.exports = isAnagram;

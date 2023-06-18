@@ -11,3 +11,26 @@ After the program runs, the output should be
 ```
 hello world my name is raman
 ```
+
+const fs = require('fs');
+
+const filePath = 'path/to/file.txt';
+
+fs.readFile(filePath, 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  const modifiedData = data.replace(/\s+/g, ' ');
+
+  // Write the modified content back to the same file asynchronously
+  fs.writeFile(filePath, modifiedData, 'utf8', (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    console.log('File content has been modified and written back successfully.');
+  });
+});

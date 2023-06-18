@@ -8,5 +8,6 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    const result = parseInt(n*(n-1)/2)
+    return result;
 }
