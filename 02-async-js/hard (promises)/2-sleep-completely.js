@@ -4,5 +4,15 @@
  */
 
 function sleep (seconds) {
+    const startTime = new Date().getSeconds();
+
+    while(new Date().getSeconds() - startTime < seconds){
+        console.clear();
+        console.log(new Date().getSeconds() - startTime);
+    }
 
 }
+
+
+sleep(4);
+console.log('here');
