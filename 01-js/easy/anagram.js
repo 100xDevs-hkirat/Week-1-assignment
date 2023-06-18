@@ -8,7 +8,28 @@
 */
 
 function isAnagram(str1, str2) {
+  if (str1.length != str2.length) return false;
+  str1 = str1.toLowerCase();
+  str2  = str2.toLowerCase();
+  n = str1.length;
+  let word1 = new Object();
+  let word2 = new Object();
 
+  for (let i = 0; i < n; i++){
+    if (str1[i] in word1) word1[str1[i]]+=1;
+    else word1[str1[i]] = 1;
+    
+    if (str2[i] in word2) word2[str2[i]]+=1;
+    else word2[str2[i]] = 1;
+  }
+
+  if (word1.length != word2.length) return false;
+  
+  for (const char in word1){
+    if (!(char in word2)) return false;
+    if (word1[char] != word2[char]) return false;
+  }
+  return true;
 }
 
 module.exports = isAnagram;
