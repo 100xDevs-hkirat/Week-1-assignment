@@ -7,7 +7,21 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str= str.toUpperCase();
+  str=str.replace(/[^A-Z]/g,"");
+
+  var arr1 = str.slice("");
+ 
+    var flag=0;
+    for (let i = 0; i <=arr1.length/2; i++) {
+      if (arr1[i]!==arr1[arr1.length-1-i]) {
+        return false;
+      }
+      
+    }
+    return true;
+ 
+  
 }
 
 module.exports = isPalindrome;
