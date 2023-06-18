@@ -3,4 +3,9 @@
 */
 
 function wait(n) {
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            console.log("logged here")
+        },n*1000)
+    })
 }
