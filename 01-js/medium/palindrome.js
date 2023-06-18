@@ -7,6 +7,21 @@
 */
 
 function isPalindrome(str) {
+
+  if(str.length === 1 || str === ''){
+    return true;
+  }
+
+  let regex = /[,.+*?!^$()[\]{}|\\@]/g;
+
+  strarray = [...str.toLowerCase()].filter((s) => s !== " " && !regex.test(s));
+
+  for(let i=0; i<strarray.length/2; i++){
+    if(strarray[i] !== strarray[strarray.length-1-i]){
+      return false;
+
+    }
+  }
   return true;
 }
 
