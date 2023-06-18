@@ -20,8 +20,8 @@ function isAnagram(str1, str2) {
 
   let c =  str1.toUpperCase().split('').sort().join('');
   let d = str2.toUpperCase().split('').sort().join('');
-  console.log(c);
-  console.log(d);
+  // console.log(c);
+  // console.log(d);
   if(c === d){
       return true;
   } else { 
