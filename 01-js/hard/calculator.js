@@ -16,7 +16,41 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
-
-class Calculator {}
-
-module.exports = Calculator;
+class Calculator {
+    constructor(){
+        this.result = 0;
+    }
+    add = (n)=>{
+      this.result += n;
+    }
+    subtract = (n) => {
+      this.result -= n;
+    }
+    multiply = (n) =>{
+      this.result *= n;
+    }
+    divide = (n) =>{
+      if(n == 0){
+        throw new Error("Division by zero is not allowed.");
+      }
+      this.result /= n;
+    }
+    clear = () =>{
+      this.result = 0;
+    }
+    getResult = () =>{
+      return this.result;
+    }
+    calculate = (str) =>{
+        try {
+            this.result = eval(str);
+            if (!Number.isFinite(this.result)) {
+                throw new Error("Error");
+            }
+          } catch (error) {
+            throw new Error("Error");
+        }
+    }   
+  }
+  
+  module.exports = Calculator;
