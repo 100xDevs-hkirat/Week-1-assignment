@@ -9,6 +9,13 @@
 
 function isAnagram(str1, str2) {
 
+  let sortedLetters1 = str1.split('').sort().join('');
+  let sortedLetters2 = str2.split('').sort().join('');
+
+  if(sortedLetters1 == sortedLetters2){
+    return true;
+  }
+  return false;
 }
 
 module.exports = isAnagram;
