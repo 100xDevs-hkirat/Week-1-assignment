@@ -3,4 +3,16 @@
 */
 
 function wait(n) {
+    return new Promise((resolve,reject) => {
+        setTimeout(()=>{
+            resolve("wait function is executed!");
+        },n);
+    });
+
 }
+
+wait(5000)
+.then((result) => {
+    console.log(result);
+})
+console.log("waiting...inside the main thread");
