@@ -7,6 +7,14 @@
 */
 
 function isPalindrome(str) {
+  str = str.toLowerCase();
+  str = str.replace(/[\s\p{P}]/gu, '');
+  const len = str.length;
+  for (let i = 0; i < len / 2; i++) {
+    if (str.charAt(i) != str.charAt(len - i - 1)) {
+      return false;
+    }
+  }
   return true;
 }
 
