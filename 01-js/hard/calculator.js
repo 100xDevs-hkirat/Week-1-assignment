@@ -17,6 +17,125 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  result;
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if(num !== 0) {
+      this.result /= num;
+    } else {
+      throw new Error("cannot divide by zero")
+    }
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    expression = expression.replace(/\s/g, "");
+    
+    let evaluvated = this.evaluate(Array.from(expression), 0);
+
+    this.result = evaluvated;
+  }
+
+  evaluate(str, index) {
+    let stack = []
+    let sign = '+'
+    let num = 0;
+
+    for (let i = index; i < str.length; i++) {
+      let ch = str[i];
+
+      if(!this.isDigit(ch) || !this.isOperator(ch)) {
+        throw new Error("Not valid character");
+      }
+      
+      if(this.isDigit(ch)) {
+        num = num * 10 + (ch - '0')
+      }
+
+      if(!this.isDigit(ch) || i === str.length - 1) {
+        if(ch === '(') {
+          num = this.evaluate(str, i + 1);
+
+          let leftBrackets = 1, rightBrackets = 0;
+
+          for (let j = i + 1; j < str.length; j++) {
+            let el = str[j];
+
+            if(el === ')') {
+              rightBrackets++;
+              if(leftBrackets === rightBrackets) {
+                i = j; 
+                break;
+              }
+            } else if (el === '(') {
+              leftBrackets++;
+            }
+          }
+        }
+
+        let prevSign = -1;
+        switch(sign) {
+          case '+':
+            stack.push(num);
+            break;
+          case '-':
+            stack.push(num * -1);
+            break;  
+          case '*':
+            prevSign = stack.pop();
+            stack.push(prevSign * num);
+            break;
+          case '/':
+            prevSign = stack.pop();
+            stack.push(prevSign / num);
+            break;  
+        }
+        sign = ch;
+        num = 0;
+        if(ch === ')') {
+          break;
+        }
+      }
+    }
+
+    let total = 0;
+    while(stack.length > 0) {
+      total += stack.pop();
+    }
+
+    return total;
+  }
+
+  isDigit(ch) {
+    return (ch >= 0 && ch <= 9)
+  }
+
+  isOperator(op) {
+    return ("+-*/()".indexOf(op) > -1)
+  }
+}
 
 module.exports = Calculator;
