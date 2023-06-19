@@ -9,7 +9,18 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let spendEstimates = {};
+  for (let index = 0; index < transactions.length; index++) {
+    const element = transactions[index];
+
+    if(spendEstimates[element.category]){
+      spendEstimates[element.category] = spendEstimates[element.category] + element.price;
+    } else {
+      spendEstimates[element.category] =  element.price;
+
+    }
+    
+  }
 }
 
 module.exports = calculateTotalSpentByCategory;
