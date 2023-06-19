@@ -18,6 +18,8 @@
 */
 
 class Calculator {
+  static result = 0;
+  static exprStack = [];
   constructor(a, b) {
     this.a = a;
     this.b = b;
@@ -43,6 +45,44 @@ class Calculator {
   calculate() {
     return;
   }
+  /*  push(item){
+    this.exprStack.push(item)
+  }
+  pop(item){
+    return this.exprStack.pop()
+  }
+*/
+}
+function validateString(strExpr) {
+  tstr = str.replace(/[^a-zA-Z]/g, "");
+
+  size = tstr.length;
+  if (size > 0) {
+    // console.log("IF THROWS EXCEPTION" + size);
+    throw "Error in String ";
+  } else {
+    // console.log("DOES NOT THROW EXCEPTION" + size);
+  }
+}
+function scanString(strExpr) {
+  calculator.exprStack = [];
+  try {
+    validateString(strExpr);
+    return eval(strExpr)
+    // console.log("Fulled " + calculator.exprStack);
+  } catch (err) {
+     console.log(err + "Found " + tstr + " in Expression ");
+  }
 }
 
+//str = "10 +   2 *    (   6 - (4 + 1) / 2) + 7";
+str = "10 +   2 *    (   6 - ( 4 + 1 ) / 2 ) + 7";
+console.log("--------------------------"+eval(str))
+const calculator = new Calculator();
+scanString(str);
+// console.log(str);
 module.exports = Calculator;
+
+
+
+//PS D:\Workspaces\git\100xDev-Assignments\Week_01_-_JS_Basics_and_Async\01-js> npx jest ./tests/calculator.test.js
