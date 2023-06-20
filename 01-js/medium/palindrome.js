@@ -7,6 +7,26 @@
 */
 
 function isPalindrome(str) {
+  const lowerCaseStr = str.toLowerCase();
+  let n = str.length;
+  let strWOpunctuation = "";
+
+  for (let i = 0; i < n; i++) {
+    const curr = lowerCaseStr[i];
+    if (curr.charCodeAt() > 96) {
+      strWOpunctuation += curr;
+    }
+  }
+
+  n = strWOpunctuation.length;
+  const halfLength = n / 2;
+
+  for (let i = 0; i < halfLength; i++) {
+    if (strWOpunctuation[i] != strWOpunctuation[n - i - 1]) {
+      return false;
+    }
+  }
+
   return true;
 }
 
