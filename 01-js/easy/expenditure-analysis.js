@@ -8,6 +8,8 @@
   - `npm run test-expenditure-analysis`
 */
 
+// Good problem on how to convert object to arrays of objects
+
 function calculateTotalSpentByCategory(transactions) {
   const exp = {};
   for (let i = 0; i < transactions.length; i++) {
