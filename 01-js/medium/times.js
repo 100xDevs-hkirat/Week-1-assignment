@@ -8,5 +8,14 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let InitialTime =  new Date().getTime()   // in milliseconds
+    InitialTime =  new Date().getTime()/1000  // in seconds
+    let sum = 0
+    for(let i = 0; i <= n; i++){
+        sum += i
+    }
+    let FinalTime =  new Date().getTime()   // in milliseconds
+    FinalTime =  new Date().getTime()/1000  // in seconds
+    // TimeTaken = FinalTime - InitialTime
+    return  FinalTime - InitialTime
 }
