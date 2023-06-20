@@ -9,7 +9,21 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const expenditure = {};
+  transactions.forEach((transaction) => {
+    if (!expenditure[`${transaction.category}`]) {
+      expenditure[`${transaction.category}`] = 0;
+    }
+    expenditure[`${transaction.category}`] += transaction.price;
+  });
+  console.log(expenditure);
+  return expenditure;
 }
+
+calculateTotalSpentByCategory([
+  { itemName: "pen", category: "study", price: 10 },
+  { itemName: "pencil", category: "study", price: 5 },
+  { itemName: "papaya", category: "food", price: 10 },
+]);
 
 module.exports = calculateTotalSpentByCategory;
