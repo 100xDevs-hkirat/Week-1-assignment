@@ -17,6 +17,47 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+    constructor() {
+        this.result = 0;
+    }
+    add(num) {
+        this.result += num;
+    }
+    subtract(num) {
+        this.result -= num;
+    }
+    multiply(num) {
+        this.result *= num;
+    }
+    divide(num) {
+        if(num === 0) {
+            throw new Error(); // imp
+        }
+        this.result /= num;
+    }
+    clear() {
+        this.result=0;
+    }
+    getResult() {
+        return this.result;
+    }
+    calculate(expString) {
+        expString = expString.replace(/\s/g, ''); // removed whitespaces
+        let cleanedExp = "";
+        for (let i = 0; i < expString.length; i++) {
+            if(expString[i] === " ") {
+
+            } else if(/[A-Za-z]/.test(expString[i])) { // checking for alphabet in expString if so throw error
+                throw new Error();
+            }else if(i < expString.length-1 && expString[i] === '/' && expString[i+1] === '0') { //checking for division by zero 10/0 etc.
+                throw new Error();
+            }else {
+                cleanedExp += expString[i];
+            }
+        }
+        this.result = eval(cleanedExp);
+    }
+}
 
 module.exports = Calculator;
