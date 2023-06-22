@@ -6,17 +6,44 @@
  */
 
 function waitOneSecond() {
-
+    return new Promise(res => {
+        setTimeout(res, 1 * 1000)
+    })
 }
 
 function waitTwoSecond() {
-
+    return new Promise(res => {
+        setTimeout(res, 2 * 1000)
+    })
 }
 
 function waitThreeSecond() {
-
+    return new Promise(res => {
+        setTimeout(res, 3 * 1000)
+    })
 }
+
 
 function calculateTime() {
-
+    const startTime = Date.now()
+    return waitOneSecond()
+        .then(() => waitTwoSecond())
+        .then(() => waitThreeSecond())
+        .then(() => {
+            const endTime = Date.now()
+            const elapsedTime = endTime - startTime;
+            console.log(`The Total Time it conatins ${elapsedTime} millsec in calculate time`)
+        })
 }
+
+function calculateTimePromise() {
+    const startTime = Date.now()
+    Promise.all([waitOneSecond(), waitTwoSecond(), waitThreeSecond()])
+        .then(() => {
+            const endTime = Date.now()
+            const elapsedTime = endTime - startTime;
+            console.log(`The Total Time it conatins ${elapsedTime} millsec in PromiseAll`)
+        })
+}
+calculateTime()
+calculateTimePromise()

@@ -17,6 +17,55 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+      this.result = 0
+  }
+  add(number) {
+      this.result += number
+      return this
+  }
+  subtract(number) {
+      this.result -= number;
+      return this
+  }
+  divide(number) {
+      if (number !== 0) {
+          this.result = this.result / number
+      } else {
+          throw Error('Please give a number that is not zero and postive')
+      }
+      return this
+  }
+  clear() {
+      this.result = 0
+  }
+
+  getResult() {
+      return this.result
+  }
+  calculate(expression) {
+      // rmove spaces
+      const parsedExpression = expression.replace(/\s+/g, "");
+
+      // Validate the expression for invalid characters
+      if (!/^[0-9+\-*/().\s]+$/.test(parsedExpression)) {
+          throw new Error("Error: Invalid expression.");
+      }
+
+      try {
+          this.result = eval(parsedExpression)
+      } catch (error) {
+          console.log(error)
+      }
+      return this
+  }
+}
 
 module.exports = Calculator;
+
+const calc = new Calculator();
+
+console.log(calc.add(20).subtract(5))
+console.log(calc.calculate(`10 +   2 *    (   6 - (4 + 1) / 2) + 7`))
+console.log(calc.getResult())

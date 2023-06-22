@@ -9,6 +9,25 @@
 
 function isAnagram(str1, str2) {
 
+  // Remove all alphanumeric character and conver to lowercase
+
+  const normalize = (str) => str.replace(/[^\w]/g, "").toLowerCase();
+
+  const normalizeStr1 = normalize(str1)
+  const normalizeStr2 = normalize(str2)
+
+  if (normalizeStr1.length !== normalizeStr2.length) {
+      return false
+  }
+
+  const sortedStr1 = normalizeStr1.split("").sort().join()
+  const sortedStr2 = normalizeStr2.split("").sort().join()
+
+  return sortedStr1 === sortedStr2
+
 }
 
 module.exports = isAnagram;
+
+const ans = isAnagram("kri", "rimffk")
+console.log(ans)

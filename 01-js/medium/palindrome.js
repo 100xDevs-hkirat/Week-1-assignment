@@ -7,7 +7,19 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const str1 = str
+  const str2 = str.split('').reverse().join('')
+
+  if (str1 === str2) {
+      return true
+  }
+  return false
+  // console.log(str2)
+  // return true;
 }
 
 module.exports = isPalindrome;
+
+const result = isPalindrome('naveen')
+
+console.log(result)
