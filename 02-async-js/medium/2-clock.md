@@ -1,8 +1,34 @@
-Using `1-counter.md` or `2-counter.md` from the easy section, can you create a
-clock that shows you the current machine time?
 
-Can you make it so that it updates every second, and shows time in the following formats - 
 
- - HH:MM::SS (Eg. 13:45:23)
+// function counterFunction() {
+//     setInterval(() => {
+//         const date = new Date()
+//         const hr = date.getHours()
+//         const min = date.getMinutes()
+//         const sec = date.getSeconds()
+//         // console.log( date)
+//         console.log(`HH:MM:SS AM/PM :${date.toLocaleTimeString()}`)
+//         // console.log(date.toDateString())
+//         // console.log(date.toTimeString())
+//         console.log(`HH:MM:SS :${hr}:${min}:${sec}`)
+//     }, 1000)
+// }
+// counterFunction()
 
- - HH:MM::SS AM/PM (Eg 01:45:23 PM)
+
+
+function counter(count, duration) {
+    if (count < duration) {
+        setTimeout(() => {
+            const date = new Date()
+            const hr = date.getHours()
+            const min = date.getMinutes()
+            const sec = date.getSeconds()
+            console.log(`HH:MM:SS AM/PM :${date.toLocaleTimeString()}`)
+            console.log(`HH:MM:SS :${hr}:${min}:${sec}`)
+            count += 1
+        }, 1000)
+    }
+}
+
+counter(0, 10)
