@@ -27,6 +27,7 @@ class Todo {
   }
 
   update(index, updatedTodo) {
+    if (index > this.todos.length - 1) return;
     this.todos.splice(index, 1, updatedTodo);
     console.log(this.todos);
   }
@@ -36,6 +37,7 @@ class Todo {
   }
 
   get(index) {
+    if (index > this.todos.length - 1) return null;
     console.log(this.todos[index]);
     return this.todos[index];
   }

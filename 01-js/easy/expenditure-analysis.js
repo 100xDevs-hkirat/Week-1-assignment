@@ -16,8 +16,9 @@ function calculateTotalSpentByCategory(transactions) {
     }
     expenditure[`${transaction.category}`] += transaction.price;
   });
-  console.log(expenditure);
-  return expenditure;
+  return Object.keys(expenditure).map((item) => {
+    return { category: item, totalSpent: expenditure[`${item}`] };
+  });
 }
 
 calculateTotalSpentByCategory([

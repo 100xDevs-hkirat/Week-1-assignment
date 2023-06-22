@@ -54,6 +54,7 @@ class Calculator {
   }
 
   divide(n) {
+    if (n === 0) throw new Error("can't divide by zero");
     this.result /= n;
     console.log(this.result);
   }

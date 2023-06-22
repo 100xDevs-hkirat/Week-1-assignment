@@ -12,22 +12,25 @@ function compareObjects(str1Freq, str2Freq) {
   const keys2 = Object.keys(str2Freq);
 
   if (keys1.length !== keys2.length) {
-    console.log("false");
+    // console.log("false");
     return false;
   }
 
   for (let key of keys1) {
     if (!str2Freq.hasOwnProperty(key) || str1Freq[key] !== str2Freq[key]) {
-      console.log("false");
+      // console.log("false");
       return false;
     }
   }
 
-  console.log("true");
+  // console.log("true");
   return true;
 }
 
 function isAnagram(str1, str2) {
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
+  str2.toLowerCase();
   let str1Freq = {};
   let str2Freq = {};
 
