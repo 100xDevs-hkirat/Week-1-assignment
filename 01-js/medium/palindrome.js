@@ -8,7 +8,7 @@
 
 function isPalindrome(str) {
   let str1 = str;
-  let str2 = str.split('').reverse().join('');
+  let str2 = str.split('').reverse().join('');// split--> converts the string into an array;  reverse--> reverses the array ; join--> joins the array and turns back to string
   for( var i = 0 ; i< str.length ; i++){
     if(str1[i] !== str2[i]){
       return false;
