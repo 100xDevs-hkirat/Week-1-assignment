@@ -6,8 +6,25 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
-  return true;
+function isPalindromehelperSentence(str1) {
+    
+    
+  var reverseArray = str1.split("").reverse().join("");
+  var new_string = reverseArray.split(" ").join("")
+  var myArray1 = new_string.toUpperCase().replace(/[^a-zA-Z0-9 ]/g, '');
+  const newup = str1.toUpperCase().split(" ").join("").replace(/[^a-zA-Z0-9 ]/g, '');
+  console.log(myArray1);
+  console.log(newup)
+  if(newup == myArray1){
+      return true;
+  }
+  return false; 
+}
+
+
+function isPalindrome(str){
+    let ans = isPalindromehelperSentence(str);
+    return ans;
 }
 
 module.exports = isPalindrome;

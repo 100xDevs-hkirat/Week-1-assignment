@@ -8,5 +8,17 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    const startTime = new Date(); // Get the current time before the calculation
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+      sum += i;
+    }
+    const endTime = new Date(); // Get the current time after the calculation
+  
+    const timeDiff = endTime - startTime; // Calculate the difference in milliseconds
+    const timeInSeconds = timeDiff / 1000; // Convert milliseconds to seconds
+  
+    return timeInSeconds;
 }
+
+//https://www.educative.io/answers/how-to-find-the-time-taken-to-execute-a-function-in-javascript
