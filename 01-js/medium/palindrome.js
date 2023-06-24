@@ -6,8 +6,28 @@
   - `npm run test-palindrome`
 */
 
+function reverseString(str) {
+  let revStr = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    revStr += str[i];
+  }
+  return revStr;
+}
+
+function transform(str) {
+  let filteredString = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i).charCodeAt(0) >= 97 && str.charAt(i).charCodeAt(0) <= 122)
+      filteredString += str.charAt(i).toString();
+  }
+  return filteredString;
+}
+
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase();
+  str = transform(str);
+  let str1 = reverseString(str);
+  return str === str1;
 }
 
 module.exports = isPalindrome;
