@@ -8,7 +8,19 @@
 */
 
 function isAnagram(str1, str2) {
+  var strm1 = str1.trim();
+  var strm2 = str2.trim();
 
+  if (strm1.length !== strm2.length) {
+    return false;
+  }
+  
+  if (strm1.toUpperCase().split('').sort().join('') !== strm2.toUpperCase().split('').sort().join('')) {
+    return false;
+  } else {
+    return true;
+  }
 }
+
 
 module.exports = isAnagram;
