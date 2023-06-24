@@ -3,4 +3,11 @@
 */
 
 function wait(n) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(console.log('Hello'));
+		}, n);
+	});
 }
+
+wait(3000);
