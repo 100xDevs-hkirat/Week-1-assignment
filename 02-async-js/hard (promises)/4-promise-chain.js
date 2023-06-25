@@ -6,17 +6,29 @@
  */
 
 function waitOneSecond() {
-
+    return new Promise((resolve)=>setTimeout(()=>{resolve('resolving after 1 sec')},1000));
+  
 }
 
 function waitTwoSecond() {
-
+    return new Promise((resolve)=>setTimeout(()=>{resolve('resolving after 2 sec')},2000));
 }
 
+
 function waitThreeSecond() {
+    return new Promise((resolve)=>setTimeout(()=>{resolve('resolving after 3 sec')},3000));
 
 }
 
 function calculateTime() {
-
+const startTime = Date.now();
+waitOneSecond().then(()=>{waitTwoSecond().then(()=>{waitThreeSecond().then(()=>{
+    const endTime = Date.now();
+    const totalTime = endTime-startTime;
+    console.log(`All promises resolved in ${totalTime}`)
+})})})
 }
+
+calculateTime()
+
+/* chaining of promisies took more time than when call all togther in 3-promise-all.js */

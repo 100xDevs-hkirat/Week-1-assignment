@@ -4,5 +4,16 @@
  */
 
 function sleep (seconds) {
-
+ return new Promise((resolve)=>{
+    setTimeout(()=>{
+        resolve('result published !');
+    },seconds);
+ });
 }
+
+async function test(){
+    const result = await sleep(5000);
+    console.log(result)
+}
+
+test()

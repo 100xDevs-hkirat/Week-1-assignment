@@ -8,6 +8,16 @@
 */
 
 function isAnagram(str1, str2) {
+  if(str1.length != str2.length)
+  return false
+
+  let firststr = str1.split('').sort().join('')
+  let secondstr = str2.split('').sort().join('')
+
+  if(firststr == secondstr)
+  return true
+  else
+  return false
 
 }
 
