@@ -7,7 +7,17 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const string = str
+    .toLowerCase()
+    .replace(/\s/g, "") //removing space from inbtw so that can be compaired easily
+    .replace(/[^A-Za-z]+/g, ""); //to filer only alphabets from a string that may contain other characters as well
+  let reverseString = string.split("").reverse().join("");
+  // for (let i = string.length - 1; i > -1; i--) { //for loop can be used but we have reverse func to make our work easy
+  //   reverseString = reverseString + string[i];
+  // }
+  console.log(string);
+  console.log(reverseString);
+  return string === reverseString ? true : false;
 }
 
 module.exports = isPalindrome;
