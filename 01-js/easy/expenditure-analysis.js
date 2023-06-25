@@ -9,7 +9,27 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
-}
+  var ans = {};
+  for(t of transactions){
+    if(!ans.hasOwnProperty(t.category)){
+      ans[t.category] = t.price;
+    }
+    else{
+      ans[t.category]+=t.price;
+    }
+  }
 
+  var res = [];
+  for(i in ans){
+    res.push({"category": i,"totalSpent": ans[i]});
+  }
+  return res;
+}
+// const Transactions = [
+//   { "itemName": "horlicks", "category":"Food", "price": 20, "timestamp": new Date(2020, 7, 14)},
+//   { "itemName": "mangoshake", "category":"Food", "price": 20, "timestamp": new Date(2020, 7, 14)},
+//   { "itemName": "addidas", "category":"Clothing", "price": 1000, "timestamp": new Date(2020, 7, 14)},
+//   { "itemName": "nike", "category":"Clothing", "price": 2000, "timestamp": new Date(2020, 7, 14)}
+// ];
+// console.log(calculateTotalSpentByCategory(Transactions));
 module.exports = calculateTotalSpentByCategory;
