@@ -17,6 +17,56 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (number == 0) {
+      throw new Error("can't divide by zero(0)");
+    }
+    this.result /= number;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  clear(number) {
+    this.result = 0;
+  }
+
+  calculate(expression) {
+    const cleanedExpression = expression.replaceAll(" ", "");
+    console.log(cleanedExpression);
+    if (!/^[0-9()+\-*\/.\s]+$/.test(cleanedExpression)) {
+      throw new Error("invalid expression!!");
+    } else if (eval(cleanedExpression) === Infinity) {
+      throw new Error("Can't divide by zero");
+    }
+    this.result = eval(cleanedExpression);
+  }
+}
+
+try {
+  const equation = new Calculator();
+  equation.calculate("2 + 3 * 4");
+  console.log(equation.getResult());
+} catch (error) {
+  console.error(error.message);
+}
 
 module.exports = Calculator;
