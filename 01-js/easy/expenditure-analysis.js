@@ -9,7 +9,23 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  //return [];
+  var helper = {}
+  var result = transactions.reduce(function(r,o){
+    var key = o.category
+
+    if(!helper[key]){
+      helper[key] = Object.assign({},o)
+      r.push(helper[key])
+    }else{
+      helper[key].price += Number(o.price)
+          
+    }
+    return r
+  },[]);
+  const newArray = result.map(({category,price}) => ({category,"totalSpent": price}));
+  console.log(newArray)
+  return newArray
 }
 
 module.exports = calculateTotalSpentByCategory;

@@ -7,7 +7,13 @@
 */
 
 function isPalindrome(str) {
+  // var splitStringArray = str.split("");
+  // var reverseArray = splitStringArray.reverse();
+  // var joinArray = reverseArray.join("")
+  const joinArray = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "").replace(/\s/g,'').toLowerCase().split("").reverse().join("");
+  if(str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "").replace(/\s/g,'').toLowerCase()==joinArray)
   return true;
+  return false;
 }
 
 module.exports = isPalindrome;
