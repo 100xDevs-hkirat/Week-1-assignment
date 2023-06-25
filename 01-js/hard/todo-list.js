@@ -12,6 +12,36 @@
 */
 
 class Todo {
+   todos = [];
+    
+    index = 0;
+
+    add(todo) {
+      this.todos[this.index] = todo;
+      this.index++;
+    }
+    remove(indexOfTodo){
+      this.todos.splice(indexOfTodo,1);
+    }
+    update(ind,updatedTodo){
+      if(this.todos[ind] != undefined){
+        this.todos[ind] = updatedTodo;
+      }
+        
+    }
+
+    getAll(){
+      return this.todos;
+    }
+    get(g){
+      if(this.todos[g] != null )
+          return this.todos[g];
+      return null;
+    }
+
+    clear(){
+      this.todos = [];
+    }
 
 }
 
