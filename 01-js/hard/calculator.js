@@ -9,14 +9,45 @@
     - getResult: returns the value of `result` variable
     - calculate: takes a string expression which can take multi-arithmetic operations and give its result
       example input: `10 +   2 *    (   6 - (4 + 1) / 2) + 7`
-      Points to Note: 
+      Points to Note:
         1. the input can have multiple continuous spaces, you're supposed to avoid them and parse the expression correctly
         2. the input can have invalid non-numerical characters like `5 + abc`, you're supposed to throw error for such inputs
 
   Once you've implemented the logic, test your code by running
   - `npm run test-calculator`
 */
-
-class Calculator {}
+function isLetterPresent(str) {
+	return /[a-zA-Z]/.test(str);
+}
+class Calculator {
+	constructor() {
+		this.result = 0;
+	}
+	add(num) {
+		this.result += num;
+	}
+	subtract(num) {
+		this.result -= num;
+	}
+	multiply(num) {
+		this.result *= num;
+	}
+	divide(num) {
+		if (num == 0) throw new Error('cannot divide by 0');
+		this.result /= num;
+	}
+	clear() {
+		this.result = 0;
+	}
+	getResult() {
+		return this.result;
+	}
+	calculate(str) {
+		const sanitizedStr = str.split(' ').join('');
+		if (sanitizedStr.includes('/0')) throw new Error('cannot divide by 0');
+		if (isLetterPresent(sanitizedStr)) throw new Error('not a number');
+		this.result = eval(sanitizedStr);
+	}
+}
 
 module.exports = Calculator;
