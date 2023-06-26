@@ -8,5 +8,26 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    var starttime =  Date.now();
+    var result = sum(n);
+
+    var endtime =  Date.now();
+    var totaltime = endtime - starttime;
+    
+    
+    return totaltime / 1000;   // to calculate in seconds 
+
+   
+
 }
+function sum(n){
+    var sum = 0;
+    for ( var i = 0; i <=n ; i++){
+        sum = sum + i;
+    }
+     return sum ;
+
+}
+
+   var ans = calculateTime(1000);
+   console.log(" the total time taken is:" , ans , "second");

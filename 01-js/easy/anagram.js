@@ -8,7 +8,28 @@
 */
 
 function isAnagram(str1, str2) {
+  if(str1.length != str2.length){
+    return false;
+  } else{
+    // convert the string in array 
+    let arr1 = str1.split('') .sort();
+    let arr2 = str2.split('').sort();
+    for( var i = 0; i< str1.length ; i++){
+       if (arr1[i] == arr2[i]){
+          return true;
+      }
+    }
+    return false;
+
+  }
+  
 
 }
+
+ var ans = isAnagram( 'vidya' , 'idvya');
+ console.log(ans);
+
+
+
 
 module.exports = isAnagram;

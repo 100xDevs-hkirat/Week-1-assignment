@@ -9,7 +9,47 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  var totalspent = 0;
+  for ( var i = 0 ; i< transactions.length ; i++){
+    totalspent+= i;
+  }
+  return totalspent;
+
+  }
+
+  function objectlist(transactions){
+    var objects = [];
+    for( var i = 0; i< transactions.length ; i++){
+      var item = transcations[i]
+    }
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+  var transcations = [
+    { itemname : 'item 1 ', category: 'category A', price: 10 , timestamp: '2023'}
+    { itemname : 'item 2 ', category: 'category B', price: 10 , timestamp: '2024'}
+    { itemname : 'item 3 ', category: 'category C', price: 10 , timestamp: '2027'}
+
+  ]
+
+  
+  
+  
+
+  
+  
+  
   return [];
-}
+
 
 module.exports = calculateTotalSpentByCategory;
