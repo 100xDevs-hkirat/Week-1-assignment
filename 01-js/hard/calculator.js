@@ -17,6 +17,46 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Todo {
+  constructor(){
+    this.todoList= [];
+  }
+
+  addTodo(todo){
+    this.todoList.push(todo);
+  }
+
+  removeTodo(todoIndex){
+    this.todoList.splice(todoIndex,1);
+  }
+
+  updateTodo(index, updatedTodo){
+    this.todoList[index] = updatedTodo;
+  }
+
+  getAllTodo(){
+   return this.todoList;
+  };
+
+  getIndexOfTodo(todoIndex){
+    return this.todoList[todoIndex];
+  }
+
+  clearTodos(){
+    this.todoList = [];
+  }
+
+}
+
+const mynewTodo = new Todo();
+mynewTodo.addTodo("hi this is my new todo")
+mynewTodo.addTodo("hi this is my new todo 1")
+// mynewTodo.clearTodos()
+const alltodo = mynewTodo.getAllTodo()
+console.log(alltodo)
+
+
+
+module.exports = Todo;
 
 module.exports = Calculator;
