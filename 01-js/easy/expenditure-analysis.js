@@ -8,8 +8,28 @@
   - `npm run test-expenditure-analysis`
 */
 
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+
+  const categoryContainer = {}
+
+  for(let transaction of transactions){
+    const {category , price} = transaction
+
+    if(!categoryContainer.hasOwnProperty(category)){
+        categoryContainer[category] = 0;
+    }
+
+    categoryContainer[category] += price;
+
+  }
+
+  const result = Object.keys(categoryContainer).map((category) => {
+    return {category : category , totalSpent: categoryContainer[category]}
+  })
+
+    return result
 }
+
 
 module.exports = calculateTotalSpentByCategory;
