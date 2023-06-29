@@ -112,6 +112,13 @@ Assignment 1 - Solution
 ## Week 2.3 | Assignment
 
 ## Week 3.1 | Finishing Backend in JS
+
+### CORS 
+```
+const cors = require("cors")
+
+app.use(cors())
+```
 Live at: 24 Jun 2023, 07:00 PM
 
 ## Week 3.1 | Assignment
@@ -191,3 +198,17 @@ Live at: 19 Aug 2023, 07:00 PM
 ## Week 11.2 | Open source contributions in project #2 - Part 2
 Live at: 21 Aug 2023, 01:30 PM
 
+
+### Kill process associated with a port
+```
+netstat -ano | findstr :3000
+taskkill /PID enterPID /F
+
+PS D:\Workspaces\git\100xDev-Assignments> netstat -ano | findstr :3000
+  TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       15544
+  TCP    [::]:3000              [::]:0                 LISTENING       15544       
+PS D:\Workspaces\git\100xDev-Assignments> taskkill /PID 15544 /F
+SUCCESS: The process with PID 15544 has been terminated.
+PS D:\Workspaces\git\100xDev-Assignments>
+
+```
