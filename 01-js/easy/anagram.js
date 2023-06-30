@@ -7,8 +7,23 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
-
+function sortthestring(str)
+{
+  var array = str.split("");
+  array = array.sort();
+  var ans = array.join("");
+  return ans;
 }
+
+function isAnagram(str1, str2) {
+  if(sortthestring(str1) == sortthestring(str2))
+  {
+    console.log("this is anagram");
+  }
+  else 
+  {
+    console.log("not a anagram");
+  }
+
 
 module.exports = isAnagram;
