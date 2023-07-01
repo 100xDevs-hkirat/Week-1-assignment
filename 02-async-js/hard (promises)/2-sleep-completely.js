@@ -3,6 +3,13 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep(seconds) {
+  const start = new Date().getTime();
+  let current;
+  do {
+    current = new Date().getTime();
+  } while (current - start < seconds);
+  console.log("Start");
+  sleep(3000);
+  console.log("End");
 }

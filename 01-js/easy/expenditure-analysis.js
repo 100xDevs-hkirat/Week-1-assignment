@@ -14,7 +14,8 @@ function calculateTotalSpentByCategory(transactions) {
   transactions.forEach((transaction) => {
     const { category, price } = transaction;
     const existingCategory = categorySpends.find(
-      (cate) => cate.category === category
+      //.find() requires a function to run...
+      (item) => item.category === category
     );
     if (existingCategory) {
       existingCategory.totalSpent += price;

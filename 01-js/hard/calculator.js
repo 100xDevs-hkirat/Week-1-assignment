@@ -57,11 +57,12 @@ class Calculator {
 
     // Validate the expression
     if (!/^[\d+\-*/.()]+$/.test(expression)) {
+      //The RegExp Object is a regular expression with added Properties and Methods.
       throw new Error("Invalid expression");
     }
     const parts = expression.split("/");
     if (parts.length === 2) {
-      const numerator = parseFloat(parts[0]);
+      const numerator = parseFloat(parts[0]); //Convert a string to floating number
       const denominator = parseFloat(parts[1]);
       if (denominator === 0) {
         throw new Error("Division by zero is not allowed.");
