@@ -3,4 +3,13 @@
 */
 
 function wait(n) {
+    const promise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const data ="Resolved";
+            resolve(data);
+        },n)
+    })
+    return promise;
 }
+
+wait(1000).then( data => console.log(data));

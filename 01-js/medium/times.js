@@ -8,5 +8,20 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let begin = Date.now();
+    console.log("Start time "+begin);
+    
+    let summ=0;
+    for(let i=0;i<n;i++){
+        summ+=i;
+    }
+
+    
+    let end = Date.now();
+    console.log("End time "+end);
+
+
+    console.log("Diff time "+ (end-begin)+ " seconds");
+    return (end-begin);
+
 }
