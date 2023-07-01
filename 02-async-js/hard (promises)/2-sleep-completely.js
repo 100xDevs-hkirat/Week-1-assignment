@@ -5,4 +5,12 @@
 
 function sleep (seconds) {
 
+    const start = Date.now();
+    while(Date.now() - start<seconds){
+        //
+    }
 }
+
+console.log('Starting');
+sleep(2000);
+console.log('ending');

@@ -4,19 +4,32 @@
  * Print how long it took for all 3 promises to resolve.
  */
 
+const { resolve } = require("path")
+
+function delay(ms){
+    return new Promise(resolve => setTimeout(resolve,ms))
+}
 
 function waitOneSecond() {
-
+    return delay(1000);
 }
 
 function waitTwoSecond() {
-
+    return delay(2000);
 }
 
 function waitThreeSecond() {
-
+    return delay(3000);
 }
 
 function calculateTime() {
+    const start = Date.now();
 
+    return Promise.all([waitOneSecond(), waitTwoSecond(), waitThreeSecond()]).then(()=>{
+		const endTime = Date.now();
+		const totalTime = endTime - start;
+		console.log(`All promises resolved in ${totalTime} milliseconds.`);
+		});
 }
+
+calculateTime();
