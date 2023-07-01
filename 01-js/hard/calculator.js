@@ -17,6 +17,79 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  result;
+
+  constructor() {
+    this.result = 0;
+  }
+
+  add(number) {
+    this.result += number;
+  }
+
+  subtract(number) {
+    this.result -= number;
+  }
+
+  multiply(number) {
+    this.result *= number;
+  }
+
+  divide(number) {
+    if (number === 0) {
+      throw new Error("Division by zero is not allowed.");
+    }
+    this.result /= number;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    // Remove any whitespace from the expression
+    expression = expression.replace(/\s/g, "");
+
+    // Validate the expression
+    if (!/^[\d+\-*/.()]+$/.test(expression)) {
+      //The RegExp Object is a regular expression with added Properties and Methods.
+      throw new Error("Invalid expression");
+    }
+    const parts = expression.split("/");
+    if (parts.length === 2) {
+      const numerator = parseFloat(parts[0]); //Convert a string to floating number
+      const denominator = parseFloat(parts[1]);
+      if (denominator === 0) {
+        throw new Error("Division by zero is not allowed.");
+      }
+    }
+
+    // Evaluate the expression
+    try {
+      this.result = eval(expression);
+    } catch (error) {
+      throw new Error("Evaluation error");
+    }
+    return this.result;
+  }
+}
+
+// const calc = new Calculator();
+// // calc.add(5);
+// // // calc.add(3);
+// // calc.divide(0);
+// // // calc.clear();
+// calc.calculate('10/0');
+// // // calc.add(4);
+// // // calc.multiply(3);
+// // // calc.calculate('2 + 3 * 4');
+// console.log(calc.getResult());
+//
+// // console.log(calc.getResult());
 
 module.exports = Calculator;
