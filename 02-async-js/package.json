@@ -1,0 +1,14 @@
+{
+  "name": "02-async",
+  "version": "1.0.0",
+  "description": "This folder contains assignments related to asynchronous JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
