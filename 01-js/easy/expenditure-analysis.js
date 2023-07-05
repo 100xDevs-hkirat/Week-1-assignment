@@ -9,7 +9,51 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const m= {};
+  for ( let i of transactions){
+    const category = i.category;
+    const price = i.price;
+
+    if ( m[category])m[category]+=price;
+    else m[category] = price;
+  }
+  var res =[];
+  for ( let i in m){
+    res.push({"category" : i , 
+    "totalSpent" : m[i]
+  });
+  }
+
+  return res;
 }
 
+var pass = [{
+  itemName: "chips",
+  category: "snacks",
+  price: 40,
+  timstamp: 100,
+}, {
+  itemName: "crossiant",
+  category: "snacks",
+  price: 140,
+  timstamp: 104
+}, {
+  itemName: "chocolate",
+  category: "sweets",
+  price: 100,
+  timstamp: 103
+}, {
+  itemName: "nutella",
+  category: "sweets",
+  price: 200,
+  timstamp: 102
+},{
+  itemName: "bottle",
+  category: "essentials",
+  price: 400,
+  timstamp: 101
+}];
+
+var ans = calculateTotalSpentByCategory(pass);
+console.log(ans);
 module.exports = calculateTotalSpentByCategory;

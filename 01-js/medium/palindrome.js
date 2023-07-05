@@ -7,7 +7,22 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let s = "";
+  for ( let i =str.length-1;i>=0;i--){
+    s+=str[i];
+  }
+  s=s.toLowerCase();
+  str=str.toLowerCase();
+
+  str = str.replace(/\s/g, '');
+  s=s.replace(/\s/g, '');
+
+  s = s.replace(/[^a-z]/g, '');
+  str = str.replace(/[^a-z]/g, '');
+
+  if ( s == str)return true;
+  return false;
+
 }
 
-module.exports = isPalindrome;
+ module.exports = isPalindrome;
