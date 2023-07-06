@@ -8,7 +8,22 @@
 */
 
 function isAnagram(str1, str2) {
+  let len1=str1.length;
+  let len2=str2.length;
+  if(len1!==len2){
+    console.log("Invalid Strings")
+    return
+  }
+
+  let a=str1.split('').sort().join('');
+  let b=str2.split('').sort().join('');
+  if(a===b)
+  console.log("Anagram");
+  else
+  console.log("Not Anagrams")
 
 }
 
-module.exports = isAnagram;
+isAnagram("str","tst");
+
+// module.exports = isAnagram;

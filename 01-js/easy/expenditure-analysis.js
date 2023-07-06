@@ -8,8 +8,49 @@
   - `npm run test-expenditure-analysis`
 */
 
+let list_of_objects = [
+  {
+    itemName: "Game",
+    category: "Entertainment",
+    price: 100,
+    timeStamp: 3
+  },
+  {
+    itemName: "Laptop",
+    category: "Work",
+    price: 3000,
+    timeStamp: 10
+  },
+  {
+    itemName: "TV",
+    category: "Entertainment",
+    price: 500,
+    timeStamp: 5
+  },
+  {
+    itemName: "Snacks",
+    category: "Food",
+    price: 10,
+    timeStamp: 1
+  }
+]
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let arr=[];
+   transactions.forEach(element => {
+    let totalSpent=element.price * element.timeStamp;
+    categoryData=element.category;
+    console.log(categoryData)
+    ctr=0;
+    tempObject={
+      ctr:`${categoryData} - ${totalSpent}`
+    }
+    arr.push(tempObject);
+   });
+  return arr;
 }
 
-module.exports = calculateTotalSpentByCategory;
+let ans=calculateTotalSpentByCategory(list_of_objects);
+console.log(ans);
+
+// module.exports = calculateTotalSpentByCategory;
