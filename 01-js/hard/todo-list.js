@@ -51,9 +51,11 @@ class Todo {
     this.#operation(ops.UPDATE, { index, todo });
   }
   getAll() {
+    // can be done using `return [...this.#todos];
     return this.#operation(ops.GET_ALL, {});
   }
   get(index) {
+    // can be done using `return this.#todos[index];
     return this.#operation(ops.GET, { index });
   }
   clear() {
