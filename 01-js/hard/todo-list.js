@@ -11,8 +11,56 @@
   - `npm run test-todo-list`
 */
 
-class Todo {
+const ops = {
+  ADD: 1,
+  REMOVE: 2,
+  UPDATE: 3,
+  GET_ALL: 4,
+  GET: 5,
+  CLEAR: 6,
+};
+const exe = {
+  [ops.ADD]: (todoArr, { todo }) => [...todoArr, todo],
+  [ops.GET]: (todoArr, { index }) => todoArr[index],
+  [ops.GET_ALL]: (todoArr) => [...todoArr],
+  [ops.UPDATE]: (todoArr, { index, todo }) => (
+    (todoArr[index] = todo), [...todoArr]
+  ),
+  [ops.REMOVE]: (todoArr, { index }) => (
+    (todoArr[index] = null), todoArr.filter((item) => !!item)
+  ),
+  [ops.CLEAR]: () => [],
+};
 
+class Todo {
+  #todos = [];
+  #operation(operation, arg) {
+    if (operation !== ops.GET && operation !== ops.GET_ALL) {
+      this.#todos = exe[operation](this.#todos, arg);
+    } else {
+      return exe[operation](this.#todos, arg);
+    }
+  }
+  add(todo) {
+    this.#operation(ops.ADD, { todo });
+  }
+  remove(index) {
+    this.#operation(ops.REMOVE, { index });
+  }
+  update(index, todo) {
+    this.#operation(ops.UPDATE, { index, todo });
+  }
+  getAll() {
+    // can be done using `return [...this.#todos];
+    return this.#operation(ops.GET_ALL, {});
+  }
+  get(index) {
+    // can be done using `return this.#todos[index];
+    return this.#operation(ops.GET, { index });
+  }
+  clear() {
+    this.#operation(ops.CLEAR, {});
+  }
 }
 
 module.exports = Todo;

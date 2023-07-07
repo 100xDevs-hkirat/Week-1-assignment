@@ -3,6 +3,9 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
-
+function sleep(seconds) {
+  const milliseconds = seconds * 1000;
+  const start = Date.now();
+  while (Date.now() - start < milliseconds) {}
+  console.log(`sleep time finished for ${seconds} seconds`);
 }

@@ -8,8 +8,20 @@
   - `npm run test-expenditure-analysis`
 */
 
-function calculateTotalSpentByCategory(transactions) {
-  return [];
+function calculateTotalSpentByCategory(transactions = []) {
+  const reduced = transactions.reduce(function (acc, item) {
+    acc[item.category]
+      ? (acc[item.category] += item.price)
+      : (acc[item.category] = item.price);
+    return acc;
+  }, {});
+
+  const keys = Object.keys(reduced);
+  const result = keys.map((key) => ({
+    [key]: reduced[key],
+  }));
+
+  return [...result];
 }
 
 module.exports = calculateTotalSpentByCategory;
