@@ -34,7 +34,7 @@ const exe = {
 
 class Todo {
   #todos = [];
-  #operation(operatioon, arg) {
+  #operation(operation, arg) {
     if (operation !== ops.GET && operation !== ops.GET_ALL) {
       this.#todos = exe[operation](this.#todos, arg);
     } else {
