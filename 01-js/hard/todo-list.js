@@ -51,10 +51,10 @@ class Todo {
     this.#operation(ops.UPDATE, { index, todo });
   }
   getAll() {
-    this.#operation(ops.GET_ALL, {});
+    return this.#operation(ops.GET_ALL, {});
   }
   get(index) {
-    this.#operation(ops.GET, { index });
+    return this.#operation(ops.GET, { index });
   }
   clear() {
     this.#operation(ops.CLEAR, {});
