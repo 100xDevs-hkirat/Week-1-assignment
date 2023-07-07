@@ -17,6 +17,74 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+function evaluateExpression(expression) {
+  // Ensure the expression only contains valid characters
+  const validCharacters = /^[0-9 \+\-\*\/\(\)]+$/;
+  if (!validCharacters.test(expression)) {
+    throw new Error("Invalid characters in expression");
+  }
+
+  // Ensure the parentheses are balanced
+  let depth = 0;
+  for (let i = 0; i < expression.length; i++) {
+    if (expression[i] === "(") depth++;
+    if (expression[i] === ")") depth--;
+    if (depth < 0) throw new Error("Unbalanced parentheses");
+  }
+  if (depth > 0) throw new Error("Unbalanced parentheses");
+
+  // Evaluate the expression
+  try {
+    const result = eval(expression);
+    return result;
+  } catch (error) {
+    throw new Error("Invalid expression");
+  }
+}
+function removeSpaces(expression) {
+  return expression.replace(/\s+/g, "");
+}
+
+const ops = {
+  SUBSTRACT: 1,
+  ADD: 2,
+  MULTIPLY: 3,
+  DIVIDE: 4,
+  CLEAR: 5,
+  CALCULATE: 6,
+};
+
+const exe = {
+  [ops.ADD]: (rez, m) => rez + m,
+  [ops.SUBSTRACT]: (rez, m) => rez - m,
+  [ops.DIVIDE]: (rez, m) => rez / m,
+  [ops.MULTIPLY]: (rez, m) => rez * m,
+  [ops.CLEAR]: () => 0,
+  [ops.CALCULATE]: (_, exp) => evaluateExpression(removeSpaces(exp)),
+};
+class Calculator {
+  #result = 0;
+  #operation(ops, num) {
+    this.#result = exe[ops](this.#result, num);
+  }
+  add(n) {
+    this.#operation(ops.ADD, n);
+  }
+  substract(n) {
+    this.#operation(ops.SUBSTRACT, n);
+  }
+  divide(n) {
+    this.#operation(ops.DIVIDE, n);
+  }
+  multiply(n) {
+    this.#operation(ops.MULTIPLY, n);
+  }
+  clear() {
+    this.#operation(ops.CLEAR, 0);
+  }
+  calculate(exp) {
+    this.#operation(ops.CALCULATE, exp);
+  }
+}
 
 module.exports = Calculator;
