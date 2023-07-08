@@ -7,8 +7,22 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
 
+
+function isAnagram(str1, str2) {
+  let a=str1.split("");
+  let b=str2.split("");
+  a.sort();
+  b.sort();
+  let c=a.join("");
+  let d=b.join("");
+  
+   if(c===d){
+     console.log(true);
+   }else{
+     console.log(false);
+   }
 }
+isAnagram("bat","tab");
 
 module.exports = isAnagram;
