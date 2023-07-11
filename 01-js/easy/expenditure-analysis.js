@@ -74,7 +74,7 @@ const arr = [
     price: 24.1,
     timestamp: "2023-07-10"
   }
-];
+]; 
 
 const total_amount_spent = calculateTotalSpentByCategory(arr);
 
