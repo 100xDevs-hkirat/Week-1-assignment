@@ -7,7 +7,25 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let str1_arr = str.toLowerCase().split('');
+  let str2_arr = str.toLowerCase().split('').reverse();
+
+  if(str1_arr.toString() == str2_arr.toString())
+    return true;
+  else
+    return false;
 }
+
+ const str = 'Madam';
+// const str = 'yogi';
+
+let result = isPalindrome(str);
+
+console.log(result);
+
+if(result)
+  console.log(str, 'is palindrome');
+else
+  console.log(str, 'is not palindrome');
 
 module.exports = isPalindrome;
