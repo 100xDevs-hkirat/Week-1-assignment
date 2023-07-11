@@ -8,7 +8,18 @@
 */
 
 function isAnagram(str1, str2) {
+  let str1_arr = str1.split('').sort();
+  let str2_arr = str2.split('').sort();
 
+  if(str1_arr.join() == str2_arr.join())
+      console.log('Its an Anagram');
+  else
+      console.log('Its NOT an Anagram');
 }
 
 module.exports = isAnagram;
+
+isAnagram('spar', 'rasp');
+
+
+  

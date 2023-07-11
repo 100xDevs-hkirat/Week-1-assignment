@@ -8,5 +8,20 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let start = new Date();
+
+    let num = 0;
+
+    for(let i = 1; i <= n; i++)
+        num += i;
+
+    let end = new Date();
+
+    return Math.ceil(Math.abs((end - start) / 1000));
 }
+
+const no = 100; // 100 // 100000 // 1000000000
+
+const diff = calculateTime(no);
+
+console.log('Time taken to calculate 1 to', no, 'is:', diff, 'seconds');
