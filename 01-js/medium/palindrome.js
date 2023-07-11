@@ -21,7 +21,7 @@ function isPalindrome(str) {
 
 let result = isPalindrome(str);
 
-console.log(result);
+console.log(result); 
 
 if(result)
   console.log(str, 'is palindrome');
