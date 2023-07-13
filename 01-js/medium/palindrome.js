@@ -7,7 +7,26 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  if (str.length === 1)
+    return "Invalid Format";
+
+  let newStr = [];
+  str = str.split('')
+  for (let i = str.length - 1; i >= 0; i--) {
+    newStr.push(str[i])
+  }
+
+  newStr = newStr.join('')
+  str = str.join('')
+
+  if (str === newStr) {
+    return true;
+  }
+  else
+    return false;
 }
+
+let ans = isPalindrome("tenet");
+console.log(ans);
 
 module.exports = isPalindrome;

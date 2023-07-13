@@ -17,6 +17,65 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result *= num;
+  }
+  divide(num) {
+    this.result /= num;
+  }
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(str) {
+       str=str.replace(/\s/g,'').trim(); // Removes extra spaces
+
+       let stack=[];
+       for(let i=0;i<str.length;i++){
+
+        // switch (str[i]) {
+        //   case /[0-9]/.test(str[i]):
+        //     console.log("digit",str[i])
+        //     break;
+        //   case /[a-z]/: console.log("Alp",console.log(str[i]))
+        //   default: console.log("rest",str[i])
+        //     break;
+        // }
+        if(/[^0-9]/.test(str[i]))
+            console.log(str[i])
+            else{
+             switch (str[i]) {                                            
+              case "+":
+                       this.add()
+                break;
+             
+              default:
+                break;
+             }   
+            }
+          }
+      // return str;
+  }
+
+}
+
+let obj=new Calculator()
+console.log(obj.calculate("    10 +   2 *    (   6 - (4 + 1) / 2) + 7        "))
 
 module.exports = Calculator;
