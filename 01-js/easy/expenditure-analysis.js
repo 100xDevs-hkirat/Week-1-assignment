@@ -9,7 +9,35 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  var size = transactions.length;
+  
+
+  var spendEstimates = {};
+  for (let i = 0; i < size; i++)
+    {
+      var t = transactions[i];
+
+      if (spendEstimates[t.category])
+      {
+        spendEstimates[t.category] += t.price;
+      }
+      else
+      {
+        spendEstimates[t.category] = t.price;
+      }
+    }
+
+  let ans = [];
+  console.log(spendEstimates);
+  for (let i = 0; i < Object.entries(spendEstimates).length; i++)
+    {
+      var obj = {
+        category : Object.entries(spendEstimates)[i][0],
+        totalSpent : Object.entries(spendEstimates)[i][1]
+      }
+      ans.push(obj);
+    }
+  return [ans];
 }
 
 module.exports = calculateTotalSpentByCategory;
