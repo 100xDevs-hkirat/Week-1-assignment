@@ -7,6 +7,14 @@
 */
 
 function isPalindrome(str) {
+  const strl = str.toLowerCase().split('');
+  let left = 0;
+  let right = str.length-1;
+
+  while(left != right) {
+    if (strl[left--] !== strl[right++]) return false;
+  }
+  
   return true;
 }
 
