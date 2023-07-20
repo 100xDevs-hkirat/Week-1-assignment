@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
-
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(seconds);
+        }, seconds*1000);
+    });
 }
+
+sleep(5).then((response) => {
+    console.log(`Woken up after ${response} seconds`);
+})
