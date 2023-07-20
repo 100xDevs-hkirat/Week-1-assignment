@@ -30,11 +30,18 @@ function waitThreeSecond() {
 }
 
 async function calculateTime() {
-        let startTime = new Date().getTime();
-        let res1 = await waitOneSecond();
-        let res2 = await waitTwoSecond();
-        let res3 = await waitThreeSecond();
-        console.log(`Time took for processing - ${(new Date().getTime() - startTime)/1000} seconds`);
+    let startTime = new Date().getTime();
+  try {
+    const [res1, res2, res3] = await Promise.all([
+        waitOneSecond(), 
+        waitTwoSecond(),
+        waitThreeSecond(),
+   ]);
+  } catch (err) {
+    console.error(err);
+  }
+  console.log(`Time taken to process - ${(new Date().getTime() - startTime)/1000} seconds`)
 }
+
 
 calculateTime();
