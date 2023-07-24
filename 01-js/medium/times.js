@@ -8,5 +8,14 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let start = Date.now()
+    for (let index = 0; index < n; index++) {
+        
+    }
+    let end = Date.now()
+
+    return (end - start)/1000
 }
+console.log(calculateTime(100) + " sec")
+console.log(calculateTime(100000) + " sec")
+console.log(calculateTime(1000000000) + " sec")
