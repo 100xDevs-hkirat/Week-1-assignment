@@ -7,7 +7,17 @@
 */
 
 function isPalindrome(str) {
+   let len = string.length;
+
+    let reversestr = string.split('').reverse().join('');
+
+    if(string === reversestr){
+        console.log("Given string is palindrome");
+    }
+    else{
+        console.log("Given string is not palindrome");
+    }
   return true;
 }
-
+isPalindrome("madam");
 module.exports = isPalindrome;
