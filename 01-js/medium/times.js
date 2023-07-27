@@ -7,6 +7,21 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
+
+
+const startTime = new Date().getTime();
+
+function sumnumbers(num1,num2){
+    let sum = 0;
+    for(let i = num1;i<=num2; i++){
+        sum = sum + i;
+    }
+    console.log(sum);
 }
+
+sumnumbers(1,100000000);
+
+const endTime = new Date().getTime();
+
+const averageTime = endTime - startTime;
+console.log(averageTime);
