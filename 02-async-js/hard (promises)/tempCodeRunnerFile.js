@@ -25,19 +25,17 @@ function waitThreeSecond() {
 
 async function calculateTime() {
     console.log("start promise.all() \n");
-
+    
     const startTime = Date.now();
     const [promise1, promise2, promise3] = [waitOneSecond(), waitTwoSecond(), waitThreeSecond()];
     await Promise.all([promise1, promise2, promise3]).then(()=>{
         console.log("all promises resolved!");
     })
     const endTime = Date.now();
-    console.log("in mseconds-> " + (endTime-startTime));
+    console.log("in seconds-> " + (endTime-startTime));
 
 
-    console.log(
-      "when three promises work together then total time = largest time"
-    );
+    console.log("\n end promises");
 }
 
 calculateTime();
