@@ -5,18 +5,33 @@
  * Compare it with the results from 3-promise-all.js
  */
 
-function waitOneSecond() {
+const promiseBody = (resolve, n) => {
+    setTimeout(resolve, n * 1000);
+}
 
+function waitOneSecond() {
+    return new Promise(resolve => promiseBody(resolve, 1));
 }
 
 function waitTwoSecond() {
-
+    return new Promise(resolve => promiseBody(resolve, 2));
 }
 
 function waitThreeSecond() {
-
+    return new Promise(resolve => promiseBody(resolve, 3));
 }
 
-function calculateTime() {
-
+const callback = () => {
+    console.log("Called Backed");
 }
+
+const calculateTime = async () => {
+    const startTime = Date.now();
+    await waitOneSecond().then(callback);
+    await waitTwoSecond().then(callback);
+    await waitTwoSecond().then(callback);
+    const endTime = Date.now();
+    console.log(`Game ended after ${(endTime - startTime) / 1000}`);
+}
+
+calculateTime()
