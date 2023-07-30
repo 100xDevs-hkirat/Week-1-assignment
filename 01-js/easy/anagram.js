@@ -14,7 +14,7 @@ const sort = (str) => {
 }
 
 function isAnagram(str1, str2) {
-  if(sort(str1) === sort(str2)) {
+  if(sort(str1.toLowerCase()) === sort(str2.toLowerCase())) {
     return true;
   } else {
     return false;
