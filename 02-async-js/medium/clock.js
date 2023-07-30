@@ -9,13 +9,15 @@ const callback = () => {
     const hours = parseInt(Math.floor(time / (1000 * 60 * 60)));
     const minutes = parseInt(Math.abs(Math.floor(hours * 60 - (time / (1000 * 60)))) - 1);
     const seconds = parseInt(Math.abs(Math.floor((time / 1000) - (hours * 60 * 60 + minutes * 60) )));
+    const amPmHours = (hours - 12) > 0 ? hours - 12 : hours;
     if(hours <= 12) {
         am_pm = "AM";
     } else {
         am_pm = "PM"
     }
+    console.clear();
     console.log(`\n\n${hours}:${minutes}:${seconds}`);
-    console.log(`${hours - 12}:${minutes}:${seconds} :: ${am_pm}`)
+    console.log(`${amPmHours}:${minutes}:${seconds} :: ${am_pm}`);
 }
 
 const clock = (_) => {
