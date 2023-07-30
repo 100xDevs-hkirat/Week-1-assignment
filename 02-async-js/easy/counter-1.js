@@ -1,5 +1,7 @@
 let count = 0;
+
 const counterBody = () => {
+    console.clear();
     console.log(count);
     count ++;
 }

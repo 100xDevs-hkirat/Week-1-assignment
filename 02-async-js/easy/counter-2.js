@@ -1,5 +1,6 @@
 let count = 0;
 const callback = () => {
+    console.clear();
     console.log(`${count} seconds passed :)`);
     count ++ ;
     setTimeout(callback, 1 * 1000)
