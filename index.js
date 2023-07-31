@@ -1,5 +1,4 @@
 import isAnagram from "./01-js/easy/anagram.js";
-import calculateTotalSpentByCategory from "./01-js/easy/expenditure-analysis.js";
 import Calculator from "./01-js/hard/calculator.js";
 import Todo from "./01-js/hard/todo-list.js";
 import startCounter from "./02-async-js/easy/1-counter.js";
@@ -13,11 +12,6 @@ import { harmfulSleep, sleep } from "./02-async-js/hard (promises)/2-sleep-compl
 // anagram problem
 console.log("\n isAnagram(awpar, pawar) -> " + isAnagram("awpar", "pawar"));
 console.log("isAnagram(awpar, pawat) -> " + isAnagram("awpar", "pawat"));
-
-// print transaction categories
-const transactions = [11, 22, 33, 44, 55, 66];
-const record = calculateTotalSpentByCategory(transactions);
-console.log(record);
 
 
 // Calculator problem (Hard)
