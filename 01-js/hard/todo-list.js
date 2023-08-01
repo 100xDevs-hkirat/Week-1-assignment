@@ -12,7 +12,54 @@
 */
 
 class Todo {
+  constructor()
+  {
+    this.record = [];
+  }
 
+  add(todo)
+  {
+    this.record.push(todo);
+  }
+
+  remove(todoIndex)
+  {
+    this.record.filter(todo => todo != this.record[todoIndex]);
+  }
+
+  reomveLast()
+  {
+    this.record.pop();
+  }
+
+  removeFirst()
+  {
+    this.record.shift();
+  }
+
+  update(index, todo)
+  {
+    this.record[index] = todo;
+  }
+
+  get(index)
+  {
+    console.log(this.record[index]);
+  }
+
+  getAll()
+  {
+    console.log(this.record);
+  }
+
+  clear()
+  {
+    // const ask = window.confirm("Are you sure? ");
+    // if(ask)
+    // {
+      this.record = [];
+    // }
+  }
 }
 
-module.exports = Todo;
+export default Todo;

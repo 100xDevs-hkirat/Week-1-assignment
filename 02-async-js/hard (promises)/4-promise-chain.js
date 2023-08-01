@@ -6,17 +6,37 @@
  */
 
 function waitOneSecond() {
-
+  return new Promise((resolve) => {
+    setTimeout(resolve, 1 * 1000);
+  });
 }
 
 function waitTwoSecond() {
-
+  return new Promise((resolve) => {
+    setTimeout(resolve, 2 * 1000);
+  });
 }
 
 function waitThreeSecond() {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 3 * 1000);
+  });
+}
+
+async function calculateTime() {
+    console.log("separate promise start -> \n");
+
+    const startTime = Date.now();
+    await waitOneSecond().then(()=>
+        waitTwoSecond().then(() => 
+            waitThreeSecond().then(() => 
+                console.log("All three completed")
+        ))
+    )
+    const endTime = Date.now();
+    console.log("in mseconds -> " + (endTime - startTime));
+    console.log("when three promises work in chain (saperataly) then total time = sum of times")
 
 }
 
-function calculateTime() {
-
-}
+calculateTime();
