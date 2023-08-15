@@ -7,7 +7,25 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase();
+  arr = str.split("");
+  //console.log(arr);
+  isPal = true;
+  if (str.length<2) return true;
+  for (var i=0, j=arr.length-1; i<arr.length/2; i++,j--) {
+    //console.log(i, j, arr[i], arr[j]);
+    while (arr[i] == ' ' || arr[i].toUpperCase() == arr[i].toLowerCase()) i++;
+    while (arr[j] == ' '|| arr[j].toUpperCase() == arr[j].toLowerCase()) j--;
+    if (i==j) isPal = true;
+    if (i>j) isPal = false;
+    if (i<arr.length && j>=0) {
+      if (arr[i] != arr[j]) {
+        isPal = false;
+        break;
+      }
+    }
+  }
+  return isPal;
 }
 
 module.exports = isPalindrome;
