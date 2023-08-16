@@ -9,7 +9,20 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+
+  const category = {};
+
+  for (let eachItem of transactions) {
+    category[eachItem.category] = (isNaN(category[eachItem.category]) ? 0 : category[eachItem.category]) + eachItem.price;
+  }
+
+  const requiredArray = [];
+
+  for (let [key, value] of Object.entries(category)) {
+    requiredArray.push({ category: key, totalSpent: value });
+  }
+
+  return requiredArray;
 }
 
 module.exports = calculateTotalSpentByCategory;

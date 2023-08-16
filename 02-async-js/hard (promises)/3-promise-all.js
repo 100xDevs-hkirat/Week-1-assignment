@@ -4,19 +4,43 @@
  * Print how long it took for all 3 promises to resolve.
  */
 
+const delay = (n) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, n);
+    });
+}
+
 
 function waitOneSecond() {
-
+    return delay(1000);
 }
 
 function waitTwoSecond() {
-
+    return delay(2000);
 }
 
 function waitThreeSecond() {
-
+    return delay(3000);
 }
 
-function calculateTime() {
+async function calculateTime() {
 
+    const startTime = performance.now();
+
+    await Promise.all([
+        waitOneSecond(),
+        waitTwoSecond(),
+        waitThreeSecond()
+    ]);
+
+    const endTime = performance.now();
+
+    return endTime - startTime;
+}
+
+module.exports = {
+    delay,
+    calculateTimeAll: calculateTime
 }

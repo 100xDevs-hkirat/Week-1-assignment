@@ -9,6 +9,18 @@
 
 function isAnagram(str1, str2) {
 
+  let cond1 = false;
+  let cond2 = false;
+
+  cond1 = str1.toLowerCase().split('').every(element => {
+    return str2.toLowerCase().includes(element);
+  });
+
+  cond2 = str2.toLowerCase().split('').every(element => {
+    return str1.toLowerCase().includes(element);
+  });
+
+  return cond1 && cond2;
 }
 
 module.exports = isAnagram;
