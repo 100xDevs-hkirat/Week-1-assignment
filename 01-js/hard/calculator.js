@@ -28,8 +28,24 @@ class Calculator {
   clear(){this.result = 0}
   getResult() {return this.result;}
 
-  
-
+  calculate(input) {
+    try {
+      input = input.replace('/\s+/g', '');
+      const result = eval(input);
+      if(isNaN(result)){
+        throw new Error('invalid expression.');
+      }
+      return result;
+    } catch (error) {
+      console.error('Error', error.message)
+      return NaN;
+    }  
+  }
 }
 
-module.exports = Calculator;
+const myCalc = new Calculator(0);
+
+console.log(myCalc.calculate('10 +   2 *    (   6 - (4 + 1) / 2) + 7'));
+
+
+//module.exports = Calculator;
