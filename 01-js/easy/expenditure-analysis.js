@@ -9,7 +9,19 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let ans = []
+  transactions.forEach(element => {
+    let filter = 
+     ans.find((e) => {
+      if(e[element.category]) {
+        return e;        
+      } 
+    });
+    if(filter) filter[element.category] += element.price;  
+    else ans.push({[element.category] : element.price});       
+  });  
+  return ans;
+
 }
 
 module.exports = calculateTotalSpentByCategory;
