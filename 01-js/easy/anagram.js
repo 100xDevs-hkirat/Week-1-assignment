@@ -8,7 +8,11 @@
 */
 
 function isAnagram(str1, str2) {
-
+  var s1 = str1.split("").sort().join("");
+  var s2 = str2.split("").sort().join("");
+  return s1 === s2 ? true : false;
 }
+ 
+console.log(isAnagram("abcd", "dcba"));
 
 module.exports = isAnagram;

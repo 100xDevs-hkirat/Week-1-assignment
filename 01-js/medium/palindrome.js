@@ -7,7 +7,13 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  var temp = str;
+  var str = str.split("");
+  var reversedString = str.reverse();
+  reversedString = reversedString.join("");
+  if (temp === reversedString) return true;
+  return false;
 }
+console.log(isPalindrome("mom"));
 
 module.exports = isPalindrome;
