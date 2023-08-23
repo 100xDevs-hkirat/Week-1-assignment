@@ -7,7 +7,23 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  store = str.toLowerCase().split("");
+  let reversed = [];
+  for (let j = store.length -1; j>=0 ; j--)
+  {
+      reversed.push(store[j]) ;
+  }
+  for(let i =0; i< store.length ; i++)
+  {
+      if (store[i] !== reversed[i])
+      {
+          return false;
+      }
+      else
+      {
+          return true;
+      }
+  }
+ 
 }
-
 module.exports = isPalindrome;
