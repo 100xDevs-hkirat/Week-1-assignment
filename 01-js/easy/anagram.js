@@ -8,7 +8,24 @@
 */
 
 function isAnagram(str1, str2) {
-
+  const word1 = str1.toLowerCase().trim().replace(" ", "");
+  const word2 = str2.toLowerCase().trim().replace(" ", "");
+  if (word1.length !== word2.length) {
+    return false;
+  }
+  let isWordsAnagram = true;
+  for (let i = 0; i < word1.trim().length; i++) {
+    const charInWord = word1[i];
+    const charCount1 = word1.split(charInWord).length - 1;
+    const CharCount2 = word2.split(charInWord).length - 1;
+    if (charCount1 !== CharCount2) {
+      isWordsAnagram = false;
+      return;
+    }
+  }
+  return isWordsAnagram;
 }
+
+console.log(isAnagram("debit card", "bad credit"));
 
 module.exports = isAnagram;

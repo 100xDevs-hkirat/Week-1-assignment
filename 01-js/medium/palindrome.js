@@ -7,7 +7,17 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const inputString = str.trim().toLowerCase().replace(" ", "");
+  for (i = 0; i < inputString.length; i++) {
+    const forwardChar = inputString[i];
+    const backwardChar = inputString[inputString.length - 1 - i];
+    if (forwardChar !== backwardChar) {
+      return false;
+    }
+    return true;
+  }
 }
+let isStringPalidrome = isPalindrome("Rotator");
+console.log(isStringPalidrome);
 
 module.exports = isPalindrome;
