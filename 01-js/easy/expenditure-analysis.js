@@ -15,7 +15,7 @@ function calculateTotalSpentByCategory(transactions) {
   }
   let result = [];
   for (i of Object.keys(temp)) {
-    result.push({[i] : temp[i]});
+    result.push({category : i, totalSpent: temp[i]});
   }
   return result;
 }

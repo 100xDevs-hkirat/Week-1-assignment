@@ -18,7 +18,7 @@
 */
 
 class Calculator {
-  Calculator() {
+  constructor() {    
     this.result = 0;
   }
   add(num) {
@@ -31,6 +31,7 @@ class Calculator {
     this.result *= num;
   }
   divide(num) {
+    if (num == 0) throw new Error();
     this.result /= num;
   }
   clear() {
@@ -39,9 +40,29 @@ class Calculator {
   getResult() {
     return this.result;
   }
-  calculate(str) {
-    
-  }
+  calculate(expression) {
+    // Remove continuous spaces and trim the expression
+    expression = expression.replace(/\s+/g, '').trim();
+  
+    // Check for invalid characters using regular expression
+    if (!/^\s*\d+(\s*[+\-*/]\s*\d+)*\s*$/.test(expression)) {
+      throw new Error('Invalid characters in the expression');
+    }
+  
+    try {
+      // Use the eval function to calculate the expression
+      const result = eval(expression);
+      
+      // Check if the result is a valid number
+      if (typeof result !== 'number' || isNaN(result)) {
+        throw new Error('Invalid expression');
+      }
+  
+      this.result = result;
+    } catch (error) {
+      throw new Error('Invalid expression');
+    }
+  }  
 }
 
 module.exports = Calculator;
