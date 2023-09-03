@@ -7,6 +7,16 @@
 */
 
 function isPalindrome(str) {
+  var s = str.toLowerCase();
+  var l = 0;
+  var r = str.length - 1;
+  while (l <= r) {
+    if (s[l] != s[r]) {
+      return false;
+    }
+    ++l;
+    --r;
+  }
   return true;
 }
 
