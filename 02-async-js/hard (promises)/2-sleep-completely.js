@@ -3,6 +3,11 @@
  * During this time the thread should not be able to do anything else.
  */
 
-function sleep (seconds) {
+function wait(seconds) {
+    return new Promise((resolve) => { setTimeout(resolve, 1000 * seconds) });
+}
 
+async function sleep (seconds) {
+    await wait(seconds);
+    console.log('HI');
 }
