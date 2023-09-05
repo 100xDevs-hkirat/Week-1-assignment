@@ -5,8 +5,26 @@ Try running it for
 2. Sum from 1-100000
 3. Sum from 1-1000000000
 Hint - use Date class exposed in JS
+
+0.06920000165700912
 */
 
+
 function calculateTime(n) {
-    return 0.01;
+    
+    const startTime = performance.now();
+
+    let sum =0;
+
+    for(let i=0;i<n;i++){
+        sum = sum + i;
+    }
+
+    const endTime = performance.now();
+
+    const time = endTime-startTime;
+
+    return time;
 }
+
+console.log(calculateTime(100000));
