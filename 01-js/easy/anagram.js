@@ -8,7 +8,17 @@
 */
 
 function isAnagram(str1, str2) {
+  str1 = str1.toLowerCase();
+  str2 = str2.toLowerCase();
 
+  if(str1.split('').sort().join('') == str2.split('').sort().join('')){
+    return true;
+  }
+
+  else{
+    return false;
+  }
 }
 
+//console.log(isAnagram('abc', 'cab'));
 module.exports = isAnagram;
