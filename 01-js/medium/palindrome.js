@@ -7,7 +7,12 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let strRev = str.split('').reverse().join('');
+
+  if(str == strRev) return true;
+
+  else return false;
 }
 
+//console.log(isPalindrome('aba'));
 module.exports = isPalindrome;
