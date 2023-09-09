@@ -7,7 +7,23 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let count =0;
+  let k = str.length-1;
+  for(let i=0;i<Math.floor(str.length/2);i++){
+    if(str.charAt(i)===str.charAt(k)){
+      count++;
+      k--;
+    }
+  }
+  if(count === Math.floor(str.length/2)){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
+
+
+console.log(isPalindrome('hannah'));
 
 module.exports = isPalindrome;
