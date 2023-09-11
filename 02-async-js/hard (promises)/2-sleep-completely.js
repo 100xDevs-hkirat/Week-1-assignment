@@ -4,5 +4,7 @@
  */
 
 function sleep (seconds) {
-
+    setTimeout(()=>{
+        console.log(`waited for ${seconds} seconds`)
+    }, seconds * 1000)
 }

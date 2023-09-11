@@ -8,7 +8,23 @@
 */
 
 function isAnagram(str1, str2) {
-
+    const string1 = {};
+    const string2 = {};
+    if (str1.length !== str2.length) {
+        return false
+    }
+    for (let char1 of str1){
+        string1[char1] = string1[char1] !== undefined ? string1[char1] + 1 : 1
+    }
+    for (let char2 of str2){
+        string2[char2] = string2[char2] !== undefined ? string2[char2] + 1 : 1
+    }
+    for (let char in string1) {
+        if (string1[char] !== string2[char]){
+            return false;
+        }
+    }
+    return true
 }
 
 module.exports = isAnagram;

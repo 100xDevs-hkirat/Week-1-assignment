@@ -17,6 +17,54 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+    constructor(result) {
+        this.result = result;
+    }
+
+    add(a) {
+        this.result += a;
+    }
+
+    subtract(a) {
+        this.result -= a;
+    }
+
+    multiply(a) {
+        this.result *= a;
+    }
+
+    divide(a) {
+        this.result /= a;
+    }
+
+    clear() {
+        this.result = 0;
+    }
+
+    getResult() {
+        return this.result;
+    }
+
+    calculate(str) {
+        const regex = /[a-zA-Z]/;
+
+        if (regex.test(str)) {
+            return 'Error, alphabets in expression.'
+        }
+
+        try {
+            const result = eval(str);
+
+            if (typeof result === 'number' && isFinite(result)) {
+                return result;
+            } else {
+                throw new Error('Invalid expression or result');
+            }
+        } catch (error) {
+            return 'Error: ' + error.message;
+        }
+    }
+}
 
 module.exports = Calculator;
