@@ -7,7 +7,24 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const letters = str
+    .toLowerCase()
+    .replace(/[\W_ ]/g, "")
+    .split("");
+  const reversedLetters = letters.slice().reverse();
+  let isPalindrome = true;
+
+  for (let i = 0; i < letters.length; i++) {
+    console.log(letters[i], reversedLetters[i]);
+    if (letters[i] !== reversedLetters[i]) {
+      isPalindrome = false;
+      break;
+    }
+  }
+
+  return isPalindrome;
 }
 
 module.exports = isPalindrome;
+
+console.log(isPalindrome("Able, was I ere I saw Elba!"));
