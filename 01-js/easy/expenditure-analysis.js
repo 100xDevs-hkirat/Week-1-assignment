@@ -9,7 +9,28 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  if (transactions.length === 0) return [];
+
+  const totalPriceByCategory = {};
+
+  for (const transaction of transactions) {
+    const { category, price } = transaction;
+
+    if (!category || !price)
+      throw new Error("category or price must be defined");
+
+    if (!totalPriceByCategory[category]) {
+      totalPriceByCategory[category] = 0;
+    }
+
+    totalPriceByCategory[category] += price;
+  }
+
+  const categoriesWithTotalSpent = Object.entries(totalPriceByCategory).map(
+    ([key, value]) => ({ [key]: value })
+  );
+
+  return categoriesWithTotalSpent;
 }
 
 module.exports = calculateTotalSpentByCategory;

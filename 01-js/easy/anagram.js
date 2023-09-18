@@ -8,7 +8,15 @@
 */
 
 function isAnagram(str1, str2) {
+  let status = true;
 
+  for (const char of str1) {
+    if (!str2.includes(char)) {
+      status = false;
+      break;
+    }
+  }
+  return status;
 }
 
 module.exports = isAnagram;

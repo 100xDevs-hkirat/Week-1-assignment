@@ -8,5 +8,15 @@ Hint - use Date class exposed in JS
 */
 
 function calculateTime(n) {
-    return 0.01;
+  if (!Number.isInteger(n)) throw new Error("Argument should be an integer");
+  let sum = 0;
+
+  const startTime = Date.now();
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  const endTime = Date.now();
+  const elapsedTime = (endTime - startTime) / 1000;
+
+  return elapsedTime;
 }
