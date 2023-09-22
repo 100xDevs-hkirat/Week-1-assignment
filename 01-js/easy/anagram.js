@@ -8,7 +8,7 @@
 */
 
 function isAnagram(str1, str2) {
-
+dfsf
 }
 
 module.exports = isAnagram;
