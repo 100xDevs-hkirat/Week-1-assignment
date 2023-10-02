@@ -6,8 +6,16 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
-  return true;
-}
 
-module.exports = isPalindrome;
+function isPalindrome(str) {
+  
+  let str1 = str.toLowerCase();
+  str1 = str1.split('').reverse().join('');
+  
+  str = str.toLowerCase();
+  
+  return str === str1;
+}
+console.log(isPalindrome("hipoh"));
+
+//module.exports = isPalindrome;
