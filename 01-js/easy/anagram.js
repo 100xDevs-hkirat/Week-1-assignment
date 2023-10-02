@@ -8,7 +8,22 @@
 */
 
 function isAnagram(str1, str2) {
+  str1.sort();
+  str2.sort
 
 }
 
-module.exports = isAnagram;
+module.exports = isAnagram;function isAnagram(str1, str2) {
+ const a= str1.split('').sort().join('');
+ const b =  str2.split('').sort().join('');
+  
+  if(a === b){
+    console.log("true");
+  }else{
+    console.log("false");
+  }
+  
+
+}
+isAnagram("hell0","ellh");
+// module.exports = isAnagram;
