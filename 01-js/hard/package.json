@@ -1,0 +1,10 @@
+{
+    "name": "test-package-hard",
+    "version": "1.0.0",
+    "description": "test package hard",
+    "scripts": {
+      "test-calculator": "node test-calculator.js",
+      "test-todo-list": "node test-todo-list.js"
+    },
+    "author": "jayanth patki"
+  }

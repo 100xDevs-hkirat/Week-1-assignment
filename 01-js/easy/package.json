@@ -1,0 +1,12 @@
+{
+    "name": "test-package-easy",
+    "version": "1.0.0",
+    "description": "test package easy" ,
+    "scripts": {
+      "test-anagram": "node test-anagram.js",
+      "test-expenditure-analysis": "node test-expenditure-analysis.js",
+      "test-palindrome": "node test-palindrome.js"
+  
+    },
+    "author": "jayanth patki"
+  }

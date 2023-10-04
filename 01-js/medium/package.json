@@ -1,0 +1,11 @@
+{
+    "name": "test-package-med",
+    "version": "1.0.0",
+    "description": "test package medium",
+    "scripts": {
+      "test-palindrome": "node test-palindrome.js",
+      "test-times": "node test-times.js"
+    },
+    "author": "jayanth patki"
+  }
+  
