@@ -7,16 +7,72 @@
 
 function waitOneSecond() {
 
-}
+    return new Promise((resolve) => {
 
-function waitTwoSecond() {
+      setTimeout(() => {
 
-}
+        console.log('Resolved after 1 second');
 
-function waitThreeSecond() {
+        resolve();
 
-}
+      }, 1000);
 
-function calculateTime() {
+    });
 
-}
+  }
+
+ 
+
+  function waitTwoSecond() {
+
+    return new Promise((resolve) => {
+
+      setTimeout(() => {
+
+        console.log('Resolved after 2 seconds');
+
+        resolve();
+
+      }, 2000);
+
+    });
+
+  }
+
+ 
+
+  function waitThreeSecond() {
+
+    return new Promise((resolve) => {
+
+      setTimeout(() => {
+
+        console.log('Resolved after 3 seconds');
+
+        resolve();
+
+      }, 3000);
+
+    });
+
+  }
+
+ 
+
+  async function calculateTime() {
+
+    console.time("Sequential Delay");
+
+    await waitOneSecond();
+
+    await waitTwoSecond();
+
+    await waitThreeSecond();
+
+    console.timeEnd("Sequential Delay");
+
+  }
+
+ 
+
+  calculateTime();
