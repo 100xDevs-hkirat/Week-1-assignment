@@ -7,8 +7,27 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
 
+function sort(str){
+  var arraySorted = str.split("") //used to convert the string to array
+
+  arraySorted = arraySorted.sort();
+  var stringArray= arraySorted.join(" ") // used to convert array to string
+  return stringArray;
 }
+
+function isAnagram(str1,str2){
+if(sort(str1)==sort(str2))
+{
+  return true;
+}
+else{
+  return false
+}
+}
+
+var ans=isAnagram("iihi","iiih")
+
+console.log(ans)
 
 module.exports = isAnagram;
