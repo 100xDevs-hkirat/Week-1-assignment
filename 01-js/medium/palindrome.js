@@ -7,7 +7,19 @@
 */
 
 function isPalindrome(str) {
+  // the regex is for removing the special characters and space anywhere
+  const modifieldStr= str.replace(/[\W_]+/g,'').toLowerCase();
+  const stringLength= modifieldStr.length;
+  for(var i=0;i<=(stringLength/2)-1;i++)
+  {
+    if(modifieldStr.charAt(i)!== modifieldStr.charAt(stringLength-i-1))
+    {
+      return false
+    }
+  }
   return true;
 }
+
+
 
 module.exports = isPalindrome;
