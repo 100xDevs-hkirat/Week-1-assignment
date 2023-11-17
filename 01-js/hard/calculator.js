@@ -17,6 +17,52 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
 
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (num === 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    this.result /= num;
+  }
+
+  logResult() {
+    console.log("Result:" + this.result);
+  }
+  calculate(expression) {
+    const exp = expression.replaceAll(/\s/g, "");
+
+    try {
+      const evaluatedResult = Function(`"use strict"; return (${exp})`)();
+
+      if (!isNaN(evaluatedResult) || !isFinite(evaluatedResult)) {
+        throw new Error(" Invalid Expression:");
+      }
+      this.result = evaluatedResult;
+      logResult()
+    } catch (err) {
+      console.log('inside catch statement')
+      throw new Error(err);
+    }
+  }
+}
+
+const calci = new Calculator();
+calci.add(5);
+calci.add(9);
+calci.calculate("55*2");
+calci.logResult();
 module.exports = Calculator;
