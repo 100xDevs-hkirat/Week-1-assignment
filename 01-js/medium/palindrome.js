@@ -1,13 +1,26 @@
-/*
-  Implement a function `isPalindrome` which takes a string as argument and returns true/false as its result.
-  Note: the input string is case-insensitive which means 'Nan' is a palindrom as 'N' and 'n' are considered case-insensitive.
-
-  Once you've implemented the logic, test your code by running
-  - `npm run test-palindrome`
-*/
-
 function isPalindrome(str) {
-  return true;
-}
+    let str1=str.toLowerCase();
+    let str2="";
+    for(i=str1.length-1; i>=0; i--)
+    {
+        str2= str2+ str1[i];
+    }
 
-module.exports = isPalindrome;
+    if(str2==str1){
+        
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+  }
+  
+  /*if(isPalindrome("Pop")){
+    console.log("yes");
+  }
+  else{
+    console.log("No")
+  }*/
+  module.exports = isPalindrome;
+
