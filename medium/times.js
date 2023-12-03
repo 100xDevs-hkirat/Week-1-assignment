@@ -19,7 +19,7 @@ function calculateSumTime(n) {
     // Record the end time
     const endTime = new Date().getTime();
   
-    // Calculate the time difference in seconds
+    // Calculate the  time difference in seconds
     const timeInSeconds = (endTime - startTime) / 1000; 
   
     // Log the result

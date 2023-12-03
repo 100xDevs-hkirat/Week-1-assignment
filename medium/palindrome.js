@@ -12,7 +12,7 @@ function isPalindrome(str) {
 
   // Reverse the cleaned string
   let reverseString = cleanedString.split("").reverse().join("");
-
+ 
   // Check if the cleaned string is equal to its reverse
   return cleanedString === reverseString;
 }
