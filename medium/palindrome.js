@@ -7,13 +7,9 @@
 */
 
 function isPalindrome(str) {
-  // Remove spaces and convert to lowercase
   let cleanedString = str.toLowerCase().replace(/[\s.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
-
-  // Reverse the cleaned string
   let reverseString = cleanedString.split("").reverse().join("");
  
-  // Check if the cleaned string is equal to its reverse
   return cleanedString === reverseString;
 }
 

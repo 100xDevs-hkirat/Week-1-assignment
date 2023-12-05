@@ -7,10 +7,8 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 function calculateSumTime(n) {
-    // Record the start time
     const startTime = new Date().getTime();
-  
-    // Your code to calculate the sum from 1 to n goes here
+
     let sum = 0;
     for (let i = 1; i <= n; i++) {
       sum += i;
@@ -19,15 +17,12 @@ function calculateSumTime(n) {
     // Record the end time
     const endTime = new Date().getTime();
   
-    // Calculate the  time difference in seconds
     const timeInSeconds = (endTime - startTime) / 1000; 
-  
-    // Log the result
+
     console.log(`Sum from 1 to ${n}: ${sum}`);
     console.log(`Time taken: ${timeInSeconds} seconds`);
   }
-  
-  // Test cases
+
   calculateSumTime(100);
   calculateSumTime(100000);
   calculateSumTime(1000000000);
