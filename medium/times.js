@@ -16,7 +16,7 @@ function calculateSumTime(n) {
   
     // Record the end time
     const endTime = new Date().getTime();
-  
+   
     const timeInSeconds = (endTime - startTime) / 1000; 
 
     console.log(`Sum from 1 to ${n}: ${sum}`);

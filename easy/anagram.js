@@ -13,7 +13,7 @@ function isAnagram(str1, str2) {
     const cleanedStr1 = str1.replace(/\s/g, '').toLowerCase();
     const cleanedStr2 = str2.replace(/\s/g, '').toLowerCase();
   
-  
+   
     if (cleanedStr1.length !== cleanedStr2.length) {
       return false;
     }

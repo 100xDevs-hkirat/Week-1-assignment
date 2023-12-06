@@ -9,7 +9,7 @@
 function isPalindrome(str) {
   let cleanedString = str.toLowerCase().replace(/[\s.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
   let reverseString = cleanedString.split("").reverse().join("");
- 
+  
   return cleanedString === reverseString;
 }
 

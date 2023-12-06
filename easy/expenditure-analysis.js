@@ -20,8 +20,8 @@ function calculateTotalSpentByCategory (transactions){
   var keys = Object.keys(spendestimate);
   console.log(spendestimate);
   console.log(keys);
-
-  let answer=[];
+  
+  let answer=[]; 
   for (var i=0;i<keys.length;i++){
     var category =keys[i];
     var obj = {
