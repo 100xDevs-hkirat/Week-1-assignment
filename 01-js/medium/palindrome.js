@@ -1,13 +1,53 @@
+// How to you check if a given string is Palidrome 
+
+
+// dad -> dad -> true
+// level -> level -> true
+// ajay -> yaja -> false
+
+
+
+//appraoch 1: solving this by predefined functions
 /*
-  Implement a function `isPalindrome` which takes a string as argument and returns true/false as its result.
-  Note: the input string is case-insensitive which means 'Nan' is a palindrom as 'N' and 'n' are considered case-insensitive.
+function isPal(str){
+  let reverse = str.split("").reverse().join("");
+  // console.log(reverse); //string is reversed. 
 
-  Once you've implemented the logic, test your code by running
-  - `npm run test-palindrome`
-*/
-
-function isPalindrome(str) {
-  return true;
+  return str.toLowerCase() === reverse.toLowerCase();
+  
 }
 
-module.exports = isPalindrome;
+
+console.log(isPal("level"));
+
+*/
+
+
+//Approach 2: Without any inbuilt functions
+// We can use two pointers for this approach
+
+function isPal2(str){
+
+  let newStr = str.toLowerCase();
+
+  let left=0;
+  let right=newStr.length - 1;
+
+
+  while(left<right){
+
+    if(newStr[left] !== newStr[right])
+      return false;
+
+    left++;
+    right--;
+  
+  }
+  return true;
+
+
+
+}
+
+console.log(isPal2("strrts"));
+
