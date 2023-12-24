@@ -8,6 +8,17 @@
 */
 
 function isAnagram(str1, str2) {
+ 
+    var aaa=str1.split('').sort().join('')
+    var bbb=str2.split('').sort().join('')
+
+    if(aaa==bbb){
+        return 0
+    }
+    else{
+        return 1
+    }
+
 
 }
 
