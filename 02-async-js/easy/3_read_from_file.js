@@ -19,3 +19,8 @@ fs.readFile(filePath, 'utf8', (err, data) => {
   // The content of the file is in the 'data' variable
   console.log('File Content:', data);
 });
+
+count=0;
+for(let i=0;i<10000000000;i++){
+  count++;
+}
