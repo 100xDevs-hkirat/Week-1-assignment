@@ -6,8 +6,31 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
-  return true;
+function removePunctuationAndSpaces(inputString) {
+  // Use a regular expression to match punctuation and spaces /g is for global and \s is space
+  const regex = /[.?,\/#!$%\^&\*;:{}=\-_`~()\s]/g;
+
+  // Replace the matched characters with an empty string
+  const resultString = inputString.replace(regex, '');
+
+  return resultString;
 }
 
+function isPalindrome(str) {
+  const str1 = removePunctuationAndSpaces(str);
+  const lowerStr = str1.toLowerCase();
+  const strArray = lowerStr.split('');
+
+  let revArray = [];
+  for(let i=0; i<strArray.length; i++){ 
+    revArray[i] = strArray[strArray.length-i-1];
+  }
+  const str2 = revArray.join('');
+  console.log(str2);
+
+  if(lowerStr == str2){
+    return true;
+  }
+  return false;
+}
 module.exports = isPalindrome;
