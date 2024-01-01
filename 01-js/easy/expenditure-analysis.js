@@ -9,7 +9,52 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let listOfcategory = [];
+  let listOfPrices = [];
+  for(let i=0; i<transactions.length; i++){
+    listOfcategory[i] = transactions[i]["category"];
+    listOfPrices[i] = transactions[i]["price"];
+  }
+  const resultList = [];
+  for(let i=0; i<listOfPrices.length; i++){
+    const obj = {
+      category: listOfcategory[i],
+      totalSpent: listOfPrices[i]
+    };
+    resultList.push(obj);
+  }
+
+  function combineObjectsWithSameKey(objects, commonKey, sumKey) {
+    const resultMap = {};
+  
+    objects.forEach(obj => {
+      const keyValue = obj[commonKey];
+  
+      if (resultMap.hasOwnProperty(keyValue)) {
+        // If the key already exists, add the value of the sumKey
+        resultMap[keyValue][sumKey] += obj[sumKey];
+      } else {
+        // If the key doesn't exist, create a new entry in the resultMap
+        resultMap[keyValue] = { [commonKey]: keyValue, [sumKey]: obj[sumKey] };
+      }
+    });
+  
+    // Convert the resultMap object to an array of values
+    const resultArray = Object.values(resultMap);
+  
+    return resultArray;
+  }
+  
+  const combinedList = combineObjectsWithSameKey(resultList, "category", "totalSpent");
+  
+  return combinedList;
 }
 
 module.exports = calculateTotalSpentByCategory;
+
+
+//  MY SOLUTION 
+// 1. syntax of list & objects
+// 2. To make 2 list of categories & prices
+// 3. to convert the two lists to one list of object
+// 4. Map function from chat gpt to combine the objects to unique one and add sum
