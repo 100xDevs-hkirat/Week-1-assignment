@@ -7,7 +7,18 @@
 */
 
 function isPalindrome(str) {
+  var l =0;
+  var r = str.length -1;
+  while(l<r){
+    if(str[l].toLowerCase() != str[r].toLowerCase()){
+      return false;
+    }
+    l++;
+    r--;
+  }
+
   return true;
 }
-
+// console.log(isPalindrome("NamAn"));
+// console.log(isPalindrome("gaioegjhie"));
 module.exports = isPalindrome;
