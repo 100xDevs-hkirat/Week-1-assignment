@@ -8,7 +8,20 @@
 */
 
 function isAnagram(str1, str2) {
-
+    var charCount = new Map();
+    for(const char of str1){
+        char = char.toLowerCase();
+        charCount.set(char, (charCount.get(char) || 0) + 1);
+    }
+    for(const char of str2){
+      char = char.toLowerCase();
+      charCount.set(char, (charCount.get(char) || 0) - 1);
+    }
+    for(const [key,value] of charCount ){
+      if(value!=0)
+        return false;
+    }
+    return true;
 }
 
 module.exports = isAnagram;
