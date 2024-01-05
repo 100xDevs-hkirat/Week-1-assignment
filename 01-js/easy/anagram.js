@@ -8,7 +8,18 @@
 */
 
 function isAnagram(str1, str2) {
+str1= str1.replace('/\s/g',"").toLowerCase();
+str2= str2.replace('/\s/g',"").toLowerCase();
+ return str1.split('').sort().join('')===str2.split('').sort().join('');
+   
+}
+var word1 = "listen";
+var word2 = "silent";
 
+if (isAnagrams(word1, word2)) {
+    console.log(`${word1} and ${word2} are anagrams.`);
+} else {
+    console.log(`${word1} and ${word2} are not anagrams.`);
 }
 
 module.exports = isAnagram;
