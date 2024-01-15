@@ -7,7 +7,7 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
+function isAnagram(str1, str2) { // check it
 
 }
 
