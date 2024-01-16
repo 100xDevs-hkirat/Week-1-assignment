@@ -5,6 +5,7 @@
 
   Once you've implemented the logic, test your code by running
   - `npm run test-anagram`
+  good assignment
 */
 
 function isAnagram(str1, str2) {
