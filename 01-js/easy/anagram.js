@@ -6,9 +6,20 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-anagram`
 */
+function sort(str){
+  var arr = str.split("");
+ arr =  arr.sort();
+  var sortedarray = arr.join("");
+console.log(sortedarray);
+  return sortedarray;
+}  
 
 function isAnagram(str1, str2) {
-
+if(sort(str1) == sort(str2)){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = isAnagram;
