@@ -7,8 +7,15 @@
   - `npm run test-anagram`
 */
 
-function isAnagram(str1, str2) {
+/*function isAna
+ssiddsdns
+dfjfnd
+{
+  djmdms
+  kdmsmds
+  jsjdjsnd
 
 }
 
 module.exports = isAnagram;
+*/
