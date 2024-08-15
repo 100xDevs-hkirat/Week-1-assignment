@@ -8,7 +8,19 @@
 */
 
 function isAnagram(str1, str2) {
+  var sortedStr1 = str1.split("").sort().join("");
+  var sortedStr2 = str2.split("").sort().join("");
 
+  console.log(sortedStr1);
+  console.log(sortedStr2);
+
+  if (sortedStr1 == sortedStr2){
+    return true;
+  } else {
+    return false;
+  }
 }
 
-module.exports = isAnagram;
+var ans = isAnagram("iceman", "cinema");
+console.log(ans);
+
