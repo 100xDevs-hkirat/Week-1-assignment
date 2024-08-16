@@ -9,7 +9,28 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+var totalSpent = {};
+for (var i=0; i<transactions.length; i++){
+  var t = transactions[i];
+
+  if (totalSpent[t.category]){
+    totalSpent[t.category] += t.price;
+  } else {
+    totalSpent[t.category] = t.price;
+  }
 }
 
+  return totalSpent;
+  
+}
+
+transactions = [
+  {itemName: "burger", category: "Food", price: 30, timestamp: "6-jan",
+   itemName: "shawarma", category: "Food", price: 20, timestamp: "8-jan",
+   itemName: "water", category: "Drink", price: 5, timestamp: "8-jan" 
+   }
+]
+
+var ans = calculateTotalSpentByCategory(transactions);
+console.log(ans)
 module.exports = calculateTotalSpentByCategory;
