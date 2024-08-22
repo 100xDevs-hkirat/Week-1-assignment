@@ -7,7 +7,12 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const lowerStr = str.toLowerCase().replace(/[^\w]/g, "");
+  const reversedStr = lowerStr.split("").reverse().join("");
+  return lowerStr === reversedStr;
 }
-
+console.log(isPalindrome("Nan")); // Expected output: true
+console.log(isPalindrome("racecar")); // Expected output: true
+console.log(isPalindrome("hello")); // Expected output: false
+console.log(isPalindrome("A man, a plan, a canal, Panama")); // Expected output: true
 module.exports = isPalindrome;
