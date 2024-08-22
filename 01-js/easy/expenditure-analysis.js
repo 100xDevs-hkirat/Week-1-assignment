@@ -1,15 +1,44 @@
-/*
-  Implement a function `calculateTotalSpentByCategory` which takes a list of transactions as parameter
-  and return a list of objects where each object is unique category-wise and has total price spent as its value.
-  Transaction - an object like { itemName, category, price, timestamp }.
-  Output - [{ category1 - total_amount_spent_on_category1 }, { category2 - total_amount_spent_on_category2 }]
-
-  Once you've implemented the logic, test your code by running
-  - `npm run test-expenditure-analysis`
-*/
-
 function calculateTotalSpentByCategory(transactions) {
-  return [];
-}
+ 
+  const categoryTotals = {};
 
+  
+  transactions.forEach((transaction) => {
+    const { category, price } = transaction;
+
+  
+    if (categoryTotals[category]) {
+      categoryTotals[category] += price;
+    } else {
+      categoryTotals[category] = price;
+    }
+  });
+
+  return Object.keys(categoryTotals).map((category) => {
+    return { category, totalSpent: categoryTotals[category] };
+  });
+}
+const transactions = [
+  {
+    itemName: "Laptop",
+    category: "Electronics",
+    price: 1000,
+    timestamp: 1623495600000,
+  },
+  {
+    itemName: "Headphones",
+    category: "Electronics",
+    price: 200,
+    timestamp: 1623499200000,
+  },
+  { itemName: "Coffee", category: "Electronics", price: 150005, timestamp: 1623502800000 },
+  { itemName: "Book", category: "Books", price: 15, timestamp: 1623506400000 },
+  {
+    itemName: "Sandwich",
+    category: "Food",
+    price: 10,
+    timestamp: 1623510000000,
+  },
+];
+console.log(calculateTotalSpentByCategory(transactions));
 module.exports = calculateTotalSpentByCategory;
