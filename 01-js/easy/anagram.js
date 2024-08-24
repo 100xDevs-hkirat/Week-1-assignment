@@ -8,7 +8,12 @@
 */
 
 function isAnagram(str1, str2) {
-
+  console.log(
+    str1.split("").sort().join("") === str2.split("").sort().join("")
+      ? true
+      : false
+  );
 }
 
+isAnagram("bat", "tb");
 module.exports = isAnagram;
