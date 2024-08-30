@@ -7,7 +7,12 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const reverseStr = str.toLowerCase().split('').reverse().join('');
+  if (str.toLowerCase() === reverseStr) {
+    return true;
+  }
 }
+
+console.log(isPalindrome("Nayan"))
 
 module.exports = isPalindrome;

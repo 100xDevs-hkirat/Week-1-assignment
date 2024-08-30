@@ -8,8 +8,59 @@
   - `npm run test-expenditure-analysis`
 */
 
+const currentDate = new Date()
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const categoryItems = {}
+  transactions.forEach((transaction)=>{
+    const category = transaction.category
+    if(!categoryItems[category]){
+      categoryItems[category] = 0
+    }
+    categoryItems[category] += transaction.price
+  })
+  return [categoryItems];
 }
 
-module.exports = calculateTotalSpentByCategory;
+var transactions = [
+  {
+    itemName:'T-shirt',
+    category:'Fashion',
+    price:300,
+    timestamp:currentDate.getTime()
+  },
+  {
+    itemName:'Jeans',
+    category:'Fashion',
+    price:700,
+    timestamp:currentDate.getTime()
+  },
+  {
+    itemName:'Mobile',
+    category:'Gadgets',
+    price:10000,
+    timestamp:currentDate.getTime()
+  },
+  {
+    itemName:'Laptop',
+    category:'Gadgets',
+    price:50000,
+    timestamp:currentDate.getTime()
+  },
+  {
+    itemName:'Biriyani',
+    category:'Food',
+    price:200,
+    timestamp:currentDate.getTime()
+  },
+  {
+    itemName:'Chiken',
+    category:'Food',
+    price:150,
+    timestamp:currentDate.getTime()
+  },
+
+]
+
+console.log(calculateTotalSpentByCategory(transactions))
+
+// module.exports = calculateTotalSpentByCategory;

@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+  "test-anagram": "jest test-anagram.test.js"
+}
+}
+
