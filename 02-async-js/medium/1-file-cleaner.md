@@ -11,3 +11,6 @@ After the program runs, the output should be
 ```
 hello world my name is raman
 ```
+const input="hello     world    my    name   is       raman";
+const change= input.replace(/\s+/g," ").trim();
+console.log(change);
