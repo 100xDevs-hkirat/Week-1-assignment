@@ -6,8 +6,15 @@
   - `npm run test-palindrome`
 */
 
-function isPalindrome(str) {
-  return true;
-}
+exports.isPalindrome = (str) => {
+  let reverse = str.slice(0);
+  let reverseArr = reverse.split("");
 
-module.exports = isPalindrome;
+  let arr = [];
+  for (let i = str.length - 1, j = 0; i >= 0; i--, j++) {
+    arr[j] = reverseArr[i];
+  }
+
+  const reversedStr = arr.join("");
+  return str === reversedStr;
+};

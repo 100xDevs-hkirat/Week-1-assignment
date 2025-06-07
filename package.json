@@ -1,0 +1,25 @@
+{
+  "name": "100xdevs-week-1-assignment",
+  "version": "1.0.0",
+  "description": "Node.js http server for Week-1 assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snehansh/100xdevs-Week-1-assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snehansh/100xdevs-Week-1-assignment/issues"
+  },
+  "homepage": "https://github.com/snehansh/100xdevs-Week-1-assignment#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

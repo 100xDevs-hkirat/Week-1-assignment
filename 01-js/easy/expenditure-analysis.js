@@ -8,8 +8,49 @@
   - `npm run test-expenditure-analysis`
 */
 
-function calculateTotalSpentByCategory(transactions) {
-  return [];
-}
+/*  transactions: [
+      { 
+        itemName: 'Milk', 
+        category: 'Grocery',
+        price: '100', 
+        timestamp: '2025-05-27 08:30:00' 
+      },
+      { 
+        itemName: 'Butter', 
+        category: 'Grocery',
+        price: '150', 
+        timestamp: '2025-05-27 09:00:00' 
+      },
+      { 
+        itemName: 'Ticket DEL-BOM', 
+        category: 'Travel',
+        price: '5000', 
+        timestamp: '2025-05-27 09:00:00' 
+      },
+      { 
+        itemName: 'Ticket BOM-Nashik', 
+        category: 'Travel',
+        price: '1000', 
+        timestamp: '2025-05-27 09:00:00' 
+      },
+      { 
+        itemName: 'Dinner Veg Meal', 
+        category: 'Food',
+        price: '250', 
+        timestamp: '2025-05-27 09:00:00' 
+      },
+    ]
+*/
 
-module.exports = calculateTotalSpentByCategory;
+exports.calculateTotalSpentByCategory = (transactions) => {
+  const groupedByCategory = Object.groupBy(
+    transactions,
+    (item) => item.category
+  );
+
+  const result = Object.entries(groupedByCategory).map(([category, items]) => ({
+    [category]: items.reduce((total, item) => total + Number(item.price), 0),
+  }));
+
+  return result;
+};

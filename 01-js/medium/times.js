@@ -7,6 +7,20 @@ Try running it for
 Hint - use Date class exposed in JS
 */
 
-function calculateTime(n) {
-    return 0.01;
-}
+exports.calculateTime = (n) => {
+  const start = new Date();
+
+  let sum = 0;
+  for (let i = 0; i <= n; i++) {
+    sum += i;
+  }
+  console.log(`Sum of 1-${n} numbers is: ${sum}`);
+  const end = new Date();
+  console.log(
+    `Start time: ${start.getDate()} ${start.getHours()}:${start.getMinutes()}:${start.getSeconds()}.${start.getMilliseconds()}`
+  );
+  console.log(
+    `End time: ${end.getDate()} ${end.getHours()}:${end.getMinutes()}:${end.getSeconds()}.${end.getMilliseconds()}`
+  );
+  return end - start;
+};
